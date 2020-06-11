@@ -11,7 +11,7 @@
     <header>
         <?php
             include_once '../../Resources/Cabecalhos/menuAdm.func.php';
-            menu(0);
+            menu(0,"VANESSA");
         ?>
     </header>
     <div id="container">
@@ -28,10 +28,9 @@
                                 <option  value="2">SENAI</option>
                             </select>
                     </label>
-                    <label>
-                            Nome
+                    <label>Nome </label>
                             <input name="nomeAluno" id="input-text" type="text" value="" placeholder="Digite o Nome do Aluno"/>
-                    </label>
+                    
 					<label for="sobrenome">
 							Sobrenome
 							<input type="text" name="sobrenomeAluno" placeholder="Digite o sobrenome do  aluno"/>
@@ -57,8 +56,8 @@
 					$sobrenome = $_POST['sobrenomeAluno'];
 					$datanasc = $_POST['datanasc'];
 					$CPFalun = $_POST['cpf'];
-					$idresp = $_POST['respid'];
-                    
+					$idresp = (int) $_POST['respid'];
+                    var_dump($idresp);
                     include_once '../../../config.php';
                     include_once '../../../Model/SCHEMA.php';
                     include_once '../../../classes/class-debug.php';
