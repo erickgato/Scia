@@ -2,18 +2,18 @@
 <html>
 <head>
 	<title>SCIA - Login</title>
-	<link rel="stylesheet" type="text/css" href="<?php openPublic('Resources/css/estilos.css') ?>"/>
+	<link rel="stylesheet" type="text/css" href="Resources/css/estilos.css"/>
 	<link rel="shortcut icon" href="Images/icone.ico" />
 </head>
 <body class="corpo">
 	<header>
 		<?php
-			include_once openResource('/Cabecalhos/menuresponsavel.php');
+			include_once 'Resources/Cabecalhos/menuresponsavel.php';
 			menu(0)
 		?>
 	</header>
 	<div class="painel">
-		<form action="#" method="get">
+		<form action="login.php" method="post">
 			<label class="titulo">
 				Logar
 			</label>
@@ -44,11 +44,10 @@
 			<br/>
 			<input type="submit" value="Entrar" class="botao" name='btn_enviar'/>
 		</form>
-		<?php 
-			if(isset($_GET['btn_enviar'])){
-				$Usuario = array("CPF" => $_GET['usu_cpf'], "TYPE" => $_GET['Tp_User'],"PASS" => $_GET['usu_pass'] );
-				var_dump($Usuario);
-			}
+		<?php
+				if(isset($_GET['message'])){
+					echo "Usuario e / ou senha não existe";
+				}
 		?>
 	</div>
 </body>

@@ -390,7 +390,7 @@ DROP TABLE IF EXISTS `sc_usuario`;
 CREATE TABLE IF NOT EXISTS `sc_usuario` (
   `Us_cod` int(11) NOT NULL AUTO_INCREMENT,
   `Us_login` char(14) COLLATE utf8_bin NOT NULL,
-  `Us_senha` varchar(100) COLLATE utf8_bin GENERATED ALWAYS AS ('FiepCorp123456') VIRTUAL,
+  `Us_senha` varchar(100) COLLATE utf8_bin,
   `Us_codtpUsuario` int(11) NOT NULL,
   `Us_modifiedat` date DEFAULT NULL,
   PRIMARY KEY (`Us_cod`),

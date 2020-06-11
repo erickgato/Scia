@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="../../css/estilos.css"/> 
+    <link rel="stylesheet" type="text/css" href="../../Resources/css/estilos.css"/> 
     <title>Cadastrar Aluno</title>
-    <script language="JavaScript" src="../../JS/estilos.js"></script>
 </head>
 <body class="corpo">
     <header>
         <?php
-            include_once 'menuAdm.func.php';
+            include_once '../../Resources/Cabecalhos/menuAdm.func.php';
             menu(0);
         ?>
     </header>
@@ -59,11 +58,11 @@
 					$datanasc = $_POST['datanasc'];
 					$CPFalun = $_POST['cpf'];
 					$idresp = $_POST['respid'];
-					
-					include_once '../../classes/CadastroAluno.php';
-					$aluno = new Aluno($nome,$sobrenome,$datanasc,$CPFalun,$idresp,$UnidadeAluno);
-					
-					$aluno->cadastrar();
+                    
+                    include_once '../../../config.php';
+                    include_once '../../../Model/SCHEMA.php';
+                    include_once '../../../classes/class-debug.php';
+                    DATABASE::INSERT('sc_aluno',['',$nome,$sobrenome,$datanasc,$CPFalun,$idresp,$UnidadeAluno]);
 				}
 					
 		

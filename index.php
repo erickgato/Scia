@@ -1,3 +1,2 @@
 <?php 
-
-require_once "App/config.php";
+    header("Location:App/");
