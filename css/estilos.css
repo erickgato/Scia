@@ -1,0 +1,146 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Candara;
+    
+}
+
+.corpo{
+    background-color: #FFF;
+}
+
+.titulo{
+    font-size: 5vh;
+    color: #FFF;
+    margin-left: 2%;
+}
+
+.painel{
+    margin-left: 40%;
+    margin-top: 0;
+    width: 25%;
+    height: 75vh;
+    background-image: linear-gradient(to top, #005CAA, #0A3BC2);
+    border-radius: 2%;
+}
+
+.fixado{
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.subtitulo{
+    font-size: 3vh;
+    color: #FFF;
+    margin-left: 2%;
+    margin-top: 4%;
+    margin-bottom: 2%;
+}
+
+label[for=titulo]{
+    font-size: 5vh;
+    color: #FFF;
+    margin-left: 2%;
+}
+
+label[for=subtitulo]{
+    font-size: 3vh;
+    color: #FFF;
+    margin-left: 2%;
+    margin-top: 4%;
+    margin-bottom: 2%;
+}
+
+.caixa{
+    width: 95%;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: 4%;
+    background: transparent;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #FFF;
+    border-bottom-width: 0.15vh;
+    color: #FFF;
+    font-family: Candara;
+    font-size: 3vh;
+}
+
+.caixa::placeholder{
+    color: #FFF;
+}
+
+.opcsele{
+    color: #000;
+}
+
+.botao{
+    margin-top: 7%;
+    margin-left: 15%;
+    background-color: #0060EA;
+    opacity: 0.8;
+    border-color: transparent;
+    border-width: 0.25vh;
+    height: 8vh;
+    width: 70%;
+    font-size: 3vh;
+    border-radius: 10vh;
+    color: #FFF;
+}
+
+.botao:hover{
+    background-color: #0030EA;
+}
+
+/*INICIO DO MENU*/
+
+.selecionado{
+    float: right;
+    padding: 13px;
+    margin-top: 18px;
+    margin-right: 26px;
+    color: #000;
+    border-radius: 7px;
+}
+
+.menu ul{
+    padding:0px;
+    margin:0px;
+    list-style:none;
+    width: 100%;
+    height: 15vh;
+    background-image: linear-gradient(to top, #005CAA, #0A3BC2);
+    font-size: 4vh;
+    box-shadow: 0.1rem 0.1rem rgb(27, 18, 18);
+}
+
+.opcoes a:not(.selecionado) {
+    float: right;
+    padding: 13px;
+    color: #E1E1E1;
+    margin-top: 18px;
+    margin-right: 26px;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+.opcoes a:hover {
+    color : #FFF;
+    border-radius: 0%;
+    height: 100%;
+}
+
+.logo a{
+    margin-top: 1%;
+    margin-left: 4%;
+    float: left;
+    font-size: 9vh;
+    padding: 0;
+    color: #FFF;
+}
+
+/*FIM DO MENU*/
