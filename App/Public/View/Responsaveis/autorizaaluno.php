@@ -10,36 +10,53 @@
 <body class="corpo">
     <header id="header">
         <?php
-            include_once '../Cabecalhos/menuresponsavel.php';
-            menu(0);
+            session_start();
+            if(isset($_SESSION['USERLOGGED'])){
+                $username = $_SESSION['USERNAME'];
+                include_once '../../Resources/Cabecalhos/Menu.php';
+                MENU::RESPONSAVEL(0,$username,"../../index.php");
+            }
+
         ?>
     </header>
-    <div class="painel">
+    <div id="container">
+        <script src="../../Resources/js/estilos.js"></script>
         <form action="#" method="post">
-            <?php
-                $inputs = array('select','text','select','text','submit');
-                $select = array('Marc','Cauan','Sesi','Senai');
-                $classi = array('caixa','caixa','caixa','caixa','botao');
-                $subtit = array('Aluno','CPF','Unidade','Observação (opcional)','');
-                $qtdopc = count($inputs);
-                $qtdsel = count($select);
-                echo '<label for="titulo">Autorizar Aluno</label></br>';
-                for($i = 0; $i < $qtdopc; $i++){
-                    echo '<label for="subtitulo">'.$subtit[$i].'</label>';
-                    if($inputs[$i] == "select"){
-                        echo '<select class="caixa">';
-                        for($x = 0; $x < $qtdsel; $x++){
-                            echo '<option>'.$select[$x].'</option>';
-                        }
-                        echo '</select>';
-                    }
-                    else{
-                        echo '<input type="'.$inputs[$i].'" class="'.$classi[$i].'"/>';
-                    }
-                }
-            ?>
-        </form>
-    </div>
+            <div class="painel">
+            <label class="title_aut">
+				Autorizar Aluno
+			</label>
+                <div id = "campos_cadastro">
+                    <label class="subtitulo">
+                            Aluno
+                            <select class="caixa" id="input-text" type="text" value="" name="unidade"> 
+                                <option  value="1">Eric</option>
+                                <option  value="2">Marc</option>
+                            </select>
+                            <br/>
+                    </label>
+
+                    <label class="subtitulo">
+                            CPF</label>
+                            <input class="caixa" name="cpf" id="input-text" type="text" value="" placeholder="Digite o CPF do Aluno" required onkeydown="javascript: fMasc( this, mCPF )" maxlength="14";/>
+                            
+                    <label class="subtitulo">
+                            Unidade
+                            <select class="caixa" id="input-text" type="text" value="" name="unidade"> 
+                                <option  value="1">SESI</option>
+                                <option  value="2">SENAI</option>
+                            </select>
+                            <br/>
+                    </label>
+
+                    <label class="subtitulo">
+                        Observações</label>
+                            <input class="caixa" name="cpf" id="input-text" type="text" value="" placeholder="Opicional" required onkeydown="javascript: fMasc( this, mCPF )" maxlength="14";/>
+                        
+                </div>
+            <input type="submit" class="button" name="Enviar"/>
+        </div>
+    </form>
     <footer></footer>
 </body>
 </html>

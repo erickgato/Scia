@@ -14,43 +14,43 @@
     <title>Cadastrar Aluno</title>
 </head>
 <body>
-    <header>
-        <?php
-            include_once "../../Resources/Cabecalhos/Menu.php";
-            MENU::ADMIN(0);
-        ?>
-    </header>
+    <?php
+        include_once '../../Resources/Cabecalhos/menuAdm.func.php';
+        GerarMenuAdmin();
+    ?>
+    
     <div id="container">
         <script src="../../Resources/js/estilos.js"></script>
         <form action="#" method="post">
             <div class="painel">
-                <label for="frase_aut_aluno">
-                    <h1>Cadastro do Aluno</h1>
-                </label>
+            <label class="title_register">
+				Cadastro de Alunos
+			</label>
                 <div id = "campos_cadastro">
-                    <label>
+                    <label class="subtitulo">
                             Unidade do Aluno
-                            <select id="input-text" type="text" value="" name="unidade"> 
+                            <select class="caixa" id="input-text" type="text" value="" name="unidade"> 
                                 <option  value="1">SESI</option>
                                 <option  value="2">SENAI</option>
                             </select>
-                            <br/>
+                           
                     </label>
-                    <label>Nome </label><input name="nomeAluno" id="input-text" type="text" value="" placeholder="Digite o Nome do Aluno" required autofocus/>
-                    
-					<label for="sobrenome">Sobrenome</label><input type="text" name="sobrenomeAluno" placeholder="Digite o sobrenome do  aluno" required/>
-                    <label>
+                    <label class="subtitulo">Nome </label><input class="caixa"  name="nomeAluno" id="input-text" type="text" value="" placeholder="Digite o Nome do Aluno" required autofocus/>
+					<label class="subtitulo" for="sobrenome">Sobrenome</label><input class="caixa" type="text" name="sobrenomeAluno" placeholder="Digite o sobrenome do  aluno" required/>
+                    <label class="subtitulo">
                             Data de Nascimento
-                            <input id="input-text" type="date" value="" placeholder="Digite a Data de Nascimento do Aluno" required name="datanasc"/>
+                            <input class="caixa" id="input-text" type="date" value=""  required name="datanasc"/>
                     </label>
-                    <label>
-                            CPF do Aluno
-                            <input name="cpf" id="input-text" type="text" value="" placeholder="Digite o CPF do Aluno" required onkeydown="javascript: fMasc( this, mCPF )" maxlength="14";/>
-                    </label>
-                        CPF Responsavel
-                        <input id="input-text" name="CPFresp" type="text" value="" placeholder="Digite o CPF do Responsavel" required/>
+                    <label class="subtitulo">
+                            CPF do Aluno</label>
+                            <input class="caixa" name="cpf" id="input-text" type="text" value="" placeholder="Digite o CPF do Aluno" required onkeydown="javascript: fMasc( this, mCPF )" maxlength="14";/>
+                            
+                    <label class="subtitulo">
+                        CPF Responsavel</label>
+                        <input class="caixa" id="input-text" name="CPFresp" type="text" value="" placeholder="Digite o CPF do Responsavel" required/>
+                        
                 </div>
-            <input type="submit" class="botao" name="Enviar"/>
+            <input type="submit" class="button" name="Enviar"/>
         </div>
     </form>
 	<?php 

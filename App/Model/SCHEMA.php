@@ -68,4 +68,23 @@ final class DATABASE{
         }
         return $assocresult;
     }
+    static function DELETE(string $tablename,string $primaryIndex,int $id = null, string $cpf ){
+        $Conn = DATABASE::Singleton();
+        //Creates a sql query
+        $sql = "DELETE FROM {$tablename} WHERE '$primaryIndex' = {$id}";
+        //Put the query in connection
+        $insertedQuery = $Conn->query($sql);
+        //Verify if the query returns error 
+        
+        if(!$insertedQuery){
+            DEBUG::print("ERROR: {$Conn->error}, sql is {$sql}");
+            $result = false;
+        }             
+        else{ 
+            DEBUG::print("{$sql} INSERTED SUCESS !"); 
+            $result = true;
+        }
+        $Conn->close(); 
+        return $result;
+    }
 }

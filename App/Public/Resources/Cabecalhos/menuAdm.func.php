@@ -1,29 +1,35 @@
 <?php
-    define("ActualUser", "VANESSA");
-    function menu($selected){
-        $opcoesdomenu = array("SOLICITAR AUTORIZAÇÃO","RELATÓRIO","CADASTRAR","ENVIAR NOTIFICAÇÃO", ActualUser);
-        $quantidadedeopcoes = count($opcoesdomenu);
-        $Links = array('solicitar_auto.php','relatorio.php','perfiladm.php','cadastrar.php','notificar.php');
-
-?>  
-    <label for="menu_resp"></label>
+function GerarMenuAdmin(){
+    echo 
+    '
+    <header>
+        <label for="menu_resp"></label>
         <nav class="menu">
             <div class="logo" href="#">
-                <h1>SCIA</h1>
+                <h1><a href="#">SCIA</a></h1>
             </div>
-            <ul class="options">
-                <?php
-                    for( $i = 0; $i < $quantidadedeopcoes; $i++  ){
-                        if($selected == $i){
-                            echo '<li><a href="' .$Links[$i] . '" class="selected">'. $opcoesdomenu[$i] . ' </a></li>';
-                        }
-                        else{
-                            echo '<li><a href="' .$Links[$i] .  '">'. $opcoesdomenu[$i] . ' </a></li>';
-                        }
-                    }
-                ?>
-            </ul>
-        </nav>
-<?php    
-    }
-?>
+            <ul class="opcoes">
+                <li><a href="solicitar_auto.php" class="selected">SOLICITAR AUTORIZAÇÃO </a>
+                </li>
+                <li>
+                    <a href="relatorio.php">RELATÓRIO </a>
+                </li>
+                <li>
+                    <a href="#">CADASTRAR </a>
+                        <ul class="submenu">
+                            <li><a href="CadastrarAluno.php">ALUNO</a></li>
+                            <li><a href="CadastrarResponsavel.php">RESPONSAVEL</a></li>
+                        </ul>
+                </li>
+                <li><a href="#">CONSULTAR </a>
+                    <ul class="submenu">
+                        <li><a href="buscarAluno.php">ALUNO</a></li>
+                        <li><a href="CadastrarResponsavel">RESPONSAVEL</a></li>
+                    </ul>
+                </li>
+        </ul>
+        </nav>    
+    </header>
+
+    ';
+}

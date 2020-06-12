@@ -14,10 +14,14 @@
 				if($nmRows == 1){
 					switch($CodTpUsu){
 						case 2: 
-							header('Location: View/Responsaveis/autorizaaluno.php');
+							session_start();
+							$_SESSION['USERLOGGED'] = true;
+							header('Location: View/Responsaveis/loader.php?CPF=' . $Usuario['LOGIN']);
 							break;
 						default: 
-							header('Location: View/Admin/CadastrarAluno.php');
+							session_start();
+							$_SESSION['ADMINLOGGED'] = true;
+							header('Location: View/Admin/loader.php');
 						break;
 					}
 					
