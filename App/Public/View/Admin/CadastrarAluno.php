@@ -10,11 +10,12 @@
 <body class="corpo">
     <header>
         <?php
-            include_once '../../Resources/Cabecalhos/menuAdm.func.php';
-            menu(0,"VANESSA");
+            include_once "../../Resources/Cabecalhos/Menu.php";
+            MENU::ADMIN(0);
         ?>
     </header>
     <div id="container">
+        <script src="../../Resources/js/estilos.js"></script>
         <form action="#" method="post">
             <div class="painel">
                 <label for="frase_aut_aluno">
@@ -27,41 +28,48 @@
                                 <option  value="1">SESI</option>
                                 <option  value="2">SENAI</option>
                             </select>
+                            <br/>
                     </label>
-                    <label>Nome </label>
-                            <input name="nomeAluno" id="input-text" type="text" value="" placeholder="Digite o Nome do Aluno"/>
+                    <label>Nome </label><input name="nomeAluno" id="input-text" type="text" value="" placeholder="Digite o Nome do Aluno" required autofocus/>
                     
-					<label for="sobrenome">
-							Sobrenome
-							<input type="text" name="sobrenomeAluno" placeholder="Digite o sobrenome do  aluno"/>
-					</label>
+					<label for="sobrenome">Sobrenome</label><input type="text" name="sobrenomeAluno" placeholder="Digite o sobrenome do  aluno" required/>
                     <label>
                             Data de Nascimento
-                            <input id="input-text" type="date" value="" placeholder="Digite a Data de Nascimento do Aluno" name="datanasc"/>
+                            <input id="input-text" type="date" value="" placeholder="Digite a Data de Nascimento do Aluno" required name="datanasc"/>
                     </label>
                     <label>
                             CPF do Aluno
-                            <input name="cpf" id="input-text" type="text" value="" placeholder="Digite o CPF do Aluno" onkeydown="javascript: fMasc( this, mCPF )" maxlength="14";/>
+                            <input name="cpf" id="input-text" type="text" value="" placeholder="Digite o CPF do Aluno" required onkeydown="javascript: fMasc( this, mCPF )" maxlength="14";/>
                     </label>
-                        Cod Responsavel
-                        <input id="input-text" name="respid" type="text" value="" placeholder="Digite o id do Responsavel";/>
+                        CPF Responsavel
+                        <input id="input-text" name="CPFresp" type="text" value="" placeholder="Digite o CPF do Responsavel" required/>
                 </div>
             <input type="submit" class="botao" name="Enviar"/>
         </div>
     </form>
 	<?php 
 				if(isset($_POST['Enviar'])){ 
-					$UnidadeAluno = $_POST['unidade'];
-					$nome = $_POST['nomeAluno'];
-					$sobrenome = $_POST['sobrenomeAluno'];
-					$datanasc = $_POST['datanasc'];
-					$CPFalun = $_POST['cpf'];
-					$idresp = (int) $_POST['respid'];
-                    var_dump($idresp);
+                    function Postdata(string $name){
+                        return $_POST[$name];
+                    }
+                    $Aluno = array(
+                        'Unidade' => (int) Postdata('unidade'), "nome" => Postdata('nomeAluno'),
+                        "sobrenome" => Postdata('sobrenomeAluno'),
+                        'Nascimento' => Postdata('datanasc'), 'CPF' => Postdata('cpf'),
+                        'CPFRESP' => (string) Postdata('CPFresp') 
+
+                    );
                     include_once '../../../config.php';
                     include_once '../../../Model/SCHEMA.php';
                     include_once '../../../classes/class-debug.php';
-                    DATABASE::INSERT('sc_aluno',['',$nome,$sobrenome,$datanasc,$CPFalun,$idresp,$UnidadeAluno]);
+                    $Resp = DATABASE::SELECT('sc_responsavel',"WHERE Re_CPF = '{$Aluno['CPFRESP']}'");
+                    DATABASE::INSERT(
+                        'sc_aluno',['',$Aluno['Unidade'],$Aluno['nome'],
+                        $Aluno['sobrenome'],$Aluno['Nascimento'],$Aluno['CPF'],
+                        $Resp[0]['Re_cod']
+                        
+                        ]);
+                    DEBUG::log('Database Connection in Cadastro aluno');
 				}
 					
 		

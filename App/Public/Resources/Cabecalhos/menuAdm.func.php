@@ -1,7 +1,7 @@
 <?php
-    $usuario = "VANESSA";
+    define("ActualUser", "VANESSA");
     function menu($selected){
-        $opcoesdomenu = array("SOLICITAR AUTORIZAÇÃO","RELATÓRIO","CADASTRAR","ENVIAR NOTIFICAÇÃO", $usuario);
+        $opcoesdomenu = array("SOLICITAR AUTORIZAÇÃO","RELATÓRIO","CADASTRAR","ENVIAR NOTIFICAÇÃO", ActualUser);
         $quantidadedeopcoes = count($opcoesdomenu);
         $Links = array('solicitar_auto.php','relatorio.php','perfiladm.php','cadastrar.php','notificar.php');
 

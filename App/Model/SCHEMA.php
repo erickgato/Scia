@@ -47,13 +47,15 @@ final class DATABASE{
             return DATABASE::SelectNumRows($result);
     }
     //You need to put the query into database and use this method
-    public static function SelectNumRows($resultquery){
+    private static function SelectNumRows($resultquery){
         $nmrows = mysqli_num_rows($resultquery);
         return $nmrows;
     }
-    public static function SelectAssoc($resultquery){
+    private static function SelectAssoc($resultquery){
         $assocresult = [];
         $index = 0;
+        if($resultquery == false)
+            return false;
         while($line = $resultquery->fetch_assoc()){
             $assocresult[$index] = $line;
             $index++;
