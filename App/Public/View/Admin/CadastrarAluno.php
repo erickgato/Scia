@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+     function Postdata(string $name){
+        $typevar = $_POST[$name];
+        return $typevar;
+    }
+?>
 <html lang="Pt-Br">
 <head>
     <meta charset="UTF-8">
@@ -49,9 +55,7 @@
     </form>
 	<?php 
 				if(isset($_POST['Enviar'])){ 
-                    function Postdata(string $name){
-                        return $_POST[$name];
-                    }
+                   
                     $Aluno = array(
                         'Unidade' => (int) Postdata('unidade'), "nome" => Postdata('nomeAluno'),
                         "sobrenome" => Postdata('sobrenomeAluno'),
@@ -59,17 +63,28 @@
                         'CPFRESP' => (string) Postdata('CPFresp') 
 
                     );
+                    //Incluindo classes 
                     include_once '../../../config.php';
                     include_once '../../../Model/SCHEMA.php';
                     include_once '../../../classes/class-debug.php';
+                    /*
+                        realiza um select buscando o id do responsavel 
+                        cujo CPF foi inserido
+                    */
                     $Resp = DATABASE::SELECT('sc_responsavel',"WHERE Re_CPF = '{$Aluno['CPFRESP']}'");
-                    DATABASE::INSERT(
+                    //Insere os dados
+                    $Result = DATABASE::INSERT(
                         'sc_aluno',['',$Aluno['Unidade'],$Aluno['nome'],
                         $Aluno['sobrenome'],$Aluno['Nascimento'],$Aluno['CPF'],
                         $Resp[0]['Re_cod']
                         
                         ]);
                     DEBUG::log('Database Connection in Cadastro aluno');
+                    if(!$Result)
+                        echo "Falha ao adicionar dados tente novamente";
+                    else
+                        echo "<script>alert('Dados inseridos com sucesso!')</script>";
+                    
 				}
 					
 		

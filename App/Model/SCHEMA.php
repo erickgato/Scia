@@ -14,13 +14,19 @@ final class DATABASE{
         //Creates a sql query
         $sql = "INSERT INTO {$TBname} VALUES('$params')";
         //Put the query in connection
-        $insertedQuery = $Conn->query($sql); 
+        $insertedQuery = $Conn->query($sql);
         //Verify if the query returns error 
-        if(!$insertedQuery)
-                DEBUG::print("ERROR: {$Conn->error}, sql is {$sql}");
-
-        else{ DEBUG::print("{$sql} INSERTED SUCESS !"); }
-        $Conn->close();
+        
+        if(!$insertedQuery){
+            DEBUG::print("ERROR: {$Conn->error}, sql is {$sql}");
+            $result = false;
+        }             
+        else{ 
+            DEBUG::print("{$sql} INSERTED SUCESS !"); 
+            $result = true;
+        }
+        $Conn->close(); 
+        return $result;
     }
     static function SELECT
     //Params

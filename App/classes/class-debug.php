@@ -18,4 +18,15 @@ class DEBUG
             echo '<br/>'.$data;
         }
     }
+    static function window($data)
+    {
+        if(ISDEBUG){
+            $output = $data;
+            if (is_array($output))
+                $output = implode(',', $output);
+                echo "<script>window('{$output}' );</script>";
+        }
+
+    }
+
 }
