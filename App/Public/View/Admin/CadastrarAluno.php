@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../../Resources/css/estilos.css"/> 
     <title>Cadastrar Aluno</title>
 </head>
-<body class="corpo">
+<body>
     <header>
         <?php
             include_once "../../Resources/Cabecalhos/Menu.php";

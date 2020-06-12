@@ -4,24 +4,35 @@
     font-family: Candara;
     
 }
-
-.corpo{
-    background-color: #FFF;
+@font-face{
+    font-family: 'haboro';
+    src: url("../Fonts/HaboroSoft-ExtReg.ttf");
 }
 
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+body{
+    background: linear-gradient(#191654,#87cbe5);}
+
 .titulo{
-    font-size: 5vh;
-    color: #FFF;
-    margin-left: 2%;
+    font-size: 7vh;
+    color: black;
+    margin-left: 32%;
+    font-family: 'haboro';
 }
 
 .painel{
     margin-left: 40%;
-    margin-top: 0;
+    margin-top: 1.8em;
     width: 25%;
-    height: 75vh;
-    background-image: linear-gradient(to top, #005CAA, #0A3BC2);
-    border-radius: 2%;
+    height: 78vh;
+    background-color: #ffffff;
+    border-radius: 5%;
 }
 
 .fixado{
@@ -32,7 +43,7 @@
 
 .subtitulo{
     font-size: 3vh;
-    color: #FFF;
+    color: black;
     margin-left: 2%;
     margin-top: 4%;
     margin-bottom: 2%;
@@ -40,13 +51,13 @@
 
 label[for=titulo]{
     font-size: 5vh;
-    color: #FFF;
+    color: black;
     margin-left: 2%;
 }
 
 label[for=subtitulo]{
     font-size: 3vh;
-    color: #FFF;
+    color: black;
     margin-left: 2%;
     margin-top: 4%;
     margin-bottom: 2%;
@@ -61,15 +72,15 @@ label[for=subtitulo]{
     border-top-color: transparent;
     border-left-color: transparent;
     border-right-color: transparent;
-    border-bottom-color: #FFF;
+    border-bottom-color: #86888d;
     border-bottom-width: 0.15vh;
-    color: #FFF;
+    color:black;
     font-family: Candara;
     font-size: 3vh;
 }
 
 .caixa::placeholder{
-    color: #FFF;
+    color: #86888d;
 }
 
 .opcsele{
@@ -77,21 +88,20 @@ label[for=subtitulo]{
 }
 
 .botao{
-    margin-top: 7%;
+    margin-top: 30%;
     margin-left: 15%;
-    background-color: #0060EA;
+    background: linear-gradient(to right,#ef0afd,#08d2df);
     opacity: 0.8;
-    border-color: transparent;
-    border-width: 0.25vh;
     height: 8vh;
     width: 70%;
+    border: 0.3vh solid whitesmoke;
     font-size: 3vh;
     border-radius: 10vh;
-    color: #FFF;
+    color: whitesmoke;
 }
 
 .botao:hover{
-    background-color: #0030EA;
+    background-color: #e84118;
 }
 
 /*INICIO DO MENU*/
@@ -99,7 +109,7 @@ label[for=subtitulo]{
 .selecionado{
     float: right;
     padding: 13px;
-    margin-top: 18px;
+    margin-top: 19px;
     margin-right: 26px;
     color: #000;
     border-radius: 7px;
@@ -110,17 +120,16 @@ label[for=subtitulo]{
     margin:0px;
     list-style:none;
     width: 100%;
-    height: 15vh;
-    background-image: linear-gradient(to top, #005CAA, #0A3BC2);
+    height: 13.5vh;
+    background-color: whitesmoke;
     font-size: 4vh;
-    box-shadow: 0.1rem 0.1rem rgb(27, 18, 18);
 }
 
 .opcoes a:not(.selecionado) {
     float: right;
     padding: 13px;
-    color: #E1E1E1;
-    margin-top: 18px;
+    color: #414141;
+    margin-top: 10px;
     margin-right: 26px;
 }
 
@@ -129,18 +138,22 @@ a:link{
 }
 
 .opcoes a:hover {
-    color : #FFF;
-    border-radius: 0%;
+    margin-top: 1%;
+    background-color: orangered;
+    color : whitesmoke;
+    border-radius: 4%;
     height: 100%;
 }
 
 .logo a{
-    margin-top: 1%;
+    margin-top: 0.5%;
     margin-left: 4%;
     float: left;
     font-size: 9vh;
     padding: 0;
-    color: #FFF;
+    color:#030303;
+    font-family: 'haboro';
+    text-shadow: 5px 5px 5px red;
 }
 
 /*FIM DO MENU*/

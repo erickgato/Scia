@@ -8,8 +8,8 @@
 <body class="corpo">
 	<header>
 		<?php
-			include_once 'Resources/Cabecalhos/menuresponsavel.php';
-			menu(0)
+			include_once 'Resources/Cabecalhos/Menu.php';
+			MENU::LOGIN();
 		?>
 	</header>
 	<div class="painel">
@@ -22,7 +22,7 @@
 			<label class="subtitulo">
 				CPF
 			</label>
-			<input class="caixa" type="text" name="usu_cpf" required/>
+			<input class="caixa" type="text" name="usu_cpf" required placeholder = "Digite Seu CPF"/>
 			<br/>
 			<br/>
 			<label class="subtitulo">
@@ -40,7 +40,7 @@
 			<label class="subtitulo">
 				Senha
 			</label>
-			<input class="caixa" type="password" password name="usu_pass" required/>
+			<input class="caixa" type="password" password name="usu_pass" required placeholder = "Digite Sua Senha"/>
 			<br/>
 			<input type="submit" value="Entrar" class="botao" name='btn_enviar'/>
 		</form>

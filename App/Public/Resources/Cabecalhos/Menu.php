@@ -27,4 +27,10 @@ class MENU{
         $Menu = Menu::DRAW($opcoesdomenu,count($opcoesdomenu), $selectedindex, $Links);
         echo "{$Menu}";
     }
+    static function LOGIN(){
+        $opcoesdomenu = array("");
+        $Links = array('');
+        $Menu = Menu::DRAW($opcoesdomenu,count($opcoesdomenu), 0, $Links);
+        echo "{$Menu}";
+    }
 }

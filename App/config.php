@@ -1,8 +1,10 @@
 <?php
 $ShowLogs = true; //DEBUG DE CODE ?
+//IF SERVER === WAMP DEFINE PORT = 3308 
+// ELSE IF SERVER == XAMP DEFINE PORT = 3306
 $DBCONFIG = array( 
     "NAME" => 'scia', "USER" => 'root', "PASS" => '', 
-    'PORT' => '3308', 'INSTANCE' => 'localhost' 
+    'PORT' => '3306', 'INSTANCE' => 'localhost' 
     ); //DEFINE SCHEMA CONNECTION PARAMETERS
 
 //Contants 
