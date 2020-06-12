@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="Pt-Br">
 <head>
@@ -9,19 +10,20 @@
 </head>
 <body class="corpo">
     <header id="header">
-        <?php
-            session_start();
-            if(isset($_SESSION['USERLOGGED'])){
-                $username = $_SESSION['USERNAME'];
-                include_once '../../Resources/Cabecalhos/Menu.php';
-                MENU::RESPONSAVEL(0,$username,"../../index.php");
-            }
-
-        ?>
+       <?php  
+           include_once '../../Resources/Cabecalhos/Menu.php';
+           $username = $_SESSION['USERNAME'];
+           MENU::RESPONSAVEL(0,$username,"../../index.php");
+       include_once  '../../../config.php';
+       include_once  '../../../Model/SCHEMA.php';
+       include_once  '../../../classes/class-debug.php';
+       $WHERE = "WHERE AL_codResponsavel = {$_SESSION['USERID']}";
+       $FETCHALUN = DATABASE::SELECT('sc_aluno',$WHERE);
+       ?>
     </header>
     <div id="container">
         <script src="../../Resources/js/estilos.js"></script>
-        <form action="#" method="post">
+        <form action="POSTDATA/autorizaaluno.php" method="post">
             <div class="painel">
             <label class="title_aut">
 				Autorizar Aluno
@@ -29,16 +31,22 @@
                 <div id = "campos_cadastro">
                     <label class="subtitulo">
                             Aluno
-                            <select class="caixa" id="input-text" type="text" value="" name="unidade"> 
-                                <option  value="1">Eric</option>
-                                <option  value="2">Marc</option>
+                            <select class="caixa" id="input-text" type="text" value="" name="codaluno" required> 
+                                <?php 
+                                    if($FETCHALUN == false){
+                                        echo "<script>alert('Usuario náo possui alunos cadastrados')</script>";
+                                        header('Location: index.php');
+                                    }
+                                    else{
+                                        foreach ($FETCHALUN as $Aluno) {
+                                            echo '<option value = "' .$Aluno['Al_cod'] . '">' . $Aluno['Al_nome'] . '</option>';
+                                        }
+                                    }
+                                           
+                                    ?>
                             </select>
                             <br/>
                     </label>
-
-                    <label class="subtitulo">
-                            CPF</label>
-                            <input class="caixa" name="cpf" id="input-text" type="text" value="" placeholder="Digite o CPF do Aluno" required onkeydown="javascript: fMasc( this, mCPF )" maxlength="14";/>
                             
                     <label class="subtitulo">
                             Unidade
@@ -51,12 +59,24 @@
 
                     <label class="subtitulo">
                         Observações</label>
-                            <input class="caixa" name="cpf" id="input-text" type="text" value="" placeholder="Opicional" required onkeydown="javascript: fMasc( this, mCPF )" maxlength="14";/>
-                        
+                            <textarea name="Obs" class="textareaaluno" cols="5" rows="3"></textarea>
                 </div>
-            <input type="submit" class="button" name="Enviar"/>
+            <input type="submit" class="btnaluno" name="Enviar"/>
         </div>
     </form>
+    <?php 
+    if(isset($_GET['m'])){
+        switch($_GET['m']){
+            case 'Sucess': 
+                echo "<script>alert('Dados inseridos com sucesso')</script>";
+            break;
+            case 'Error': 
+                echo "<script>alert('Erro no processo de liberação')</script>";
+            break;
+        }
+    }
+
+    ?>
     <footer></footer>
 </body>
 </html>

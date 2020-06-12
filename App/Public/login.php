@@ -4,7 +4,7 @@
 	include_once PATH. '/functions/Loader.php';
 	include_once PATH . '/Model/SCHEMA.php';
 			if(isset($_POST['btn_enviar'])){
-				$CodTpUsu = (int) $_POST['Tp_User'];
+				$CodTpUsu = (int) $_POST['codtpusr'];
 				DEBUG::log($CodTpUsu);
 				$Usuario = array("LOGIN" => $_POST['usu_cpf'], "TYPE" => $CodTpUsu,"PASS" => $_POST['usu_pass'] );
 				$Condition = "WHERE Us_login = '{$Usuario['LOGIN']}' AND Us_senha = '{$Usuario['PASS']}' 

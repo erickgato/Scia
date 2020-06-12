@@ -17,6 +17,12 @@
     <?php
         include_once '../../Resources/Cabecalhos/menuAdm.func.php';
         GerarMenuAdmin();
+        if(isset($_GET['Resp_CPF'])){
+            $CPFresp = $_GET['Resp_CPF'];
+        }
+        else{
+            $CPFresp = '';
+        }
     ?>
     
     <div id="container">
@@ -47,7 +53,7 @@
                             
                     <label class="subtitulo">
                         CPF Responsavel</label>
-                        <input class="caixa" id="input-text" name="CPFresp" type="text" value="" placeholder="Digite o CPF do Responsavel" required/>
+                        <input class="caixa" id="input-text" name="CPFresp" type="text" value="<?php echo $CPFresp; ?>" placeholder="Digite o CPF do Responsavel" required/>
                         
                 </div>
             <input type="submit" class="button" name="Enviar"/>
