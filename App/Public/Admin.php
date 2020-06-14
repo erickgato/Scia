@@ -11,7 +11,7 @@
 			include_once 'Resources/Cabecalhos/Menu.php';
 			MENU::LOGIN();
 		?>
-		 <script src="/Resources/js/estilos.js"></script>
+		 <script src="Resources/js/estilos.js"></script>
 	</header>
 	<div class="painel">
 		<form action="login.php" method="post">

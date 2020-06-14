@@ -11,7 +11,7 @@
 			include_once 'Resources/Cabecalhos/Menu.php';
 			MENU::LOGIN();
 		?>
-		<script src="/Resources/js/estilos.js"></script>
+		<script src="Resources/js/estilos.js"></script>
 	</header>
 	<div class="painel">
 		<form action="login.php" method="post">
@@ -24,7 +24,7 @@
 			<label class="subtitulo">
 				CPF
 			</label>
-			<input class="caixa" type="text" name="usu_cpf" required placeholder = "Digite Seu CPF"onkeydown="javascript: fMasc( this, mCPF )" maxlength="14"/>
+			<input class="caixa" type="text" name="usu_cpf" required placeholder = "Digite Seu CPF" onkeydown="javascript: fMasc( this, mCPF )" maxlength="14"/>
 			<label class="subtitulo">
 				Senha
 			</label>

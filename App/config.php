@@ -1,5 +1,5 @@
 <?php
-$ShowLogs = true; //DEBUG DE CODE ?
+$ShowLogs = false; //DEBUG DE CODE ?
 //IF SERVER === WAMP DEFINE PORT = 3308 
 // ELSE IF SERVER == XAMP DEFINE PORT = 3306
 $DBCONFIG = array( 

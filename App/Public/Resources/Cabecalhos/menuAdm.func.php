@@ -9,6 +9,9 @@ function GerarMenuAdmin(){
                 <h1><a href="#">SCIA</a></h1>
             </div>
             <ul class="opcoes">
+                <li>
+                    <a href="logout.php">LOGOUT</a>
+                </li>
                 <li><a href="solicitar_auto.php" class="selected">SOLICITAR AUTORIZAÇÃO </a>
                 </li>
                 <li>
@@ -27,6 +30,7 @@ function GerarMenuAdmin(){
                         <li><a href="CadastrarResponsavel">RESPONSAVEL</a></li>
                     </ul>
                 </li>
+                
         </ul>
         </nav>    
     </header>
