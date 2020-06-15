@@ -44,11 +44,13 @@
 			<br/>
 			<input type="submit" value="Entrar" class="botao" name='btn_enviar'/>
 		</form>
-		<?php
-				if(isset($_GET['message'])){
-					echo "Usuario e / ou senha não existe";
-				}
-		?>
+		<div class="response-Message">
+                <?php
+					if(isset($_GET['message'])){
+						echo "<p>Usuario e / ou senha incorretos</p>";
+						}
+				?>
+                </div>
 	</div>
 </body>
 </html>
