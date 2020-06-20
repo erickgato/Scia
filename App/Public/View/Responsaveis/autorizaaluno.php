@@ -13,7 +13,7 @@
        <?php  
            include_once '../../Resources/Cabecalhos/Menu.php';
            $username = $_SESSION['USERNAME'];
-           MENU::RESPONSAVEL(0,$username,"../../index.php");
+           MENU::RESPONSAVEL(0,"../../index.php");
        include_once  '../../../config.php';
        include_once  '../../../Model/SCHEMA.php';
        include_once  '../../../classes/class-debug.php';

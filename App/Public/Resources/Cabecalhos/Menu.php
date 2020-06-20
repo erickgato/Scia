@@ -54,8 +54,8 @@ class MENU{
         $Menu = Menu::DRAW($opcoesdomenu,count($opcoesdomenu), 0, $Links);
         echo "{$Menu}";
     }
-    static function RESPONSAVEL($selectedindex,$ursname,$indexdir){
-        $opcoesdomenu = array("LOGOUT","AUTORIZAR ALUNO", $ursname);
+    static function RESPONSAVEL($selectedindex,$indexdir){
+        $opcoesdomenu = array("LOGOUT","AUTORIZAR ALUNO",'PERFIL');
         $Links = array($indexdir,'autorizaaluno.php','index.php');
         $Menu = Menu::DRAW($opcoesdomenu,count($opcoesdomenu), $selectedindex, $Links);
         echo "{$Menu}";

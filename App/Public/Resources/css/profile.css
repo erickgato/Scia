@@ -1,104 +1,218 @@
 * {
-    padding: 0;
-    margin: 0;
-    font-family: Candara;
-  }
-  @font-face {
-    font-family: "haboro";
-    src: url("../Fonts/HaboroSoft-ExtReg.ttf");
-  }
-  ::-webkit-scrollbar-track {
-    background-color: #f4f4f4;
-  }
-  ::-webkit-scrollbar {
-    width: 6px;
-    background: #f4f4f4;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #dad7d7;
-  }
-  body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #efeff2;
-  }
-main{
-    border: 0.01rem solid black;
+  padding: 0;
+  margin: 0;
+  font-family: Candara;
 }
+@font-face {
+  font-family: "haboro";
+  src: url("../Fonts/HaboroSoft-ExtReg.ttf");
+}
+@font-face {
+  font-family: P-Bold;
+  src: url("../Fonts/poppins/Poppins-Bold.ttf");
+}
+::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  background: #f4f4f4;
+}
+::-webkit-scrollbar-thumb {
+  background: #dad7d7;
+}
+html,
+body {
+  height: 86vh;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: linear-gradient(to right, #ef0afd, #08d2df);
+}
+main {
+  height: 100%;
+}
+/* //////////////////////////////////////////////////////////////////////
+[Menu] */
 .selecionado {
-    float: right;
-    padding: 13px;
-    margin-top: 19px;
-    margin-right: 26px;
-    color: #000;
-    border-radius: 7px;
-  }
+  float: right;
+  padding: 13px;
+  margin-top: 19px;
+  margin-right: 26px;
+  color: #000;
+  border-radius: 7px;
+}
+
+.menu ul,
+.submenu {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  width: 100%;
+  height: 13.5vh;
+  background-color: whitesmoke;
+  font-size: 4vh;
+}
+
+.opcoes a:not(.selecionado),
+.submenu a {
+  float: right;
+  padding: 13px;
+  color: #414141;
+  margin-top: 10px;
+  margin-right: 26px;
+}
+
+a:link {
+  text-decoration: none;
+}
+.opcoes li ul {
+  position: absolute;
+  display: none;
+  top: 11vh;
+  left: 0;
+}
+.submenu a {
+  width: 80%;
+}
+.opcoes li ul li {
+  display: block;
+  width: 18vw;
+  background-color: whitesmoke;
+}
+.opcoes li:hover ul,
+.opcoes li.over ul {
+  display: block;
+}
+.opcoes a:hover,
+.submenu a:hover {
+  margin-top: 1%;
+  background-color: #e84118;
+  color: whitesmoke;
+  border-radius: 4%;
+  height: 100%;
+  transition: 0.3s;
+  box-shadow: 3px 3px 3px #e05e3d;
+}
+
+.logo a {
+  margin-top: 0.5%;
+  margin-left: 4%;
+  float: left;
+  font-size: 9vh;
+  padding: 0;
+  color: #030303;
+  font-family: "haboro";
+  text-shadow: 5px 5px 5px #86888d;
+}
+.opcoes li {
+  position: relative;
+  float: right;
+}
+/* /////////////////////////////////////////////////////
+  [Content] */
+.sopt-sidebar {
+  position: relative;
+  float: left;
+  /* margin-top: -0%; */
+/*   margin-left: 0.2rem; */
+  width: 15%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  box-shadow: 3px 2px 4px #a8a8a8;
+}
+.sideoption ul {
+  list-style-type: none;
   
-  .menu ul,
-  .submenu {
-    padding: 0px;
-    margin: 0px;
-    list-style: none;
-    width: 100%;
-    height: 13.5vh;
-    background-color: whitesmoke;
-    font-size: 4vh;
-  }
+}
+.sideoption ul li a {
+  color: rgb(245, 245, 245);
+}
+.UserName{
+  clear: both;
+  line-height: 10vh;
+  margin-left: 24%;
+  font-size: 19pt;
+}
+.sideoption ul li img{
+  float: left;
+  margin-top: 3%;
+  width: 25%;
+  height: 25%;
+}
+.sideoption ul li a span {
+  float: right;
+  margin-top: 10%;
+  margin-right: 39%;
+  font-size: 17pt;
+}
+.sideoption ul li a #span-notify {
+  float: right;
+  margin-top: 10%;
+  margin-right: 13%;
+  font-size: 17pt;
+}
+.sideoption .Up-image{
+  margin-left: 16%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.sideoption .Up-image img {
+  width: 100%;
+  height: 100%;
+}
+.sideoption ul li {
+  background-color: transparent;
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 10vh;
+  margin-top: 3%;
+ /*  box-shadow: 3px 2px 4px #948f8f; */
+}
+.sideoption ul li a:hover {
+  color: #08d2df;
+}
+/* //////////////////////////////////////////////////////// 
+[Content]
+*/ 
+.Content{
+  border-radius:  2.4%;
+  background-color: #efeff2;
+  position: relative;
+  float: right;
+  margin-right: 2.8%;
+  margin-top: 1.7%;
+  width: 79vw;
+  height: 80vh;
+  box-shadow:  0 0 2em rgb(223, 217, 217);
+
+}
+.Content .Title{
+  color: #a1a3ac;
+  font-size: 27pt;
   
-  .opcoes a:not(.selecionado),
-  .submenu a {
-    float: right;
-    padding: 13px;
-    color: #414141;
-    margin-top: 10px;
-    margin-right: 26px;
-  }
-  
-  a:link {
-    text-decoration: none;
-  }
-  .opcoes li ul {
-    position: absolute;
-    display: none;
-    top: 11vh;
-    left: 0;
-  }
-  .submenu a {
-    width: 80%;
-  }
-  .opcoes li ul li {
-    display: block;
-    width: 18vw;
-    background-color: whitesmoke;
-  }
-  .opcoes li:hover ul,
-  .opcoes li.over ul {
-    display: block;
-  }
-  .opcoes a:hover,
-  .submenu a:hover {
-    margin-top: 1%;
-    background-color: #e84118;
-    color: whitesmoke;
-    border-radius: 4%;
-    height: 100%;
-    transition: 0.3s;
-    box-shadow: 3px 3px 3px #e05e3d;
-  }
-  
-  .logo a {
-    margin-top: 0.5%;
-    margin-left: 4%;
-    float: left;
-    font-size: 9vh;
-    padding: 0;
-    color: #030303;
-    font-family: "haboro";
-    text-shadow: 5px 5px 5px #86888d;
-  }
-  .opcoes li {
-    position: relative;
-    float: right;
-  }
+}
+input{
+  margin-bottom: 20px;
+
+}
+.caixa {
+  width: 30%;
+  background: transparent;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: #86888d;
+  border-bottom-width: 0.15vh;
+  color: black;
+  font-family: Candara;
+  font-size: 2.7vh;
+  height: 10vh;
+}

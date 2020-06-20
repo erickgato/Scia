@@ -24,7 +24,6 @@ session_start();
             'T_Bair' => (string) Postdata('T_CodBairro'),
 
         );
-        var_dump($Responsavel);
         /*
             realiza um select buscando o id do responsavel 
             cujo CPF foi inserido
@@ -45,7 +44,7 @@ session_start();
             //Insere dados na tabela usuario
             $CREATEUSER = DATABASE::INSERT(
                 'sc_usuario',
-                ['',$Responsavel['CPF'],$Responsavel['CPF'],'2',date('Y-m-d')]
+                ['',$Responsavel['CPF'],base64_encode($Responsavel['CPF']),'2',date('Y-m-d')]
             );
             if($CREATEUSER){
                 //Procura os dados inseridos
