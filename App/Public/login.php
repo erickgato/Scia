@@ -19,12 +19,12 @@
 						case 2: 
 							$_SESSION['USERLOGGED'] = true;
 							header('Location: perfil?CPF=' . $Usuario['LOGIN']);
-							exit();	
+							exit;	
 							break;
 						default: 
 							$_SESSION['ADMINLOGGED'] = true;
-							header('Location: admin/dashboard');
-							
+							header('Location: CadastrarAluno');
+							exit;
 						break;
 					}
 					

@@ -10,7 +10,7 @@ function GerarMenuAdmin(){
             </div>
             <ul class="opcoes">
                 <li>
-                    <a href="logout.php">LOGOUT</a>
+                    <a href="index.php">LOGOUT</a>
                 </li>
                 <li><a href="solicitar_auto.php" class="selected">SOLICITAR AUTORIZAÇÃO </a>
                 </li>
@@ -20,14 +20,14 @@ function GerarMenuAdmin(){
                 <li>
                     <a href="#">CADASTRAR </a>
                         <ul class="submenu">
-                            <li><a href="CadastrarAluno.php">ALUNO</a></li>
-                            <li><a href="CadastrarResponsavel.php">RESPONSAVEL</a></li>
+                            <li><a href="CadastrarAluno">ALUNO</a></li>
+                            <li><a href="CadastrarResponsavel">RESPONSAVEL</a></li>
                         </ul>
                 </li>
                 <li><a href="#">CONSULTAR </a>
                     <ul class="submenu">
                         <li><a href="buscarAluno.php">ALUNO</a></li>
-                        <li><a href="CadastrarResponsavel">RESPONSAVEL</a></li>
+                        <li><a href="BuscarResponsavel">RESPONSAVEL</a></li>
                     </ul>
                 </li>
                 

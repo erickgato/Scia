@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cadastrar Aluno</title>
-
+    <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/estilos.css" />
 </head>
 <body>
     <?php
@@ -81,7 +81,7 @@
                         $Resp[0]['Re_cod']
                         
                         ]);
-          //          DEBUG::log('Database Connection in Cadastro aluno');
+                    DEBUG::log('Database Connection in Cadastro aluno');
                     if(!$Result)
                         echo "Falha ao adicionar dados tente novamente";
                     else

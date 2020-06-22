@@ -1,14 +1,6 @@
 <?php
-    session_start();
-    if(isset($_SESSION['PATH']))
-       define("PATH",$_SESSION['PATH']);
-    else
-        header("Location: ../../index.php");
-    
-    include_once '../../Resources/Cabecalhos/menuAdm.func.php';
-    require_once '../../../config.php';
-    require_once '../../../Model/SCHEMA.php';
-    require_once '../../../classes/class-debug.php';
+    if(!isset($_SESSION['ADMINLOGGED']))
+        header("Location: index.php");
     $tiposdelog = DATABASE::SELECT('sc_tp_logradouro');
     $bairros = DATABASE::SELECT('sc_bairro');
 ?>
@@ -18,12 +10,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="../../Resources/css/responsaveis.css"/> 
+    <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/responsaveis.css" />
     <title>Cadastrar Responsavel</title>
 </head>
 <body class="corpo">
     <header id="header">
 <?php
+    include_once RESOCS . '/Cabecalhos/menuAdm.func.php';
     GerarMenuAdmin();
 ?>
     </header>
