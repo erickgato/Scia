@@ -10,12 +10,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="../../Resources/css/estilos.css"/> 
     <title>Cadastrar Aluno</title>
+
 </head>
 <body>
     <?php
-        include_once '../../Resources/Cabecalhos/menuAdm.func.php';
+        include_once  RESOCS . '/Cabecalhos/menuAdm.func.php';
         GerarMenuAdmin();
         if(isset($_GET['Resp_CPF'])){
             $CPFresp = $_GET['Resp_CPF'];
@@ -26,7 +26,7 @@
     ?>
     
     <div id="container">
-        <script src="../../Resources/js/estilos.js"></script>
+        <script src="<?php echo RESOCS; ?>/js/estilos.js"></script>
         <form action="#" method="post">
             <div class="painel">
             <label class="title_register">
@@ -69,10 +69,6 @@
                         'CPFRESP' => (string) Postdata('CPFresp') 
 
                     );
-                    //Incluindo classes 
-                    include_once '../../../config.php';
-                    include_once '../../../Model/SCHEMA.php';
-                    include_once '../../../classes/class-debug.php';
                     /*
                         realiza um select buscando o id do responsavel 
                         cujo CPF foi inserido
@@ -85,7 +81,7 @@
                         $Resp[0]['Re_cod']
                         
                         ]);
-                    DEBUG::log('Database Connection in Cadastro aluno');
+          //          DEBUG::log('Database Connection in Cadastro aluno');
                     if(!$Result)
                         echo "Falha ao adicionar dados tente novamente";
                     else

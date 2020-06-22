@@ -1,4 +1,3 @@
-<?php session_start();?>
 <!DOCTYPE html>
 <html lang="Pt-Br">
 <head>
@@ -11,14 +10,14 @@
 <body class="corpo">
     <header id="header">
        <?php  
-           include_once '../../Resources/Cabecalhos/Menu.php';
-           $username = $_SESSION['USERNAME'];
-           MENU::RESPONSAVEL(0,"../../index.php");
-       include_once  '../../../config.php';
-       include_once  '../../../Model/SCHEMA.php';
-       include_once  '../../../classes/class-debug.php';
-       $WHERE = "WHERE AL_codResponsavel = {$_SESSION['USERID']}";
-       $FETCHALUN = DATABASE::SELECT('sc_aluno',$WHERE);
+           include_once RESOCS . '/Cabecalhos/Menu.php';
+            $username = $_SESSION['USERNAME'];
+            MENU::RESPONSAVEL(0,"index.php");
+            include_once  '../../../config.php';
+            include_once  '../../../Model/SCHEMA.php';
+            include_once  '../../../classes/class-debug.php';
+            $WHERE = "WHERE AL_codResponsavel = {$_SESSION['USERID']}";
+            $FETCHALUN = DATABASE::SELECT('sc_aluno',$WHERE);
        ?>
     </header>
     <div id="container">
@@ -35,7 +34,7 @@
                                 <?php 
                                     if($FETCHALUN == false){
                                         echo "<script>alert('Usuario náo possui alunos cadastrados')</script>";
-                                        header('Location: index.php');
+                                     //   header('Location: index.php');
                                     }
                                     else{
                                         foreach ($FETCHALUN as $Aluno) {

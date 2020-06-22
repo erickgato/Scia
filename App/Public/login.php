@@ -1,8 +1,4 @@
-<?php 
-    require_once '../config.php';
-    define("PATH","../");
-	include_once PATH. '/functions/Loader.php';
-	include_once PATH . '/Model/SCHEMA.php';
+<?php 	
 			if(isset($_POST['btn_enviar'])){
 				$CodTpUsu = (int) $_POST['codtpusr'];
 				DEBUG::log($CodTpUsu);
@@ -21,14 +17,14 @@
 				if($nmRows == 1){
 					switch($CodTpUsu){
 						case 2: 
-							session_start();
 							$_SESSION['USERLOGGED'] = true;
-							header('Location: View/Responsaveis/loader.php?CPF=' . $Usuario['LOGIN']);
+							header('Location: perfil?CPF=' . $Usuario['LOGIN']);
+							exit();	
 							break;
 						default: 
-							session_start();
 							$_SESSION['ADMINLOGGED'] = true;
-							header('Location: View/Admin/loader.php');
+							header('Location: admin/dashboard');
+							
 						break;
 					}
 					

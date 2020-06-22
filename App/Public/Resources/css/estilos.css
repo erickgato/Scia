@@ -4,10 +4,6 @@
   font-family: Candara;
   
 }
-@font-face{
-  font-family: 'haboro';
-  src: url("../Fonts/EM-Haboro.Soft/");
-}
 ::-webkit-scrollbar-track {
   background-color: #F4F4F4;
 }

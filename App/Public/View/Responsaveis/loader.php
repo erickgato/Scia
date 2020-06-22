@@ -1,19 +1,14 @@
 <?php
-            session_start();
             if(!isset($_SESSION['USERLOGGED']))
-                header('Location: ../../index.php');
+                //header('Location: ../../index.php');
+                echo "Vaza daqui viado";
+
             else{
-                define("PATH",'../../../');
-                require_once PATH . 'Model/SCHEMA.php';
-                require_once PATH . 'config.php';
-                $CPF = (string) $_GET['CPF'];
-                
+                $CPF = (string) $_GET['CPF'];       
             }
-            require_once  PATH. 'functions/Loader.php';
             $Resp = DATABASE::SELECT('sc_responsavel',"WHERE Re_CPF = '{$CPF}'");
             $Urs_name = strtoupper($Resp[0]['Re_nome']);
             $_SESSION['USERNAME'] = $Urs_name;
             $_SESSION['USERCPF'] = $CPF;
             $_SESSION['USERID'] = $Resp[0]['Re_cod'];
-            header("Location: index.php");
-        ?>
+            include PUBLICPATH . '/View/Responsaveis/index.php';

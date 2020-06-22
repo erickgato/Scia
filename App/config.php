@@ -1,5 +1,5 @@
 <?php
-$ShowLogs = false; //DEBUG DE CODE ?
+$ShowLogs = true; //DEBUG DE CODE ?
 //IF SERVER === WAMP DEFINE PORT = 3308 
 // ELSE IF SERVER == XAMP DEFINE PORT = 3306
 $DBCONFIG = array( 
@@ -14,3 +14,9 @@ define( "USER"  , $DBCONFIG[ 'USER' ]);
 define( "USERPASS"  , $DBCONFIG[ 'PASS' ]);
 define( "INSTANCE", $DBCONFIG['INSTANCE'] );
 define( "PORT", $DBCONFIG['PORT'] );
+//PATH
+define( "STYLES", PATH . 'Public/Resources/css/');
+define("PUBLICPATH", PATH.'Public');
+define("RESOCS", PUBLICPATH . '/Resources');
+define("HTTPORIGIN", '192.168.0.14/scia');
+define("IMAGES", RESOCS . '/images');

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>SCIA - Login</title>
-	<link rel="stylesheet" type="text/css" href="Resources/css/estilos.css"/>
+	<link rel="stylesheet" type="text/css" href="App/Public/Resources/css/estilos.css"/>
 	<link rel="shortcut icon" href="Images/icone.ico" />
 </head>
 <body class="corpo">
@@ -11,10 +11,10 @@
 			include_once 'Resources/Cabecalhos/Menu.php';
 			MENU::LOGIN();
 		?>
-		 <script src="Resources/js/estilos.js"></script>
+		 <script src="App/Public/Resources/js/estilos.js"></script>
 	</header>
 	<div class="painel">
-		<form action="login.php" method="post">
+		<form action="" method="post">
 			<label class="titulo">
 				Logar
 			</label>
@@ -48,7 +48,10 @@
                 <?php
 					if(isset($_GET['message'])){
 						echo "<p>Usuario e / ou senha incorretos</p>";
-						}
+					}
+					if(isset($_POST['btn_enviar'])){
+                        include PUBLICPATH . '/login.php';
+                    }
 				?>
                 </div>
 	</div>

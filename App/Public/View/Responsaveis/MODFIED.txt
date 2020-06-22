@@ -1,4 +1,0 @@
-Usuário conseque inserir cpf e senha no login; 
-Login apenas aceita numeros 
-senha será criptografada 
-Senha Criptografada registrada no banco de dados
