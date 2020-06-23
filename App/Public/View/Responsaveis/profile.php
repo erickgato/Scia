@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="Pt-Br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/profile.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/profile_test.css" />
     <title>Cadastro</title>
 </head>
+
 <body class="L-Content">
     <header>
         <?php
@@ -24,8 +26,6 @@
         ?>
     </header>
     <main>
-        
-        <div class="Content">
         <div class="sopt-sidebar">
             <nav class="sideoption">
                 <ul>
@@ -42,36 +42,37 @@
                             <figure><img src="<?php echo IMAGES; ?>/icons/Prof.png" alt="Profile"></figure>
                             <span>Perfil</span>
                         </a></li>
-                    <li id="notification"> <a href="#">
+                    <li> <a href="#">
                             <figure><img src="<?php echo IMAGES; ?>/icons/Not.png" alt="Notification">
                             </figure>
                             <span id="span-notify">Notificação</span>
                         </a></li>
                 </ul>
-                </nav>
-            
+
+            </nav>
         </div>
-            <p class="Title">Modifique as informações do usuário aqui</p>
-            <form action="" method="post">
-                <label class="labelcontentname">Nome completo
-                    <input class="caixaname" type="text" name="Username" required>
+        <div class="Content">
+            <span class="Title">Modifique as informações do usuário aqui</span>
+            <form action="POSTDATA/AlterarUser" method="post">
+                <label>Nome completo
+                    <input class="caixa" type="text" name="Username" required>
                 </label>
-                <label class="labelcontent">Endereço de email
-                    <input class="caixaemail" type="text" name="mailaddress" required>
+                <label>Endereço de email
+                    <input class="caixa" type="text" name="mailaddress" required>
                 </label>
-                <label class="labelcontent">Endereço
-                    <input class="caixaend" type="text" name="address" required>
+        </br>
+                <label>Endereço
+                    <input class="caixa" type="text" name="address" required>
                 </label>
-                <label class="labelcontent">Telefone
-                    <input class="caixatel" type="text" name="Tel" required>
+                <label>Telefone
+                    <input class="caixa" type="text" name="Tel" required>
                 </label>
-                <label class="labelcontentcep">CEP
-                    <input class="caixacep" type="text" name="Cep" required>
+                <label>CEP
+                    <input class="caixa" type="text" name="Cep" required>
                 </label>
-                <input class= "botao" type="submit" name="Send" value="Salvar">
+                <input type="submit" name="Send">
             </form>
         </div>
-        
     </main>
     <footer>
 </body>
