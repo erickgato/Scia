@@ -26,7 +26,7 @@ function GerarMenuAdmin(){
                 </li>
                 <li><a href="#">CONSULTAR </a>
                     <ul class="submenu">
-                        <li><a href="buscarAluno.php">ALUNO</a></li>
+                        <li><a href="ConsultarAluno">ALUNO</a></li>
                         <li><a href="BuscarResponsavel">RESPONSAVEL</a></li>
                     </ul>
                 </li>

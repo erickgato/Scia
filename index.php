@@ -16,6 +16,9 @@ session_start();
    if(ROUTE::GET('autoaluno')){
         includePublic('View/Responsaveis/autorizaaluno.php');
    }
+   if(ROUTE::GET('ConsultarAluno')){
+    includePublic('View/Admin/ConsultarAluno.php');
+}
    if(ROUTE::GET('CadastrarAluno')){
     includePublic('View/Admin/CadastrarAluno.php');
     }

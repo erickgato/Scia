@@ -52,6 +52,29 @@ final class DATABASE{
         else 
             return DATABASE::SelectNumRows($result);
     }
+    static function JOIN
+    (
+        string $tablename, string $condiction = null, string $JoinClause = null,
+        $limit = null, bool $rtnNmRows = false 
+    ){
+
+        $Conn = DATABASE::Singleton();
+        $sql = '';
+        $limitQuery = ($limit == null) ? "" : "LIMIT {$limit}";
+            if($condiction == null)
+                $sql = "SELECT * FROM {$tablename} {$JoinClause} {$limit} ";
+            else
+             $sql = "SELECT * FROM {$tablename} {$JoinClause} {$condiction} {$limit}";
+
+        $result = $Conn->query($sql);
+        $log = (!$result) ? $Conn->error : 'QUERY INSERTED WHITH RESULT SUCESS';
+        DEBUG::log($log);
+        $Conn->close();
+        if(!$rtnNmRows)
+            return DATABASE::SelectAssoc($result);
+        else 
+            return DATABASE::SelectNumRows($result);
+    }
     //You need to put the query into database and use this method
     private static function SelectNumRows($resultquery){
         $nmrows = mysqli_num_rows($resultquery);

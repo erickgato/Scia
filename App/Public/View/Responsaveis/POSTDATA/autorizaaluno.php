@@ -1,9 +1,5 @@
 <?php
 if(isset($_POST['Enviar'])){
-    session_start();
-    include_once  '../../../../config.php';
-    include_once  '../../../../Model/SCHEMA.php';
-    include_once  '../../../../classes/class-debug.php';
     function Postdata(string $name){
         $typevar = $_POST[$name];
         return $typevar;
@@ -20,10 +16,10 @@ if(isset($_POST['Enviar'])){
         '',$Ocorrencia['UserId'],$Aluno[0]['Al_cod'],1,$Ocorrencia['Observ'],$Ocorrencia['Date']
         ]);
     if($insert){
-        header("Location: ../autorizaaluno.php?m=Sucess");
+        header("Location: ?m=Sucess");
     }
     else{
-        header("Location: ../autorizaaluno.php?m=Error");
+        header("Location: ?m=Error");
     }
 }
 

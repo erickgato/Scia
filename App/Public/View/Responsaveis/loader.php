@@ -1,7 +1,7 @@
 <?php
             if(!isset($_SESSION['USERLOGGED']))
-                //header('Location: ../../index.php');
-                echo "Vaza daqui viado";
+                header('Location: ../../index.php');
+               
 
             else{
                 $CPF = (string) $_GET['CPF'];       

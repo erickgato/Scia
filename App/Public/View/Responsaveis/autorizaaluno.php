@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="../../Resources/css/estilos.css"/> 
+    <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/estilos.css" /> 
     <title>Cadastro</title>
 </head>
 <body class="corpo">
@@ -13,16 +13,13 @@
            include_once RESOCS . '/Cabecalhos/Menu.php';
             $username = $_SESSION['USERNAME'];
             MENU::RESPONSAVEL(0,"index.php");
-            include_once  '../../../config.php';
-            include_once  '../../../Model/SCHEMA.php';
-            include_once  '../../../classes/class-debug.php';
             $WHERE = "WHERE AL_codResponsavel = {$_SESSION['USERID']}";
             $FETCHALUN = DATABASE::SELECT('sc_aluno',$WHERE);
        ?>
     </header>
     <div id="container">
         <script src="../../Resources/js/estilos.js"></script>
-        <form action="POSTDATA/autorizaaluno.php" method="post">
+        <form action="" method="post">
             <div class="painel">
             <label class="title_aut">
 				Autorizar Aluno
@@ -60,10 +57,11 @@
                         Observações</label>
                             <textarea name="Obs" class="textareaaluno" cols="5" rows="3"></textarea>
                 </div>
-            <input type="submit" class="btnaluno" name="Enviar"/>
+            <input type="submit" class="botao" name="Enviar"/>
         </div>
     </form>
     <?php 
+    include PUBLICPATH .  '/View/Responsaveis/POSTDATA/autorizaaluno.php';
     if(isset($_GET['m'])){
         switch($_GET['m']){
             case 'Sucess': 

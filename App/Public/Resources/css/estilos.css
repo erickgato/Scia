@@ -238,3 +238,41 @@ a:link{
   float: right;
 }
 /*FIM DO MENU*/
+/* ConsultarAluno */
+table {
+  margin-top: 4%;
+  margin-left: 5%;
+  height: 40vh;
+	width: 90vw;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.9);
+}
+
+th,
+td {
+	padding: 2%;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
+}
+
+th {
+	text-align: left;
+}
+
+thead 
+	th {
+		background-color: #55608f;
+	}
+
+
+tbody
+	tr:hover {
+      font-size: 17pt;
+			background-color: rgba(255,255,255,0.3);
+    }
+  td:hover{
+				z-index: -1;
+  }
+
+/* ////////////////////////////////////////////////////// */  
