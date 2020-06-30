@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Jun-2020 às 18:01
+-- Tempo de geração: 30-Jun-2020 às 22:19
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.2.31
 
@@ -48,7 +48,9 @@ INSERT INTO `sc_aluno` (`Al_cod`, `Al_codUnidade`, `Al_nome`, `Al_sobrenome`, `A
 (59, 2, 'Jhones', 'Youtuber', '2013-02-05', '399.211.233-12', 29),
 (60, 1, 'João Pedro ', 'Karas Butka', '2003-03-06', '110.404.567-87', 30),
 (61, 2, 'Maria Gabriella ', 'karas Butka', '2001-03-18', '110.404.589-39', 30),
-(62, 1, 'Bruno ', 'Novak', '2000-12-21', '118.370.519-09', 30);
+(62, 1, 'Bruno ', 'Novak', '2000-12-21', '118.370.519-09', 30),
+(63, 2, 'Matilda', 'Junior amarante', '2000-06-14', '002.055.192-43', 31),
+(64, 2, 'Erick', 'Gato', '2003-07-07', '031.967.993-21', 31);
 
 -- --------------------------------------------------------
 
@@ -181,9 +183,7 @@ CREATE TABLE `sc_ocorrencia` (
 --
 
 INSERT INTO `sc_ocorrencia` (`Oc_cod`, `Oc_codUser`, `Oc_codAluno`, `Oc_codtpOcorrencia`, `Oc_observacao`, `Oc_data`) VALUES
-(6, 23, 59, 1, 'Aluno precisa de cuidados medicos CORONA', '2020-06-12'),
-(7, 24, 61, 1, 'Tá doente essa quenga', '2020-06-12'),
-(8, 24, 60, 1, 'Vagabundo quer fumar, libera esse traste!', '2020-06-12');
+(12, 25, 63, 1, 'Necessita cagar', '2020-06-24');
 
 -- --------------------------------------------------------
 
@@ -218,7 +218,8 @@ INSERT INTO `sc_responsavel` (`Re_cod`, `Re_RG`, `Re_CPF`, `Re_nascimento`, `Re_
 (27, '6664534534', '332.234.234-24', '2020-07-02', 'unset', 'Oas', 1, 4),
 (28, '5464423423', '110.432.300-32', '2020-06-25', '', 'Tramontina souza 7782', 1, 3),
 (29, '1004050232', '031.948.002-05', '1994-05-09', 'Erick', 'Manolo nunes bairro, 9032', 1, 3),
-(30, '123456879', '029.645.619-58', '1980-06-24', 'Adelaine Cristina Karas', 'Rua Joaquim Inácio de Souza', 5, 4);
+(30, '123456879', '029.645.619-58', '1980-06-24', 'Adelaine Cristina Karas', 'Rua Joaquim Inácio de Souza', 5, 4),
+(31, '5526913171', '155.355.226-35', '1968-11-13', 'Juviscreudo da Silva Amarante', 'Rua pão de açúcar 666 apartamento 69', 5, 4);
 
 -- --------------------------------------------------------
 
@@ -362,13 +363,14 @@ CREATE TABLE `sc_usuario` (
 
 INSERT INTO `sc_usuario` (`Us_cod`, `Us_login`, `Us_senha`, `Us_codtpUsuario`, `Us_modifiedat`) VALUES
 (7, '03194800205', '123', 2, '2020-06-04'),
-(8, '12345678910111', 'admin', 3, '2020-06-04'),
+(8, '031.948.002-05', 'admin', 3, '2020-06-04'),
 (19, '031.948.002-08', '031.948.002-08', 2, '2020-06-12'),
 (20, '110.432.300-36', '110.432.300-36', 2, '2020-06-12'),
 (21, '332.234.234-24', '332.234.234-24', 2, '2020-06-12'),
 (22, '110.432.300-32', '110.432.300-32', 2, '2020-06-12'),
 (23, '031.948.002-05', '031.948.002-05', 2, '2020-06-12'),
-(24, '029.645.619-58', '029.645.619-58', 2, '2020-06-12');
+(24, '029.645.619-58', '029.645.619-58', 2, '2020-06-12'),
+(25, '155.355.226-35', 'MTU1LjM1NS4yMjYtMzU=', 2, '2020-06-20');
 
 -- --------------------------------------------------------
 
@@ -393,7 +395,8 @@ INSERT INTO `sc_usuario_responsavel` (`ur_id`, `id_user`, `cpf_resp`) VALUES
 (14, 21, '332.234.234-24'),
 (15, 22, '110.432.300-32'),
 (16, 23, '031.948.002-05'),
-(17, 24, '029.645.619-58');
+(17, 24, '029.645.619-58'),
+(18, 25, '155.355.226-35');
 
 --
 -- Índices para tabelas despejadas
@@ -522,7 +525,7 @@ ALTER TABLE `sc_usuario_responsavel`
 -- AUTO_INCREMENT de tabela `sc_aluno`
 --
 ALTER TABLE `sc_aluno`
-  MODIFY `Al_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `Al_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT de tabela `sc_bairro`
@@ -558,13 +561,13 @@ ALTER TABLE `sc_funcionario`
 -- AUTO_INCREMENT de tabela `sc_ocorrencia`
 --
 ALTER TABLE `sc_ocorrencia`
-  MODIFY `Oc_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Oc_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `sc_responsavel`
 --
 ALTER TABLE `sc_responsavel`
-  MODIFY `Re_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `Re_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de tabela `sc_tp_contato`
@@ -606,13 +609,13 @@ ALTER TABLE `sc_unidade`
 -- AUTO_INCREMENT de tabela `sc_usuario`
 --
 ALTER TABLE `sc_usuario`
-  MODIFY `Us_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `Us_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de tabela `sc_usuario_responsavel`
 --
 ALTER TABLE `sc_usuario_responsavel`
-  MODIFY `ur_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ur_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Restrições para despejos de tabelas

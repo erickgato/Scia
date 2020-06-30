@@ -13,7 +13,16 @@ final class ROUTE{
         }
             
         }
+    static function RETURN(){
+        if(isset($_GET['url'])){
+            $url =  $_GET['url'];
+            DEBUG::LOG($url);
+            return $url;
+        }
     }
+
+}
+
 function includePublic(string $file){
     require PUBLICPATH . "/$file";
 }

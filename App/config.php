@@ -20,3 +20,4 @@ define("PUBLICPATH", PATH.'Public');
 define("RESOCS", PUBLICPATH . '/Resources');
 define("HTTPORIGIN", '192.168.0.14/scia');
 define("IMAGES", RESOCS . '/images');
+define("VENDOR",RESOCS . '/Vendor');

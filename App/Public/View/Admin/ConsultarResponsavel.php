@@ -15,25 +15,30 @@
         <?php
             include_once RESOCS . '/Cabecalhos/menuAdm.func.php';
             GerarMenuAdmin();
-            $Alunos = DATABASE::JOIN('sc_aluno',null,"AS AL INNER JOIN sc_unidade AS UN ON AL.Al_codUnidade = UN.Un_cod INNER JOIN sc_responsavel AS RESP on AL.Al_codResponsavel = RESP.Re_cod;");
-            $js_Alunos_json = json_encode($Alunos);
+            $Responsaveis = DATABASE::JOIN('sc_responsavel',null,"
+            AS RESP INNER JOIN sc_tp_logradouro as TPL on 
+            RESP.Re_codtpLogradouro = TPL.TL_cod INNER JOIN
+            sc_bairro as BAIRRO on RESP.Re_codBairro = BAIRRO.Ba_cod
+            ");
+            $js_responsavel = json_encode($Responsaveis);
        ?>
     </header>
 
     <main>
         <div class="Searchbar">
-            <input class="search-txt" type="text" name="search" oninput="Aluno.Filter(value)" placeholder="Search..">
-            <div style="display:none;" id="Al_Json"><?php echo $js_Alunos_json; ?></div>
+            <input class="search-txt" type="text" name="search" oninput="Responsavel.Filter(value)"
+                placeholder="Search..">
+            <div style="display:none;" id="resp_Json"><?php echo $js_responsavel; ?></div>
         </div>
 
         <table>
             <thead>
                 <tr>
                     <th>Nome</th>
-                    <th>Responsavel</th>
-                    <th>Unidade</th>
-                    <th>DataNascimento</th>
+                    <th>RG</th>
                     <th>CPF</th>
+                    <th>Idade</th>
+                    <th>Endereço</th>
                 </tr>
             </thead>
             <tbody class="databody">
@@ -44,7 +49,7 @@
     </script>
     <script>
     window.onload = () => {
-        Aluno.Filter("");
+        Responsavel.Filter("");
     };
     </script>
 </body>

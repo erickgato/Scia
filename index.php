@@ -4,24 +4,34 @@ session_start();
   if(!isset($_GET['url'])){
         includePublic('FLogin.php');
         session_destroy();
+        exit;
   }
-      
-   if(ROUTE::GET('Admin')){
-       includePublic('Admin.php');
-       session_destroy();
-   }
-   if(ROUTE::GET('perfil')){
-       includePublic('View/Responsaveis/loader.php');
-   }
-   if(ROUTE::GET('autoaluno')){
+  switch(ROUTE::RETURN()){
+      case 'Admin':
+        includePublic('Admin.php');
+      break;
+      case 'perfil':
+        includePublic('View/Responsaveis/loader.php');
+      break;
+      case 'autoaluno':
         includePublic('View/Responsaveis/autorizaaluno.php');
-   }
-   if(ROUTE::GET('ConsultarAluno')){
-    includePublic('View/Admin/ConsultarAluno.php');
-}
-   if(ROUTE::GET('CadastrarAluno')){
-    includePublic('View/Admin/CadastrarAluno.php');
-    }
-    if(ROUTE::GET('CadastrarResponsavel')){
+      break;
+      case 'ConsultarAluno': 
+        includePublic('View/Admin/ConsultarAluno.php');
+      break;
+      case 'ConsultarResponsavel': 
+        includePublic('View/Admin/ConsultarResponsavel.php');
+      break;
+      case 'CadastrarAluno':
+        includePublic('View/Admin/CadastrarAluno.php');
+      break;
+      case 'CadastrarResponsavel':
         includePublic('View/Admin/CadastrarResponsavel.php');
-    }
+      break;
+      case 'CadastrarFuncionario':
+        includePublic('View/Admin/CadastrarFuncionario.php');
+      break;
+      default:
+        includePublic('View/404.html');
+      break;
+  }    

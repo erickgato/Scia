@@ -3,7 +3,7 @@
 
 <head>
     <title>SCIA - Login</title>
-    <link rel="stylesheet" type="text/css" href= "App/Public/Resources/css/estilos.css"/>
+    <link rel="stylesheet" type="text/css" href="App/Public/Resources/css/FLogin.css" />
     <link rel="shortcut icon" href="Images/icone.ico" />
 </head>
 
@@ -11,7 +11,7 @@
     <header>
         <?php
 			include_once 'App/Public/Resources/Cabecalhos/Menu.php';
-            MENU::LOGIN();
+            //MENU::LOGIN();
 		?>
         <script src="App/Public/Resources/js/estilos.js"></script>
 
@@ -20,18 +20,23 @@
 
         <div class="painel">
             <form action="" method="post">
-                <h2 class="titulo">
-                    Logar
-                </h2>
+            <span class="text-center">login</span>
                 <!-- Input para o login.php indicando que nesta página só podem ser cadastrados
 				Usuarios do tipo 2(Responsáveis) -->
                 <input type="hidden" name="codtpusr" value="2">
+
+                <div class="input-container">
                 <label class="subtitulo"> CPF </label>
-                <input class="caixa input-login" type="text" name="usu_cpf" required placeholder="Digite Seu CPF"
-                    onkeydown="javascript: fMasc( this, mCPF )" maxlength="14" />
+                    <input type="text" name="usu_cpf" required placeholder="Digite Seu CPF"
+                        onkeydown="javascript: fMasc( this, mCPF )" maxlength="14" />
+                </div>
+
+                <div class="input-container">
                 <label class="subtitulo">Senha</label>
-                <input class="caixa input-login" type="password" password name="usu_pass" required
-                    placeholder="Digite Sua Senha" />
+                    <input type="password" password name="usu_pass" required
+                        placeholder="Digite Sua Senha" />       
+                </div>
+                    
                 <input type="submit" value="Entrar" class="botao" name='btn_enviar' />
             </form>
             <div class="response-Message">
@@ -43,7 +48,7 @@
                         include PUBLICPATH . '/login.php';
                     }
 				?>
-                </div>
+            </div>
         </div>
     </main>
 </body>

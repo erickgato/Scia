@@ -29,7 +29,6 @@
         <div class="sopt-sidebar">
             <nav class="sideoption">
                 <ul>
-                    </br>
                     <li class="Up-image">
                         <figure>
                             <img src="<?php echo IMAGES; ?>/uploads/Adelaine.jpg" alt="">
