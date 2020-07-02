@@ -23,8 +23,8 @@
 ?>
     </header>
     <div id="container">
-        <script src="../../Resources/js/estilos.js"></script>
-        <form action="POSTDATA/CadastrarResponsavel.php" method="post">
+        <script src="<?php echo RESOCS; ?>/js/estilos.js"></script>
+        <form action="" method="post">
             <div class="painel">
                 <label class="title_register">
                     Cadastro de responsaveis
@@ -54,18 +54,16 @@
                     </select>
                     <label class="subtitulo">Bairro </label>
                     <select class="caixa" type="text" value="" name="T_CodBairro">
-                        <?php 
-                                        foreach ($bairros as $bairro) {
-                                            echo '<option value = "' .$bairro['Ba_cod'] . '">' . $bairro['Ba_nome'] . '</option>';
-                                        }
-                                    ?>
+                        <?php foreach ($bairros as $bairro): ?>
+                        <option value="<?php echo $bairro['Ba_cod'];?>"><?php echo $bairro['Ba_nome'];?></option>
+                        <?php endforeach; ?>
                     </select>
-
                 </div>
                 <input type="submit" class="button" name="Enviar" />
             </div>
 
         </form>
+        <?php include PUBLICPATH . '/View/Admin/POSTDATA/CadastrarResponsavel.php' ?>
         <footer> powered by scia</footer>
     </div>
 </body>
