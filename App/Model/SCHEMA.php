@@ -52,6 +52,7 @@ final class DATABASE{
         else 
             return DATABASE::SelectNumRows($result);
     }
+    
     static function JOIN
     (
         string $tablename, string $condiction = null, string $JoinClause = null,
@@ -104,6 +105,36 @@ final class DATABASE{
             $result = false;
         }             
         else{ 
+            DEBUG::print("{$sql} INSERTED SUCESS !"); 
+            $result = true;
+        }
+        $Conn->close(); 
+        return $result;
+    }
+    static function UPDATE(
+        string $table, $delimiter /*  O que irá delimitar o UPDATE */, array $fields, 
+        array $vals 
+    ){
+        
+    $newfields = "";
+    for($index = 0;$index < count($fields) ; $index++){
+        if(count($fields) -1 == $index){
+            $newfields .= " $fields[$index] =  '$vals[$index]' ";
+        }
+         else{
+            $newfields .= " $fields[$index] =  '$vals[$index]',";
+         }  
+    }
+    $sql = "UPDATE {$table} set {$newfields} where {$delimiter} ";
+    $Conn = DATABASE::Singleton();
+    $insertedQuery = $Conn->query($sql);
+        //Verify if the query returns error 
+        
+    if(!$insertedQuery){
+            DEBUG::print("ERROR: {$Conn->error}, sql is {$sql}");
+            $result = false;
+        }             
+    else{ 
             DEBUG::print("{$sql} INSERTED SUCESS !"); 
             $result = true;
         }
