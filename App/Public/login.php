@@ -18,7 +18,8 @@
 					switch($CodTpUsu){
 						case 2: 
 							$_SESSION['USERLOGGED'] = true;
-							header('Location: perfil?CPF=' . $Usuario['LOGIN']);
+							setcookie("USER[CPF]",(string)$Usuario['LOGIN'],time() + 3600);
+							header('Location: perfil');
 							exit;	
 							break;
 						default: 
