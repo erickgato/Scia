@@ -56,7 +56,7 @@
                         <input class="caixa" id="input-text" name="CPFresp" type="text" value="<?php echo $CPFresp; ?>" placeholder="Digite o CPF do Responsavel" required/>
                         
                 </div>
-            <input type="submit" class="button" name="Enviar"/>
+            <input type="submit" class="button" name="Enviar" value="Registrar"/>
         </div>
     </form>
 	<?php 
