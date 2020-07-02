@@ -1,19 +1,10 @@
 <?php
-session_start();
-    if(isset($_SESSION['PATH']))
-       define("PATH",$_SESSION['PATH']);
-    else
-        header("Location: ../../../index.php");
-    
+ 
     function Postdata(string $name){
             $typevar = $_POST[$name];
             return $typevar;
         }
-    include_once '../../../Resources/Cabecalhos/menuAdm.func.php';
-     //Incluindo classes 
-    require_once '../../../../config.php';
-    require_once '../../../../Model/SCHEMA.php';
-    require_once '../../../../classes/class-debug.php';
+
     if(isset($_POST['Enviar'])){ 
                    
         $Responsavel = array(
@@ -52,10 +43,12 @@ session_start();
                 $cod = $RespCreated[0]['Us_cod'];
                 //Insere dados na terceira tabela de usuario e responsavel
                 $ThirdTable = DATABASE::INSERT('sc_usuario_responsavel',['',$cod,$Responsavel['CPF']]);
+                $HTTPORIGIN = HTTPORIGIN;
                 if($ThirdTable){
                     echo "<script>alert('Dados inseridos com sucesso!')</script>";
-                    header("Location: ../CadastrarAluno.php?Resp_CPF={$Responsavel['CPF']}");
                    
+                    echo "<script>window.location.href = '{$HTTPORIGIN}/CadastrarAluno?Resp_CPF={$Responsavel['CPF']}'</script>";
+                   exit;
                 }
                 else{
                     echo "Falha ao criar indice";
@@ -74,4 +67,4 @@ session_start();
            
         
     }
-        
+?>
