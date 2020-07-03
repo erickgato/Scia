@@ -31,6 +31,9 @@ session_start();
       case 'CadastrarFuncionario':
         includePublic('View/Admin/CadastrarFuncionario.php');
       break;
+      case 'homeadmin':
+        includePublic('View/Admin/home.php');
+      break;
       default:
         includePublic('View/404.html');
       break;
