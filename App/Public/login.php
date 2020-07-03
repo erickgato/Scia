@@ -24,7 +24,7 @@
 							break;
 						default: 
 							$_SESSION['ADMINLOGGED'] = true;
-							header('Location: CadastrarAluno');
+							header('Location: homeadmin');
 							exit;
 						break;
 					}
