@@ -49,7 +49,7 @@
                     <ul>
                         <li class="Up-image">
                             <figure>
-                                <img src="<?php echo IMAGES; ?>/uploads/Adelaine.jpg" alt="">
+                                <img src="<?php echo IMAGES; ?>/uploads/tmp_image.png" alt="">
                             </figure>
                         </li>
                         <li>
