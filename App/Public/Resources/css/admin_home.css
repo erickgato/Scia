@@ -1,0 +1,193 @@
+@font-face {
+  font-family: metropolis;
+  src: url("../Fonts/Metropolis/Metropolis-Regular.otf");
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+body {
+  font-family: metropolis;
+  width: 100%;
+  min-height: 100%;
+  background: cornsilk;
+  /*
+  background: -webkit-linear-gradient(45deg, #00dbde, #fc00ff);
+  background: -o-linear-gradient(45deg, #00dbde, #fc00ff);
+  background: -moz-linear-gradient(45deg, #00dbde, #fc00ff);
+  background: linear-gradient(45deg, #00dbde, #fc00ff);
+  */
+}
+ul {
+  list-style: none;
+}
+.level,
+.Menuitem ul,
+nav input[type="checkbox"],
+.hammain #opmenu {
+  display: none;
+}
+nav .hammain ~ #opmenu:checked,
+.level,
+.Menuitem input:checked ~ ul {
+  display: block;
+}
+.Menuitem input:checked ~ ul {
+  box-shadow: 0 0 0.4em rgb(223, 223, 219);
+  transition: 0.2s;
+}
+label {
+  width: 100%;
+  display: block;
+  z-index: 3;
+  position: relative;
+}
+nav.menu {
+  width: 6%;
+  background-color: #ededed;
+  color: rgb(0, 0, 0);
+  overflow: hidden;
+  position: absolute;
+  animation: resetarmenu 1s both;
+  -webkit-font-smoothing: antialiased;
+}
+.Menuitem ul li {
+  margin-left: -14%;
+  border-left: 1px solid rgb(0, 0, 0);
+}
+.Menuitem ul li a {
+  color: rgb(0, 0, 0);
+  font-style: italic;
+  font-size: small;
+}
+nav ul,
+nav li,
+label {
+  line-height: 10vh;
+  margin: 0;
+  padding: 0 2em;
+  list-style: none;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: 100;
+  width: 100%;
+}
+nav li a {
+  line-height: 10vh;
+  margin: 0;
+  padding: 0 2em;
+  list-style: none;
+  text-decoration: none;
+  color: blue;
+  font-weight: 100;
+  width: 100%;
+}
+nav.menu.MenuRed {
+  animation: redimensionarmenu 1s both;
+}
+@keyframes redimensionarmenu {
+  0% {
+    width: 0%;
+    height: 100%;
+  }
+  100% {
+    width: 15%;
+    height: 100%;
+  }
+}
+@keyframes resetarmenu {
+  0% {
+    width: 18%;
+    height: 100%;
+  }
+  100% {
+    line-height: 3vh;
+    text-align: left;
+    background-color: transparent;
+    width: 9%;
+    height: 9vh;
+  }
+}
+.level .Menuitem label {
+  cursor: pointer;
+  font-size: 14pt;
+}
+.level .Menuitem label:hover {
+  /* color: gold; */
+  box-shadow: 0 0 1em rgb(37, 37, 36);
+  transition: 0.3s;
+}
+
+.level .Menuitem label:active {
+  color: green;
+  box-shadow: 0 0 1em gold;
+}
+.level .Menuitem ul li a:hover {
+  color: orange;
+}
+.arrow {
+  float: left;
+  width: 1rem;
+  height: 1rem;
+  vertical-align: middle;
+  float: left;
+  z-index: 0;
+  margin: 1.3em 1em 0 2em;
+}
+.home {
+  float: left;
+  width: 1.3rem;
+  height: 1.3rem;
+  vertical-align: middle;
+  float: left;
+  z-index: 0;
+  margin: 1.3em 1em 0 2em;
+}
+.Menuitem input + .arrow {
+  transform: rotate(-93deg);
+  transition: 0.1s;
+}
+.Menuitem input:checked + .arrow {
+  transform: rotate(0deg);
+  transition: 0.1s;
+}
+.hammain {
+  background-color: transparent;
+}
+#loggout {
+  color: rgb(218, 84, 84);
+}
+.hammain.menuopened {
+  margin-left: 90px;
+  background-color: transparent;
+}
+/* ****************************************************************
+[content] */
+main {
+  float: right;
+  width: 82%;
+  margin-right: 0.8em;
+  margin-top: 0.8em;
+  height: 97%;
+  box-shadow: 0 1em 2em gray;
+  background-color: cornsilk;
+}
+.card-group .card {
+  background-color: cornsilk !important;
+  box-shadow: 0 1em 2em gray;
+  width: 23%;
+  height: 23%;
+  margin-top: 1%;
+  margin-left: 1%;
+}
+.card.a {
+  float: left;
+}
+.card.b {
+  margin-right: 50%;
+  float: right;
+}
