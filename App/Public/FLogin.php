@@ -2,9 +2,9 @@
 <html>
 
 <head>
-    <title>SCIA - Login</title>
+    <title>LOGIN</title>
     <link rel="stylesheet" type="text/css" href="App/Public/Resources/css/FLogin.css" />
-    <link rel="shortcut icon" href="Images/icone.ico" />
+    <link rel="shortcut icon" href="<?php echo RESOCS; ?>/images/icons/logo/favicon.png" type="image/x-icon" />
 </head>
 
 <body class="corpo">
@@ -20,23 +20,22 @@
 
         <div class="painel">
             <form action="" method="post">
-            <span class="text-center">login</span>
+                <span class="text-center">login</span>
                 <!-- Input para o login.php indicando que nesta página só podem ser cadastrados
 				Usuarios do tipo 2(Responsáveis) -->
                 <input type="hidden" name="codtpusr" value="2">
 
                 <div class="input-container">
-                <label class="subtitulo"> CPF </label>
+                    <label class="subtitulo"> CPF </label>
                     <input type="text" name="usu_cpf" required placeholder="Digite Seu CPF"
                         onkeydown="javascript: fMasc( this, mCPF )" maxlength="14" />
                 </div>
 
                 <div class="input-container">
-                <label class="subtitulo">Senha</label>
-                    <input type="password" password name="usu_pass" required
-                        placeholder="Digite Sua Senha" />       
+                    <label class="subtitulo">Senha</label>
+                    <input type="password" password name="usu_pass" required placeholder="Digite Sua Senha" />
                 </div>
-                    
+
                 <input type="submit" value="Entrar" class="botao" name='btn_enviar' />
             </form>
             <div class="response-Message">
