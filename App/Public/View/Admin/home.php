@@ -71,20 +71,39 @@
     </section>
     <section>
         <main>
-            <div class="card-group">
-                <div class="card a">
-                    <h3>Quantidade de liberações</h3>
-                    <span class="card-content">90</span>
+            <div class="Mheader">
+                <div class="Mheader content">
+                    <h1>Bem Vindo !</h1>
+                    <h3>ao sistema de controle interação ambiente</h3>
                 </div>
-                <div class="card b">
-                    <h3>Quantidade de ocorrencias Registradas</h3>
-                    <span class="card-content">98</span>
-                </div>
-            </div>
-            <div>
-                <h1>Alunos Liberados</h1>
 
             </div>
+            <div class="card-group">
+                <div class="card a">
+                    <div class="card-content">
+                        <h2>192</h2>
+                        <span>Alunos</span>
+                        <p>liberados hoje</p>
+                    </div>
+                </div>
+                <div class="card b">
+                    <div class="card-content">
+                            <h2>19</h2>
+                            <span>Ocorrências</span>
+                            <p>Registradas</p>
+                        </div>
+                </div>
+                <div class="card c">
+                    <div class="card-content">
+                            <h2>900</h2>
+                            <span>Alunos</span>
+                            <p>Cadastrados</p>
+                        </div>
+                </div>
+            </div>
+            <div class="ListAL">
+            </div>
+            <div class="OCchart"></div>
         </main>
     </section>
     <section>

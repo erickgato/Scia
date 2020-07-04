@@ -14,7 +14,7 @@ body {
   font-family: metropolis;
   width: 100%;
   min-height: 100%;
-  background: cornsilk;
+  background-image: url('http://localhost/scia/App/Public/Resources/images/librarybackground.jpg');
   /*
   background: -webkit-linear-gradient(45deg, #00dbde, #fc00ff);
   background: -o-linear-gradient(45deg, #00dbde, #fc00ff);
@@ -48,7 +48,7 @@ label {
 }
 nav.menu {
   width: 6%;
-  background-color: #ededed;
+  background-color: #ffffff;
   color: rgb(0, 0, 0);
   overflow: hidden;
   position: absolute;
@@ -109,7 +109,7 @@ nav.menu.MenuRed {
     text-align: left;
     background-color: transparent;
     width: 9%;
-    height: 9vh;
+    height: 6vh;
   }
 }
 .level .Menuitem label {
@@ -136,7 +136,7 @@ nav.menu.MenuRed {
   vertical-align: middle;
   float: left;
   z-index: 0;
-  margin: 1.3em 1em 0 2em;
+  margin: 12% 1em 0 2em;
 }
 .home {
   float: left;
@@ -145,7 +145,7 @@ nav.menu.MenuRed {
   vertical-align: middle;
   float: left;
   z-index: 0;
-  margin: 1.3em 1em 0 2em;
+  margin: 14% 1em 0 2em;
 }
 .Menuitem input + .arrow {
   transform: rotate(-93deg);
@@ -174,13 +174,13 @@ main {
   margin-top: 0.8em;
   height: 97%;
   box-shadow: 0 1em 2em gray;
-  background-color: cornsilk;
+  background-color: rgba(49, 47, 47,0.5);
 }
 .card-group .card {
-  background-color: cornsilk !important;
-  box-shadow: 0 1em 2em gray;
-  width: 23%;
-  height: 23%;
+  background-color: #ffffff ;
+  box-shadow: 0 0.3em 1em gray;
+  width: 30%;
+  height: 10%;
   margin-top: 1%;
   margin-left: 1%;
 }
@@ -188,6 +188,50 @@ main {
   float: left;
 }
 .card.b {
-  margin-right: 50%;
+  margin-right: 36%;
   float: right;
+}
+.card.c{
+  clear: both;
+  margin-left: 67%;
+  display: inline-block;
+  margin-top: -5.7%;
+}
+.Mheader{
+  width: 98%;
+  font-size: 15pt;
+  margin-left: 1em;
+  margin-top: 1em;
+  height: 10vh;
+  background-color: #201e1e;
+}
+.Mheader.content{
+  margin-left: 0.8em;
+  color: #ededed;
+
+}
+.card-content{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.card-content h2{
+  font-size: 27pt;
+}
+.card-content span{
+  font-size: 16pt;
+}
+.ListAL, .OCchart{
+  background-color: white;
+  height: 47.6%;
+  width: 47.6%;
+  margin-top: 2%;
+}
+.ListAL{
+  float: left;
+  margin-left: 1%;
+}
+.OCchart{
+  float: right;
+  margin-right: 3%;
 }
