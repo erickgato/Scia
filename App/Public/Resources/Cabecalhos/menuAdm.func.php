@@ -2,43 +2,60 @@
 function GerarMenuAdmin(){
     echo 
     '
-    <header>
-        <label for="menu_resp"></label>
-        <nav class="menu">
-            <div class="logo" href="#">
-                <h1><a href="#">SCIA</a></h1>
+    <nav class="Menu">
+    <div class="hammain">
+        <input type="checkbox" id="opmenu">
+        <label for="opmenu">
+            <div class="hamburger hamburger--spin">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
             </div>
-            <ul class="opcoes">
-                <li>
-                    <a href="index.php">LOGOUT</a>
-                </li>
-                
-                
-                
-                <li>
-                    <a href="#">CADASTRAR </a>
-                        <ul class="submenu">
-                            <li><a href="CadastrarAluno">ALUNO</a></li>
-                            <li><a href="CadastrarResponsavel">RESPONSAVEL</a></li>
-                            <li><a href="CadastrarFuncionario">FUNCIONÁRIO</a></li>
-                        </ul>
-                </li>
-                <li><a href="#">CONSULTAR </a>
-                    <ul class="submenu">
-                        <li><a href="ConsultarAluno">ALUNO</a></li>
-                        <li><a href="ConsultarResponsavel">RESPONSAVEL</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">SOLICITAR</a>
-                        <ul class="submenu">
-                        <li><a href="relatorio.php">RELATÓRIO </a></li>
-                        <li><a href="solicitar_auto.php" class="selected">AUTORIZAÇÃO </a></li>
-                        </ul>
-                </li>
-        </ul>
-        </nav>    
-    </header>
+        </label>
+    </div>
 
+
+    <div class="level">
+        <div class="MenuItem">
+            <input type="checkbox">
+            <i class="fa fa-home home" aria-hidden="true"></i><label for="A1"><a href="homeadmin">Home</a></label>
+        </div>
+        <div class="MenuItem">
+            <input type="checkbox" id="A">
+            <i class="fa fa-caret-down arrow" aria-hidden="true"></i><label for="A">Consultar</label>
+            <ul>
+                <li> <a href="ConsultarAluno">ALUNO</a></li>
+                <li><a href="ConsultarResponsavel">RESPONSÁVEL</a></li>
+                <li><a href="ConsultarResponsavel">FUNCIONÁRIO</a></li>
+            </ul>
+        </div>
+        <div class="MenuItem">
+            <input type="checkbox" id="B">
+            <i class="fa fa-caret-down arrow" aria-hidden="true"></i><label for="B">Cadastrar</label>
+            <ul>
+                <li> <a href="CadastrarAluno">ALUNO</a></li>
+                <li><a href="CadastrarResponsavel">RESPONSÁVEL</a></li>
+                <li><a href="ConsultarResponsavel">FUNCIONÁRIO</a></li>
+            </ul>
+        </div>
+        <div class="MenuItem">
+            <input type="checkbox" id="c">
+            <i class="fa fa-caret-down arrow" aria-hidden="true"></i><label for="c">Solicitar</label>
+            <ul>
+                <li> <a href="Relatorio">RELATÓRIO</a></li>
+                <li><a href="Autoriza">AUTORIZAÇÃO</a></li>
+            </ul>
+        </div>
+        <div class="MenuItem">
+            <input type="checkbox">
+            <i class="fa fa-sign-out home" aria-hidden="true"></i><label><a id="loggout" href="homeadmin">Sair</a></label>
+        </div>
+    </div>
+</nav>
+<section class="Horizontal-Wi">
+    <span class="logo">
+        <h2>SCIA</h2>
+    </span>
+</section>
     ';
 }
