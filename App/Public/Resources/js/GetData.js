@@ -81,5 +81,37 @@ const Responsavel = {
                 DataTable.appendChild(tr);
             }
         }
-    },
+    },   
 }
+const Liberacoes = {
+    Filter: (query) => {
+        var dowcasenome = query.toLowerCase();
+        const Json = document.getElementById("jsondata").innerText;
+        const DecodeLib = JSON.parse(Json);
+        const DataTable = document.querySelector(".datbody");
+        DataTable.innerHTML = "";
+        for (let i = 0; i < Object.keys(DecodeLib).length; i++) {
+            var Select = DecodeLib[i]["Al_nome"].toLowerCase();
+            var Result = Select.search(dowcasenome);
+            var Selectsobrenome = DecodeLib[i]["Al_sobrenome"].toLowerCase();
+            var ResultSobrenome = Selectsobrenome.search(dowcasenome);
+            if (Result > -1 || ResultSobrenome > -1) {
+                var tr = document.createElement("tr");
+                var td = [];
+                td.push(
+                    createTd(
+                        DecodeLib[i]["Al_nome"] + " " + DecodeLib[i]["Al_sobrenome"]
+                    )
+                );
+                td.push(createTd(DecodeLib[i]["Al_CPF"]));
+                td.push(createTd(DecodeLib[i]["Oc_observacao"]));
+                for (let itd = 0; itd < td.length; itd++) {
+                    tr.appendChild(td[itd]);
+                }
+
+                DataTable.appendChild(tr);
+            }
+        }
+    }
+}
+
