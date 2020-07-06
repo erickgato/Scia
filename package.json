@@ -4,7 +4,8 @@
   "description": "Sistema para controlar o fluxo de alunos e liberações do senai ",
   "main": "index.php ",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass -watch -include-path App/Public/Resources/scss/ -o App/Public/Resources/css/ "
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/erickgato/Scia/issues"
   },
-  "homepage": "https://github.com/erickgato/Scia#readme"
+  "homepage": "https://github.com/erickgato/Scia#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^4.14.1"
+  }
 }
