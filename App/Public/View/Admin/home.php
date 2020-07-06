@@ -6,6 +6,23 @@ $quantidades = array(
 );
 $AlLiberados = DATABASE::JOIN('sc_ocorrencia',null, 'as OC INNER JOIN sc_aluno as AL on OC.Oc_codAluno = AL.Al_cod');
 $Json_Liberacoes = json_encode($AlLiberados);
+function QueryDay(int $day,int $tipooccorencia){
+    $ActualMonth =  date('m');
+    $Rday = DATABASE::SELECT('sc_ocorrencia',"WHERE MONTH(Oc_data) = {$ActualMonth} AND WEEKDAY(Oc_data) = {$day} AND Oc_codtpOcorrencia = {$tipooccorencia}",false,null,true);
+    if(!is_numeric($Rday)){
+        
+    }
+    return $Rday;
+}
+$WeekL = array();
+$WeekG = array();
+$WeekA = array();
+for($i = 0; $i < 5; $i ++  ){
+    $WeekL[$i] = QueryDay($i,1);
+    $WeekG[$i] = QueryDay($i,2);
+    $WeekA[$i] = QueryDay($i,3);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="Pt-Br">

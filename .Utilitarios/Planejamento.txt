@@ -1,0 +1,16 @@
+#Buscar dados dos 7 ultimos dias da semana
+{
+    Possivel: "Weekday, AND", 
+    Metodo: () => {
+        let  query = SELECT * from sc_ocorrencia WHERE MONTH(Oc_data) = 6 AND WEEKDAY(Oc_data) = 2
+        return query
+    }
+    Sucess: true
+}
+#quantidade de querys 
+#* 3 tipos de occorencias
+#* 5 dias da semana
+#15 Querys
+*Metodo para fazer: 
+// 1 Criar 3 arrays com cada indice correspondente ao dia da semana
+// 2 For com 5 iterações cada uma resultando uma consulta no dia da semana
