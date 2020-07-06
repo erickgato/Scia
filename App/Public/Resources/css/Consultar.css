@@ -1,7 +1,6 @@
-* {
-  padding: 0;
+*{
   margin: 0;
-  font-family: Candara;
+  padding: 0;
 }
 ::-webkit-scrollbar-track {
   background-color: #f4f4f4;
@@ -24,87 +23,6 @@ body {
   background: -moz-linear-gradient(45deg, #00dbde, #fc00ff);
   background: linear-gradient(45deg, #00dbde, #fc00ff);
 }
-
-/*INICIO DO MENU*/
-/* === SEARCH FORM === */
-
-.selecionado {
-  float: right;
-  padding: 13px;
-  margin-top: 19px;
-  margin-right: 26px;
-  color: #000;
-  border-radius: 7px;
-}
-
-.menu ul,
-.submenu {
-  padding: 0px;
-  margin: 0px;
-  list-style: none;
-  width: 100%;
-  height: 13.5vh;
-  background-color: whitesmoke;
-  font-size: 4vh;
-}
-
-.opcoes a:not(.selecionado),
-.submenu a {
-  float: right;
-  padding: 13px;
-  color: #414141;
-  margin-top: 10px;
-  margin-right: 26px;
-}
-
-a:link {
-  text-decoration: none;
-}
-.opcoes li ul {
-  position: absolute;
-  display: none;
-  top: 11vh;
-  left: 0;
-}
-.submenu a {
-  width: 80%;
-}
-.opcoes li ul li {
-  display: block;
-  width: 18vw;
-  background-color: whitesmoke;
-}
-.opcoes li:hover ul,
-.opcoes li.over ul {
-  display: block;
-}
-.opcoes a:hover,
-.submenu a:hover {
-  margin-top: 1%;
-  background-color: #e84118;
-  color: whitesmoke;
-  border-radius: 4%;
-  height: 40%;
-  transition: 0.3s;
-  box-shadow: 3px 3px 3px #e05e3d;
-}
-
-.logo a {
-  margin-top: 0.5%;
-  margin-left: 4%;
-  float: left;
-  font-size: 9vh;
-  padding: 0;
-  color: #030303;
-  font-family: "haboro";
-  text-shadow: 5px 5px 5px #86888d;
-}
-.opcoes li {
-  position: relative;
-  float: right;
-}
-/*FIM DO MENU*/
-/* ConsultarAluno */
 table {
   margin-top: 10%;
   margin-left: 5%;

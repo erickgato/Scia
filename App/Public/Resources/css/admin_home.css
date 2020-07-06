@@ -6,15 +6,12 @@
   margin: 0;
   padding: 0;
 }
-a {
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-}
+
 body {
   font-family: metropolis;
   width: 100%;
   min-height: 100%;
-  background-image: url('http://localhost/scia/App/Public/Resources/images/librarybackground.jpg');
+  background-color: rgb(218, 213, 213);
   /*
   background: -webkit-linear-gradient(45deg, #00dbde, #fc00ff);
   background: -o-linear-gradient(45deg, #00dbde, #fc00ff);
@@ -22,193 +19,67 @@ body {
   background: linear-gradient(45deg, #00dbde, #fc00ff);
   */
 }
-ul {
-  list-style: none;
-}
-.level,
-.Menuitem ul,
-nav input[type="checkbox"],
-.hammain #opmenu {
-  display: none;
-}
-nav .hammain ~ #opmenu:checked,
-.level,
-.Menuitem input:checked ~ ul {
-  display: block;
-}
-.Menuitem input:checked ~ ul {
-  box-shadow: 0 0 0.4em rgb(223, 223, 219);
-  transition: 0.2s;
-}
-label {
-  width: 100%;
-  display: block;
-  z-index: 3;
-  position: relative;
-}
-nav.menu {
-  width: 6%;
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  overflow: hidden;
-  position: absolute;
-  animation: resetarmenu 1s both;
-  -webkit-font-smoothing: antialiased;
-}
-.Menuitem ul li {
-  margin-left: -14%;
-  border-left: 1px solid rgb(0, 0, 0);
-}
-.Menuitem ul li a {
-  color: rgb(0, 0, 0);
-  font-style: italic;
-  font-size: small;
-}
-nav ul,
-nav li,
-label {
-  line-height: 10vh;
-  margin: 0;
-  padding: 0 2em;
-  list-style: none;
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  font-weight: 100;
-  width: 100%;
-}
-nav li a {
-  line-height: 10vh;
-  margin: 0;
-  padding: 0 2em;
-  list-style: none;
-  text-decoration: none;
-  color: blue;
-  font-weight: 100;
-  width: 100%;
-}
-nav.menu.MenuRed {
-  animation: redimensionarmenu 1s both;
-}
-@keyframes redimensionarmenu {
-  0% {
-    width: 0%;
-    height: 100%;
-  }
-  100% {
-    width: 15%;
-    height: 100%;
-  }
-}
-@keyframes resetarmenu {
-  0% {
-    width: 18%;
-    height: 100%;
-  }
-  100% {
-    line-height: 3vh;
-    text-align: left;
-    background-color: transparent;
-    width: 9%;
-    height: 6vh;
-  }
-}
-.level .Menuitem label {
-  cursor: pointer;
-  font-size: 14pt;
-}
-.level .Menuitem label:hover {
-  /* color: gold; */
-  box-shadow: 0 0 1em rgb(37, 37, 36);
-  transition: 0.3s;
-}
 
-.level .Menuitem label:active {
-  color: green;
-  box-shadow: 0 0 1em gold;
-}
-.level .Menuitem ul li a:hover {
-  color: orange;
-}
-.arrow {
-  float: left;
-  width: 1rem;
-  height: 1rem;
-  vertical-align: middle;
-  float: left;
-  z-index: 0;
-  margin: 12% 1em 0 2em;
-}
-.home {
-  float: left;
-  width: 1.3rem;
-  height: 1.3rem;
-  vertical-align: middle;
-  float: left;
-  z-index: 0;
-  margin: 14% 1em 0 2em;
-}
-.Menuitem input + .arrow {
-  transform: rotate(-93deg);
-  transition: 0.1s;
-}
-.Menuitem input:checked + .arrow {
-  transform: rotate(0deg);
-  transition: 0.1s;
-}
-.hammain {
-  background-color: transparent;
-}
-#loggout {
-  color: rgb(218, 84, 84);
-}
-.hammain.menuopened {
-  margin-left: 90px;
-  background-color: transparent;
-}
 /* ****************************************************************
 [content] */
 main {
   float: right;
-  width: 82%;
-  margin-right: 0.8em;
-  margin-top: 0.8em;
-  height: 97%;
-  box-shadow: 0 1em 2em gray;
-  background-color: rgba(49, 47, 47,0.5);
+  width: 100%;
+  height: 94%;
+  box-shadow: 0 1.2em 0em rgb(247, 241, 241);
+  background: #f2f5f5;
 }
 .card-group .card {
-  background-color: #ffffff ;
+  background-color: #ffffff!important;
   box-shadow: 0 0.3em 1em gray;
   width: 30%;
-  height: 10%;
-  margin-top: 1%;
+  height: 17%;
+  margin-top: 2%;
   margin-left: 1%;
 }
 .card.a {
   float: left;
+  background: linear-gradient(45deg, #ffb796,#ff7f96);
 }
 .card.b {
-  margin-right: 36%;
+  margin-right: 35%;
+  margin-top: 2%;
   float: right;
+  background: linear-gradient(45deg, #86c5f7,#228ee5);
 }
 .card.c{
   clear: both;
-  margin-left: 67%;
+  margin-left: 69%;
   display: inline-block;
-  margin-top: -5.7%;
+  margin-top: -7.8%;
+  background: linear-gradient(45deg, #7ed8cf,#24cfb6);
+}
+.card:hover{
+ cursor: pointer;
+ box-shadow: 2em 0.3em 1em gray;
+ transition: 0.3s;
 }
 .Mheader{
-  width: 98%;
+  width: 95.7%;
   font-size: 15pt;
   margin-left: 1em;
   margin-top: 1em;
   height: 10vh;
-  background-color: #201e1e;
+  background-color: transparent !important;
+
 }
 .Mheader.content{
-  margin-left: 0.8em;
-  color: #ededed;
+  margin-top: 2em;
+  color: black;
 
+}
+.Mheader.content img {
+  margin-right: 1%;
+  margin-top: 1%;
+  background-color: turquoise;
+}
+.Mheader.content h1 {
+  font-size: 30pt;
 }
 .card-content{
   width: 100%;
@@ -216,16 +87,23 @@ main {
   text-align: center;
 }
 .card-content h2{
-  font-size: 27pt;
+  font-size: 43pt;
 }
 .card-content span{
   font-size: 16pt;
+  text-transform: capitalize;
+  font-size: medium;
+  font-size: 21pt;
+}
+.card-content p {
+  font-style: italic;
 }
 .ListAL, .OCchart{
   background-color: white;
-  height: 47.6%;
+  height: 53.5%;
   width: 47.6%;
   margin-top: 2%;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 .ListAL{
   float: left;
@@ -233,5 +111,125 @@ main {
 }
 .OCchart{
   float: right;
-  margin-right: 3%;
+  margin-right: 1%;
+  margin-top: -2.8%;
+  height: 64%;
+}
+.OCchart img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[seachbar]*/
+.searchbar {
+  width: 53%;
+  margin-top: 3%;
+  margin-left: 1%;
+  border-radius: 3%;
+  height: 6%;
+  border-radius: 4em 4rem 4em 4em;
+} 
+.searchbar input{
+  height: 100%;
+  color: black;
+  width: 90%;
+  font-size: 17pt;
+  color: white;
+  text-align: center;
+  background: linear-gradient(45deg,#ffb796,#24cfb6);
+  border-radius: 4em 4rem 4em 4em;
+
+}
+.searchbar input:hover{
+  box-shadow: 0 1em 1em gray;
+  transition: linear 0.3s;
+}
+.searchbar input::placeholder{
+  color: white;
+  font-size: 14pt;
+  text-align: center;
+}
+.searchbar svg{
+  border-radius: 2em 2em 2em ;
+  margin-left: 83.93%;
+  margin-top: -3em;
+  width: 5%;
+  height: 84%;
+  background-color: transparent;
+}
+.searchbar svg:hover{
+  background-color: rgb(31, 165, 218);
+  transition: 0.3s;
+}
+::-webkit-scrollbar{
+  color: #228ee5;
+  width: 1px;
+}
+.container th h1 {
+  font-weight: bold;
+  font-size: 1.3em;
+  text-align: left;
+  color: #2c95c5;
+}
+
+.container td {
+  font-weight: normal;
+  font-size: 1em;
+-webkit-box-shadow: 0 2px 2px -2px #0E1119;
+   -moz-box-shadow: 0 2px 2px -2px #0E1119;
+        box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.container {
+  text-align: left;
+  overflow: hidden;
+  width: 80%;
+  margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
+  border-collapse: collapse;
+  width: 100%;
+  height: 100%;
+}
+
+.container td, .container th {
+  padding-bottom: 2%;
+  padding-top: 2%;
+  padding-left:2%;  
+}
+
+.container tr:nth-child(odd) {
+  background-color: #323C50;
+}
+
+.container tr:nth-child(even) {
+  background-color: #2C3446;
+}
+
+.container th {
+  background-color: #1F2739;
+}
+
+.container td:first-child { color: #FB667A; }
+
+.container tr:hover {
+ background-color: #464A52;
+-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+   -moz-box-shadow: 0 6px 6px -6px #0E1119;
+        box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+.container td:hover {
+background-color: #FFF842;
+color: #403E10;
+font-weight: bold;
+
+box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+transform: translate3d(6px, -6px, 0);
+
+transition-delay: 0s;
+  transition-duration: 0.4s;
+  transition-property: all;
+transition-timing-function: line;
 }

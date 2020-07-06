@@ -9,6 +9,7 @@
     <title>Cadastrar Funcionario</title>
     <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/estilos.css" />
     <script src="../../JS/estilos.js"></script>
+    
 </head>
 
 <body class="corpo">

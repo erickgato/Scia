@@ -11,7 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cadastrar Aluno</title>
+    <link rel="stylesheet" href="<?php echo STYLES; ?>/Menu.css">
+    <link rel="stylesheet" href="<?php echo STYLES; ?>/hamburguers.css">
     <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/estilos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <?php
@@ -92,5 +96,7 @@
 		
 		?>
     </div>
+    <script src="<?php echo RESOCS; ?>/js/AdmMenu.js">
+    </script>
 </body>
 </html>
