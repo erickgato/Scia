@@ -1,22 +1,23 @@
-const ctx = document.getElementsByClassName('chart')
+const ctx = document.getElementsByClassName('chart');
+const divContent = JSON.parse(document.getElementById("chartdata").innerText);
 const graph = new Chart(ctx, {
     type: 'line',
     data: {
         labels: ['Segunda','Terça','Quarta','Quinta','Sexta'],
         datasets: [{
             label: "Liberações",
-            data: [5,10,5,20,15,16,22],
+            data: divContent["Liberacoes"],
             borderWidth: 3,
             borderColor: '#ffb796'
         },
         {
             label: "Fora de sala",
-            data: [15,10,5,20],
+            data: divContent["Gaz"],
             borderWidth: 3,
             borderColor: '#86c5f7'
         },{
             label: "Atrasos",
-            data: [25,10,5,20,15,16,22],
+            data: divContent["Atrasos"],
             borderWidth: 3,
             borderColor: '#7ed8cf'
         }]

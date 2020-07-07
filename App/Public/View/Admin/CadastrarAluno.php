@@ -13,7 +13,7 @@
     <title>Cadastrar Aluno</title>
     <link rel="stylesheet" href="<?php echo STYLES; ?>/Menu.css">
     <link rel="stylesheet" href="<?php echo STYLES; ?>/hamburguers.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/estilos.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/cadastra_aluno.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -39,25 +39,25 @@
                 <div id = "campos_cadastro">
                     <label class="subtitulo">
                             Unidade do Aluno
-                            <select class="caixa" id="input-text" type="text" value="" name="unidade"> 
+                            <select class="caixa" type="text" value="" name="unidade"> 
                                 <option  value="1">SESI</option>
                                 <option  value="2">SENAI</option>
                             </select>
                            
                     </label>
-                    <label class="subtitulo">Nome </label><input class="caixa"  name="nomeAluno" id="input-text" type="text" value="" placeholder="Digite o Nome do Aluno" required autofocus/>
+                    <label class="subtitulo">Nome </label><input class="caixa"  name="nomeAluno" type="text" value="" placeholder="Digite o Nome do Aluno" required autofocus/>
 					<label class="subtitulo" for="sobrenome">Sobrenome</label><input class="caixa" type="text" name="sobrenomeAluno" placeholder="Digite o sobrenome do  aluno" required/>
                     <label class="subtitulo">
                             Data de Nascimento
-                            <input class="caixa" id="input-text" type="date" value=""  required name="datanasc"/>
+                            <input class="caixa" type="date" value=""  required name="datanasc"/>
                     </label>
                     <label class="subtitulo">
                             CPF do Aluno</label>
-                            <input class="caixa" name="cpf" id="input-text" type="text" value="" placeholder="Digite o CPF do Aluno" required onkeydown="javascript: fMasc( this, mCPF )" maxlength="14";/>
+                            <input class="caixa" name="cpf"  type="text" value="" placeholder="Digite o CPF do Aluno" required onkeydown="javascript: fMasc( this, mCPF )" maxlength="14";/>
                             
                     <label class="subtitulo">
                         CPF Responsavel</label>
-                        <input class="caixa" id="input-text" name="CPFresp" type="text" value="<?php echo $CPFresp; ?>" placeholder="Digite o CPF do Responsavel" required/>
+                        <input class="caixa" name="CPFresp" type="text" value="<?php echo $CPFresp; ?>" placeholder="Digite o CPF do Responsavel" required/>
                         
                 </div>
             <input type="submit" class="button" name="Enviar" value="Registrar"/>
@@ -96,7 +96,6 @@
 		
 		?>
     </div>
-    <script src="<?php echo RESOCS; ?>/js/AdmMenu.js">
-    </script>
+    <script src="<?php echo RESOCS; ?>/js/AdmMenu.js"></script>
 </body>
 </html>

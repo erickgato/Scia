@@ -21,7 +21,7 @@ a {
     box-shadow: 0 0 0.4em rgb(223, 223, 219);
     transition: 0.2s;
   }
-  label {
+  nav label {
     width: 100%;
     display: block;
     z-index: 3;
@@ -47,7 +47,7 @@ a {
   }
   nav ul,
   nav li,
-  label {
+  nav label {
     line-height: 10vh;
     margin: 0;
     padding: 0 2em;
@@ -99,7 +99,6 @@ a {
     font-size: 14pt;
   }
   .level .Menuitem label:hover {
-    /* color: gold; */
     box-shadow: 0 0 1em rgb(37, 37, 36);
     transition: 0.3s;
   }

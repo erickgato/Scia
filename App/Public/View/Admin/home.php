@@ -1,28 +1,38 @@
 <?php
+if(!isset($_SESSION['ADMINLOGGED'])){
+    header("Location: index.php");
+}
+date_default_timezone_set('UTC');
+$data = date('Y-m-d');
 $quantidades = array(
-    "Liberacoes" => DATABASE::SELECT('sc_ocorrencia', 'WHERE oc_codtpOcorrencia = 1', false, null, true),
-    "Occorencias" => DATABASE::SELECT('sc_ocorrencia', null, false, null, true),
+    "Liberacoes" => DATABASE::SELECT('sc_ocorrencia', "WHERE oc_codtpOcorrencia = 1 AND Oc_data = '$data' ", false, null, true),
+    "Occorencias" => DATABASE::SELECT('sc_ocorrencia', "WHERE Oc_data = '$data' ", false, null, true),
     "Alunos" => DATABASE::SELECT('sc_aluno', null, false, null, true)
 );
-$AlLiberados = DATABASE::JOIN('sc_ocorrencia',null, 'as OC INNER JOIN sc_aluno as AL on OC.Oc_codAluno = AL.Al_cod');
+$AlLiberados = DATABASE::JOIN('sc_ocorrencia', null, 'as OC INNER JOIN sc_aluno as AL on OC.Oc_codAluno = AL.Al_cod');
 $Json_Liberacoes = json_encode($AlLiberados);
-function QueryDay(int $day,int $tipooccorencia){
+function QueryDay(int $day, int $tipooccorencia)
+{
     $ActualMonth =  date('m');
-    $Rday = DATABASE::SELECT('sc_ocorrencia',"WHERE MONTH(Oc_data) = {$ActualMonth} AND WEEKDAY(Oc_data) = {$day} AND Oc_codtpOcorrencia = {$tipooccorencia}",false,null,true);
-    if(!is_numeric($Rday)){
-        
+    $Rday = DATABASE::SELECT('sc_ocorrencia', "WHERE MONTH(Oc_data) = {$ActualMonth} AND WEEKDAY(Oc_data) = {$day} AND Oc_codtpOcorrencia = {$tipooccorencia}", false, null, true);
+    if (!is_numeric($Rday)) {
     }
     return $Rday;
 }
 $WeekL = array();
 $WeekG = array();
 $WeekA = array();
-for($i = 0; $i < 5; $i ++  ){
-    $WeekL[$i] = QueryDay($i,1);
-    $WeekG[$i] = QueryDay($i,2);
-    $WeekA[$i] = QueryDay($i,3);
+for ($i = 0; $i < 5; $i++) {
+    $WeekL[$i] = QueryDay($i, 1);
+    $WeekG[$i] = QueryDay($i, 2);
+    $WeekA[$i] = QueryDay($i, 3);
 }
-
+$Datagraf = array(
+    "Liberacoes" => $WeekL,
+    "Gaz" => $WeekG,
+    "Atrasos" => $WeekA
+);
+$js_data_graf = json_encode($Datagraf);
 ?>
 <!DOCTYPE html>
 <html lang="Pt-Br">
@@ -38,12 +48,24 @@ for($i = 0; $i < 5; $i ++  ){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="shortcut icon" href="<?php echo RESOCS; ?>/images/icons/logo/favicon.png" type="image/x-icon" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <!--ALERT BOX -->
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
 </head>
 
 <body>
     <section>
         <header>
-            <?php 
+            <?php
             include_once RESOCS . '/Cabecalhos/menuAdm.func.php';
             GerarMenuAdmin();
             ?>
@@ -77,7 +99,8 @@ for($i = 0; $i < 5; $i ++  ){
             </div>
             <section class='grid-layout'>
                 <div class="searchbar">
-                    <input type="text" oninput="Liberacoes.Filter(value)" placeholder="Digite o nome do  aluno..." name="search" />
+                    <input type="text" oninput="Liberacoes.Filter(value)" placeholder="Digite o nome do  aluno..."
+                        name="search" />
                     <span><img src="https://img.icons8.com/material/96/000000/search--v1.png" /></span>
 
                 </div>
@@ -98,17 +121,11 @@ for($i = 0; $i < 5; $i ++  ){
                             </tr>
                         </thead>
                         <tbody class="datbody">
-                            <?php foreach ($AlLiberados as $aluno): ?>
-                            <tr>
-                                <td><?php print($aluno['Al_nome']. " " . $aluno['Al_sobrenome']); ?></td>
-                                <td><?php print($aluno['Al_CPF']); ?></td>
-                                <td><?php print($aluno['Oc_observacao']); ?></td>
-                            </tr>
-                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
                 <div class="OCchart">
+                    <div id="chartdata" style="display: none;"><?php echo $js_data_graf; ?></div>
                     <canvas class="chart"></canvas>
                 </div>
             </section>
@@ -120,14 +137,17 @@ for($i = 0; $i < 5; $i ++  ){
 
         </footer>
     </section>
-    <script src="<?php echo RESOCS;?>/js/GetData.js"></script>
+    <script src="<?php echo RESOCS; ?>/js/GetData.js"></script>
     <script src="<?php echo RESOCS; ?>/js/AdmMenu.js"></script>
     <script src="<?php echo RESOCS; ?>/js/chart.js"></script>
     <script>
-        $(document).ready(() => {
-            Liberacoes.Filter("");
-        })
-
+    $(document).ready(() => {
+        Liberacoes.Filter("");
+        alertify.alert('Olá', 'Bem vindo!',() => {
+          alertify.success('ótimo!')
+        });
+            
+    })
     </script>
 </body>
 
