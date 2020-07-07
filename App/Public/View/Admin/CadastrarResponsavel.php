@@ -11,7 +11,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="<?php echo STYLES; ?>/Menu.css">
+    <link rel="stylesheet" href="<?php echo STYLES; ?>/hamburguers.css">
     <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/responsaveis.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Cadastrar Responsavel</title>
 </head>
 
@@ -24,7 +28,7 @@
     </header>
     <div id="container">
         <script src="<?php echo RESOCS; ?>/js/estilos.js"></script>
-        <form action="" method="post">
+        <form action="" method="post" id="formcadastro">
             <div class="painel">
                 <label class="title_register">
                     Cadastro de responsaveis
@@ -66,6 +70,7 @@
         <?php include PUBLICPATH . '/View/Admin/POSTDATA/CadastrarResponsavel.php' ?>
         <footer> powered by scia</footer>
     </div>
+    <script src="<?php echo RESOCS; ?>/js/AdmMenu.js"></script>
 </body>
 
 </html>

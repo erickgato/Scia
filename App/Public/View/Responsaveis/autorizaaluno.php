@@ -7,6 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/estilos.css" />
     <title>Cadastro</title>
+     <!--ALERT BOX -->
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
 </head>
 
 <body class="corpo">
@@ -69,10 +81,14 @@
     if(isset($_GET['m'])){
         switch($_GET['m']){
             case 'Sucess': 
-                echo "<script>alert('Dados inseridos com sucesso')</script>";
+                echo "<script>alertify.alert('Scia diz...', 'Aluno liberado com sucesso',() => {
+                    alertify.success('Sucesso')
+                  });</script>";
             break;
             case 'Error': 
-                echo "<script>alert('Erro no processo de liberação')</script>";
+                echo "<script> alertify.alert('Scia diz', 'Falha na autorização do aluno',() => {
+                    alertify.error('Contate o desenvolvedor')
+                  });</script>";
             break;
         }
     }

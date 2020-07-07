@@ -1,7 +1,6 @@
-* {
-  padding: 0;
+*{
   margin: 0;
-  font-family: Candara;
+  padding: 0;
 }
 ::-webkit-scrollbar-track {
   background-color: #f4f4f4;
@@ -16,95 +15,79 @@
 body {
   width: 100%;
   min-height: 100%;
+
+  -webkit-animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	        animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
 }
+@-webkit-keyframes puff-in-center {
+  0% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    -webkit-filter: blur(4px);
+            filter: blur(4px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes puff-in-center {
+  0% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    -webkit-filter: blur(4px);
+            filter: blur(4px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+.Pageclosing{
+  -webkit-animation: slide-out-bck-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both !important;
+	        animation: slide-out-bck-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both !important;
+}
+@-webkit-keyframes slide-out-bck-center {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-1100px);
+            transform: translateZ(-1100px);
+    opacity: 0;
+  }
+}
+@keyframes slide-out-bck-center {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-1100px);
+            transform: translateZ(-1100px);
+    opacity: 0;
+  }
+}
+
+
 body {
-  background: #a64bf4;
-  background: -webkit-linear-gradient(45deg, #00dbde, #fc00ff);
-  background: -o-linear-gradient(45deg, #00dbde, #fc00ff);
-  background: -moz-linear-gradient(45deg, #00dbde, #fc00ff);
-  background: linear-gradient(45deg, #00dbde, #fc00ff);
+  background-image: url('../Images/bg-01.jpg');
+  background-position: center;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
-/*INICIO DO MENU*/
-/* === SEARCH FORM === */
-
-.selecionado {
-  float: right;
-  padding: 13px;
-  margin-top: 19px;
-  margin-right: 26px;
-  color: #000;
-  border-radius: 7px;
-}
-
-.menu ul,
-.submenu {
-  padding: 0px;
-  margin: 0px;
-  list-style: none;
-  width: 100%;
-  height: 13.5vh;
-  background-color: whitesmoke;
-  font-size: 4vh;
-}
-
-.opcoes a:not(.selecionado),
-.submenu a {
-  float: right;
-  padding: 13px;
-  color: #414141;
-  margin-top: 10px;
-  margin-right: 26px;
-}
-
-a:link {
-  text-decoration: none;
-}
-.opcoes li ul {
-  position: absolute;
-  display: none;
-  top: 11vh;
-  left: 0;
-}
-.submenu a {
-  width: 80%;
-}
-.opcoes li ul li {
-  display: block;
-  width: 18vw;
-  background-color: whitesmoke;
-}
-.opcoes li:hover ul,
-.opcoes li.over ul {
-  display: block;
-}
-.opcoes a:hover,
-.submenu a:hover {
-  margin-top: 1%;
-  background-color: #e84118;
-  color: whitesmoke;
-  border-radius: 4%;
-  height: 40%;
-  transition: 0.3s;
-  box-shadow: 3px 3px 3px #e05e3d;
-}
-
-.logo a {
-  margin-top: 0.5%;
-  margin-left: 4%;
-  float: left;
-  font-size: 9vh;
-  padding: 0;
-  color: #030303;
-  font-family: "haboro";
-  text-shadow: 5px 5px 5px #86888d;
-}
-.opcoes li {
-  position: relative;
-  float: right;
-}
-/*FIM DO MENU*/
-/* ConsultarAluno */
 table {
   margin-top: 10%;
   margin-left: 5%;
@@ -138,9 +121,9 @@ tbody tr:hover {
 }
 /* SearchBar */
 .Searchbar {
-  position: absolute;
+  position: fixed;
   margin-top: -5%;
-  margin-left: 15%;
+  margin-left: 80%;
   transform: translate(-50%, -50%);
   background-color: #55608f;
   height: 40px;
@@ -151,8 +134,6 @@ tbody tr:hover {
 
 .Searchbar:hover {
   background: linear-gradient(45deg, #00dbde, #fc00ff);
-  width: 90vw;
-  margin-left: 50%;
   transition: 0.3s;
 }
 ::-webkit-input-placeholder {

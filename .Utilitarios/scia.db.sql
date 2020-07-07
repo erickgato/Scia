@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30-Jun-2020 às 22:19
--- Versão do servidor: 10.4.11-MariaDB
+-- Tempo de geração: 07-Jul-2020 às 16:46
+-- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.2.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -38,19 +38,6 @@ CREATE TABLE `sc_aluno` (
   `Al_CPF` char(14) COLLATE utf8_bin DEFAULT NULL,
   `Al_codResponsavel` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela armazenará todos os dados dos alunos registrados na unidade, especificando seu responsável e sua unidade pertencente.';
-
---
--- Extraindo dados da tabela `sc_aluno`
---
-
-INSERT INTO `sc_aluno` (`Al_cod`, `Al_codUnidade`, `Al_nome`, `Al_sobrenome`, `Al_nascimento`, `Al_CPF`, `Al_codResponsavel`) VALUES
-(55, 1, 'Cobalto', 'Burlandes', '2020-06-01', '312.423.445-36', 5),
-(59, 2, 'Jhones', 'Youtuber', '2013-02-05', '399.211.233-12', 29),
-(60, 1, 'João Pedro ', 'Karas Butka', '2003-03-06', '110.404.567-87', 30),
-(61, 2, 'Maria Gabriella ', 'karas Butka', '2001-03-18', '110.404.589-39', 30),
-(62, 1, 'Bruno ', 'Novak', '2000-12-21', '118.370.519-09', 30),
-(63, 2, 'Matilda', 'Junior amarante', '2000-06-14', '002.055.192-43', 31),
-(64, 2, 'Erick', 'Gato', '2003-07-07', '031.967.993-21', 31);
 
 -- --------------------------------------------------------
 
@@ -105,18 +92,7 @@ CREATE TABLE `sc_contato` (
   `Co_descricao` varchar(100) COLLATE utf8_bin DEFAULT NULL,
   `Co_codResponsavel` int(11) NOT NULL,
   `Co_codtpContato` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela guardara os dados de contato dos responsável.';
-
---
--- Extraindo dados da tabela `sc_contato`
---
-
-INSERT INTO `sc_contato` (`Co_cod`, `Co_descricao`, `Co_codResponsavel`, `Co_codtpContato`) VALUES
-(2, '(41) 1668-8178', 7, 2),
-(3, '(41) 5617-4553', 8, 2),
-(4, '(41) 7868-5178', 7, 2),
-(5, '(41) 8321-3717', 6, 2),
-(6, '(41) 6443-2227', 6, 2);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela guardará os dados de contato dos responsáveis.';
 
 -- --------------------------------------------------------
 
@@ -128,7 +104,7 @@ CREATE TABLE `sc_estado` (
   `Es_cod` int(11) NOT NULL,
   `Es_UF` char(2) COLLATE utf8_bin DEFAULT NULL,
   `Es_nome` varchar(50) COLLATE utf8_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela sera pouco usada mas seu intuito é relacionar endereços cidades, estados e bairros.';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela será pouco usada mas seu intuito é relacionar endereços cidades, estados e bairros.';
 
 --
 -- Extraindo dados da tabela `sc_estado`
@@ -157,11 +133,8 @@ CREATE TABLE `sc_funcionario` (
 --
 
 INSERT INTO `sc_funcionario` (`Fu_cod`, `Fu_nome`, `Fu_CPF`, `Fu_matricula`, `Fu_codUnidade`, `Fu_codtpFuncionario`) VALUES
-(1, 'horacio', '665.773.705-08', '2432', 2, 3),
-(2, 'horishi', '656.485.917-13', '4337', 2, 3),
-(3, 'hortensia', '855.134.212-67', '4227', 1, 2),
-(4, 'hosana', '485.854.708-60', '2228', 2, 3),
-(5, 'hudson', '082.312.133-09', '1434', 1, 2);
+(6, 'Admin', '031.948.002.05', '12312', 3, 3),
+(7, 'Joca biru', '031.948.002-04', '131415', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -176,14 +149,7 @@ CREATE TABLE `sc_ocorrencia` (
   `Oc_codtpOcorrencia` int(11) NOT NULL,
   `Oc_observacao` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `Oc_data` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela irá armazenar os dados das ocorrencias registradas pelo funcionario.';
-
---
--- Extraindo dados da tabela `sc_ocorrencia`
---
-
-INSERT INTO `sc_ocorrencia` (`Oc_cod`, `Oc_codUser`, `Oc_codAluno`, `Oc_codtpOcorrencia`, `Oc_observacao`, `Oc_data`) VALUES
-(12, 25, 63, 1, 'Necessita cagar', '2020-06-24');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela irá armazenar os dados das ocorrências registradas pelo usuário.';
 
 -- --------------------------------------------------------
 
@@ -201,25 +167,6 @@ CREATE TABLE `sc_responsavel` (
   `Re_codtpLogradouro` int(11) NOT NULL,
   `Re_codBairro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela será usada para armazenar os dados do responsavel no sistema';
-
---
--- Extraindo dados da tabela `sc_responsavel`
---
-
-INSERT INTO `sc_responsavel` (`Re_cod`, `Re_RG`, `Re_CPF`, `Re_nascimento`, `Re_nome`, `Re_logradouro`, `Re_codtpLogradouro`, `Re_codBairro`) VALUES
-(5, '1308116 - 4', '023.153.731-07', '1992-01-30', 'heber', ' ', 1, 1),
-(6, '1170313 - 4', '894.476.558-82', '1983-03-30', 'hector', ' ', 1, 2),
-(7, '5114180 - 7', '844.482.441-05', '1987-05-30', 'hedila', ' ', 1, 3),
-(8, '19241125 - 3', '036.702.136-60', '1968-07-30', 'heidi', ' ', 1, 4),
-(9, '8191156 - 5', '714.515.943-05', '1985-07-30', 'heitor', ' ', 1, 5),
-(10, '123123131231231', '03194800205', '1980-05-12', 'Marcos', ' benedito alves 580', 1, 4),
-(25, '9876543211', '031.948.002-08', '2020-06-10', 'Mandana', 'Erique inverte 123', 1, 3),
-(26, '6664534534', '110.432.300-36', '2020-06-17', 'Maria', 'aGUA', 1, 3),
-(27, '6664534534', '332.234.234-24', '2020-07-02', 'unset', 'Oas', 1, 4),
-(28, '5464423423', '110.432.300-32', '2020-06-25', '', 'Tramontina souza 7782', 1, 3),
-(29, '1004050232', '031.948.002-05', '1994-05-09', 'Erick', 'Manolo nunes bairro, 9032', 1, 3),
-(30, '123456879', '029.645.619-58', '1980-06-24', 'Adelaine Cristina Karas', 'Rua Joaquim Inácio de Souza', 5, 4),
-(31, '5526913171', '155.355.226-35', '1968-11-13', 'Juviscreudo da Silva Amarante', 'Rua pão de açúcar 666 apartamento 69', 5, 4);
 
 -- --------------------------------------------------------
 
@@ -270,7 +217,7 @@ INSERT INTO `sc_tp_funcionario` (`TF_Cod`, `TF_nome`) VALUES
 CREATE TABLE `sc_tp_logradouro` (
   `TL_cod` int(11) NOT NULL,
   `TL_nome` varchar(40) COLLATE utf8_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela cumulará todos os tipos de logradouros possiveis.';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela cumulará todos os tipos de logradouros.';
 
 --
 -- Extraindo dados da tabela `sc_tp_logradouro`
@@ -290,7 +237,7 @@ INSERT INTO `sc_tp_logradouro` (`TL_cod`, `TL_nome`) VALUES
 CREATE TABLE `sc_tp_ocorrencia` (
   `TO_cod` int(11) NOT NULL,
   `TO_nome` varchar(40) COLLATE utf8_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela cumulará os tipos possiveis de ocorrencia.';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela cumulará os tipos possiveis de ocorrência.';
 
 --
 -- Extraindo dados da tabela `sc_tp_ocorrencia`
@@ -310,17 +257,14 @@ INSERT INTO `sc_tp_ocorrencia` (`TO_cod`, `TO_nome`) VALUES
 CREATE TABLE `sc_tp_usuario` (
   `TU_cod` int(11) NOT NULL,
   `TU_nome` varchar(40) COLLATE utf8_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='esta tabela guarda todos os tipos de usuarios que podem ser registrados.';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela guarda todos os tipos de usuários que podem ser registrados.';
 
 --
 -- Extraindo dados da tabela `sc_tp_usuario`
 --
 
 INSERT INTO `sc_tp_usuario` (`TU_cod`, `TU_nome`) VALUES
-(1, 'Coordenador'),
-(2, 'Responsavel'),
-(3, 'Orientador'),
-(4, 'Monitor'),
+(3, 'Funcionário'),
 (5, 'Comercial');
 
 -- --------------------------------------------------------
@@ -362,15 +306,8 @@ CREATE TABLE `sc_usuario` (
 --
 
 INSERT INTO `sc_usuario` (`Us_cod`, `Us_login`, `Us_senha`, `Us_codtpUsuario`, `Us_modifiedat`) VALUES
-(7, '03194800205', '123', 2, '2020-06-04'),
-(8, '031.948.002-05', 'admin', 3, '2020-06-04'),
-(19, '031.948.002-08', '031.948.002-08', 2, '2020-06-12'),
-(20, '110.432.300-36', '110.432.300-36', 2, '2020-06-12'),
-(21, '332.234.234-24', '332.234.234-24', 2, '2020-06-12'),
-(22, '110.432.300-32', '110.432.300-32', 2, '2020-06-12'),
-(23, '031.948.002-05', '031.948.002-05', 2, '2020-06-12'),
-(24, '029.645.619-58', '029.645.619-58', 2, '2020-06-12'),
-(25, '155.355.226-35', 'MTU1LjM1NS4yMjYtMzU=', 2, '2020-06-20');
+(26, '031.948.002-05', 'admin', 3, '2020-07-06'),
+(27, '031.948.002-04', 'MDMxLjk0OC4wMDItMDQ=', 3, '2020-07-07');
 
 -- --------------------------------------------------------
 
@@ -382,21 +319,7 @@ CREATE TABLE `sc_usuario_responsavel` (
   `ur_id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `cpf_resp` char(14) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tabela para armazenar usuarios e responsaveis correspondente';
-
---
--- Extraindo dados da tabela `sc_usuario_responsavel`
---
-
-INSERT INTO `sc_usuario_responsavel` (`ur_id`, `id_user`, `cpf_resp`) VALUES
-(1, 7, '03194800205'),
-(12, 19, '031.948.002-08'),
-(13, 20, '110.432.300-36'),
-(14, 21, '332.234.234-24'),
-(15, 22, '110.432.300-32'),
-(16, 23, '031.948.002-05'),
-(17, 24, '029.645.619-58'),
-(18, 25, '155.355.226-35');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tabela para armazenar usuarios e responsaveis correspondentes';
 
 --
 -- Índices para tabelas despejadas
@@ -543,7 +466,7 @@ ALTER TABLE `sc_cidade`
 -- AUTO_INCREMENT de tabela `sc_contato`
 --
 ALTER TABLE `sc_contato`
-  MODIFY `Co_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Co_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `sc_estado`
@@ -555,13 +478,13 @@ ALTER TABLE `sc_estado`
 -- AUTO_INCREMENT de tabela `sc_funcionario`
 --
 ALTER TABLE `sc_funcionario`
-  MODIFY `Fu_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Fu_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `sc_ocorrencia`
 --
 ALTER TABLE `sc_ocorrencia`
-  MODIFY `Oc_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `Oc_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de tabela `sc_responsavel`
@@ -609,7 +532,7 @@ ALTER TABLE `sc_unidade`
 -- AUTO_INCREMENT de tabela `sc_usuario`
 --
 ALTER TABLE `sc_usuario`
-  MODIFY `Us_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `Us_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de tabela `sc_usuario_responsavel`

@@ -1,0 +1,233 @@
+/* line 1, App/Public/Resources/scss/cadastra_aluno.scss */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Candara; }
+
+/* line 6, App/Public/Resources/scss/cadastra_aluno.scss */
+::-webkit-scrollbar-track {
+  background-color: #f4f4f4; }
+
+/* line 9, App/Public/Resources/scss/cadastra_aluno.scss */
+::-webkit-scrollbar {
+  width: 6px;
+  background: #f4f4f4; }
+
+/* line 13, App/Public/Resources/scss/cadastra_aluno.scss */
+::-webkit-scrollbar-thumb {
+  background: #dad7d7; }
+
+/* line 16, App/Public/Resources/scss/cadastra_aluno.scss */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background-image: url("../Images/bg-01.jpg");
+  background-position: center;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+/* line 28, App/Public/Resources/scss/cadastra_aluno.scss */
+.title_aut {
+  font-size: 6vh;
+  color: black;
+  margin-left: 20%;
+  font-family: "haboro"; }
+
+/* line 35, App/Public/Resources/scss/cadastra_aluno.scss */
+.titulo {
+  font-size: 6vh;
+  color: black;
+  margin-left: 38%;
+  font-family: "haboro"; }
+
+/* line 42, App/Public/Resources/scss/cadastra_aluno.scss */
+.title_register {
+  font-size: 5vh;
+  color: black;
+  margin-left: 10%;
+  font-family: "haboro"; }
+
+/* line 49, App/Public/Resources/scss/cadastra_aluno.scss */
+.painel {
+  margin-left: 35%;
+  margin-top: 0.9em;
+  width: 30%;
+  height: 80vh;
+  background-color: #ffffff;
+  border-radius: 5%;
+  animation: slidein 1000ms; }
+
+@keyframes slidein {
+  from {
+    opacity: 0;
+    transform: translateX(-150%); }
+  to {
+    opacity: 0.8;
+    transform: translateX(0); } }
+
+/* line 68, App/Public/Resources/scss/cadastra_aluno.scss */
+.painel-login {
+  margin-left: 35%;
+  margin-top: 2em;
+  width: 30%;
+  height: 89vh;
+  background-color: #ffffff;
+  border-radius: 3%; }
+
+/* line 77, App/Public/Resources/scss/cadastra_aluno.scss */
+textarea {
+  resize: none;
+  width: 80%;
+  margin-left: 8.5%;
+  margin-top: 1%;
+  margin-bottom: 4%;
+  background: transparent;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: #86888d;
+  border-bottom-width: 0.15vh;
+  color: black;
+  font-family: Candara;
+  font-size: 2.7vh;
+  height: 7%; }
+
+/* line 94, App/Public/Resources/scss/cadastra_aluno.scss */
+.fixado {
+  width: 100%;
+  position: fixed;
+  top: 0; }
+
+/* line 100, App/Public/Resources/scss/cadastra_aluno.scss */
+.subtitulo,
+.subtitulo-login {
+  font-size: 3vh;
+  color: black;
+  margin-left: 8.5%;
+  margin-top: 4%;
+  margin-bottom: 2%; }
+
+/* line 108, App/Public/Resources/scss/cadastra_aluno.scss */
+.formlgn {
+  margin-top: 10vh; }
+
+/* line 111, App/Public/Resources/scss/cadastra_aluno.scss */
+[for="titulo"] {
+  font-size: 5vh;
+  color: black;
+  margin-left: 2%; }
+
+/* line 117, App/Public/Resources/scss/cadastra_aluno.scss */
+[for="subtitulo"] {
+  font-size: 3vh;
+  color: black;
+  margin-left: 2%;
+  margin-top: 4%;
+  margin-bottom: 2%; }
+
+/* line 125, App/Public/Resources/scss/cadastra_aluno.scss */
+.caixa,
+.caixa-login {
+  width: 80%;
+  margin-left: 8.5%;
+  margin-top: 1%;
+  margin-bottom: 4%;
+  background: transparent;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: #86888d;
+  border-bottom-width: 0.15vh;
+  color: black;
+  font-family: Candara;
+  font-size: 2.7vh;
+  height: 4%; }
+
+/* line 143, App/Public/Resources/scss/cadastra_aluno.scss */
+.caixa::placeholder,
+.caixa-login::placeholder {
+  color: #86888d; }
+
+/* line 147, App/Public/Resources/scss/cadastra_aluno.scss */
+.opcsele {
+  color: #000; }
+
+/* line 151, App/Public/Resources/scss/cadastra_aluno.scss */
+.botao,
+.botao-login {
+  margin-top: 20%;
+  margin-left: 15%;
+  background: linear-gradient(to right, #ef0afd, #08d2df);
+  opacity: 0.8;
+  height: 8vh;
+  width: 70%;
+  border: 0.3vh solid whitesmoke;
+  font-size: 3vh;
+  border-radius: 10vh;
+  color: whitesmoke; }
+
+/* line 164, App/Public/Resources/scss/cadastra_aluno.scss */
+.botao-login {
+  margin-top: 15vh; }
+
+/* line 167, App/Public/Resources/scss/cadastra_aluno.scss */
+.button {
+  margin-top: 1%;
+  margin-left: 15%;
+  background: linear-gradient(to right, #ef0afd, #08d2df);
+  opacity: 0.8;
+  height: 8vh;
+  width: 70%;
+  border: 0.3vh solid whitesmoke;
+  font-size: 3vh;
+  border-radius: 10vh;
+  color: whitesmoke; }
+  /* line 178, App/Public/Resources/scss/cadastra_aluno.scss */
+  .button:hover {
+    background: linear-gradient(to right, #08d2df, #ef0afd);
+    opacity: 1;
+    transition: 0.5s; }
+
+/* line 185, App/Public/Resources/scss/cadastra_aluno.scss */
+.botao:hover {
+  background-color: #e84118; }
+
+/* ConsultarAluno */
+/* line 189, App/Public/Resources/scss/cadastra_aluno.scss */
+table {
+  margin-top: 4%;
+  margin-left: 5%;
+  height: 40vh;
+  width: 90vw;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9); }
+
+/* line 199, App/Public/Resources/scss/cadastra_aluno.scss */
+th,
+td {
+  padding: 2%;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff; }
+
+/* line 206, App/Public/Resources/scss/cadastra_aluno.scss */
+th {
+  text-align: left; }
+
+/* line 210, App/Public/Resources/scss/cadastra_aluno.scss */
+thead th {
+  background-color: #55608f; }
+
+/* line 214, App/Public/Resources/scss/cadastra_aluno.scss */
+tbody tr:hover {
+  font-size: 17pt;
+  background-color: rgba(255, 255, 255, 0.3); }
+
+/* line 218, App/Public/Resources/scss/cadastra_aluno.scss */
+td:hover {
+  z-index: -1; }
+
+/* ////////////////////////////////////////////////////// */

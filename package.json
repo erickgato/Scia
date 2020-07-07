@@ -1,0 +1,24 @@
+{
+  "name": "scia",
+  "version": "4.5.3",
+  "description": "Sistema para controlar o fluxo de alunos e liberações do senai ",
+  "main": "index.php ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass -watch -include-path App/Public/Resources/scss/ -o App/Public/Resources/css/ "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erickgato/Scia.git"
+  },
+  "author": "Erick de Souza Gato",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erickgato/Scia/issues"
+  },
+  "homepage": "https://github.com/erickgato/Scia#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^4.14.1"
+  }
+}

@@ -1,0 +1,350 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Candara;
+  }
+  $defaultfont: 'P-Bold';
+@font-face {
+    font-family: "Haboro";
+    src: url("../Fonts/HaboroSoft-ExtReg.ttf");
+  }
+  @font-face {
+    font-family: P-Bold;
+    src: url("../Fonts/poppins/Poppins-Bold.ttf");
+  }
+  
+::-webkit-scrollbar-track {
+    background-color: #f4f4f4;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    background: #f4f4f4;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #dad7d7;
+  }
+  html,
+body {
+  height: 86vh;
+  margin: 0px;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to right, #ef0afd, #08d2df);
+  overflow: hidden;
+}
+main {
+  height: 100%;
+}
+/* //////////////////////////////////////////////////////////////////////
+[Menu] */
+.selecionado {
+  float: right;
+  padding: 13px;
+  margin-top: 19px;
+  margin-right: 26px;
+  color: #000;
+  border-radius: 7px;
+}
+
+.menu ul,
+.submenu {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  width: 100%;
+  height: 13.5vh;
+  background-color: whitesmoke;
+  font-size: 4vh;
+}
+
+.opcoes a:not(.selecionado),
+.submenu a {
+  float: right;
+  padding: 13px;
+  color: #414141;
+  margin-top: 10px;
+  margin-right: 26px;
+}
+
+a:link {
+  text-decoration: none;
+}
+.opcoes li ul {
+  position: absolute;
+  display: none;
+  top: 11vh;
+  left: 0;
+}
+.submenu a {
+  width: 80%;
+}
+.opcoes li ul li {
+  display: block;
+  width: 18vw;
+  background-color: whitesmoke;
+}
+.opcoes li:hover ul,
+.opcoes li.over ul {
+  display: block;
+}
+.opcoes a:hover,
+.submenu a:hover {
+  margin-top: 1%;
+  background-color: #e84118;
+  color: whitesmoke;
+  border-radius: 4%;
+  height: 40%;
+  transition: 0.3s;
+  box-shadow: 3px 3px 3px #e05e3d;
+}
+
+.logo a {
+  margin-top: 0.5%;
+  margin-left: 4%;
+  float: left;
+  font-size: 9vh;
+  padding: 0;
+  color: #030303;
+  font-family: "haboro";
+  text-shadow: 5px 5px 5px #86888d;
+}
+.opcoes li {
+  position: relative;
+  float: right;
+}
+.sopt-sidebar {
+    position: relative;
+    float: left;
+    width: 25%;
+    height: 100%;
+    background: linear-gradient(to right, #a1a3ac60, #efeff2);
+    border-right: 1px solid #efeff29f;
+    border-width: mediums;
+  }
+  .sideoption {
+    height: 1vh;
+    ul{
+        list-style-type: none;
+    }
+  }
+  .UserName {
+    font-family: "Haboro";
+    clear: both;
+    display: block;
+    margin-top: 1.5%;
+    margin-left: 13%;
+    font-size: 28pt;
+    color: rgb(15, 14, 14);
+  }
+  .sideoption #profile {
+    margin-left: 8%;
+    margin-top: 5%;
+    width: 20vw;
+    height: 20vh;
+  }
+  
+  .sideoption #notification {
+    margin-left: 8%;
+    margin-top: -20%;
+    width: 20vw;
+    height: 20vh;
+  }
+  
+  .sideoption ul li img {
+    float: left;
+    margin-top: 2.9%;
+    width: 16%;
+    height: 22%;
+  }
+  .sideoption ul li a span {
+    float: left;
+    font-family: Candara;
+    margin-top: 3.5%;
+    margin-left: 6%;
+    font-size: 17pt;
+    color: black;
+  }
+  
+  .sideoption ul li a span:hover {
+    color: #08d2df;
+  }
+  
+  .sideoption ul li a #span-notify:hover {
+    color: #08d2df;
+  }
+  
+  .sideoption ul li a #span-notify {
+    float: left;
+    font-family: Candara;
+    margin-top: 3.5%;
+    margin-left: 6%;
+    font-size: 17pt;
+    color: black;
+  }
+  .sideoption .Up-image {
+    margin-left: 27%;
+    margin-top: 15%;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .sideoption .Up-image img {
+    width: 100%;
+    height: 100%;
+  }
+  .sideoption ul li a:hover {
+    color: #08d2df;
+  }
+  
+  /* //////////////////////////////////////////////////////// 
+  [Content]
+  */
+  .Content {
+    display: block;
+    border-radius: 2.4%;
+    background-color: #efeff2;
+    position: relative;
+    margin-left: 2%;
+    margin-top: 2vh;
+    width: 96vw;
+    height: 80vh;
+    box-shadow: 0 0 3em rgb(252, 252, 252);
+  }
+  
+  .Title {
+    display: inline-blocks;
+    color: #a1a3ac;
+    font-size: 22pt;
+    font-family: "Haboro";
+    margin-left: 43%;
+    margin-top: 1vh;
+    width: 38%;
+    height: 5vh;
+  }
+  
+  .labelcontentname {
+    display: block;
+    font-family: Candara;
+    font-size: 3vh;
+    margin-left: 30%;
+    margin-top: 2%;
+  }
+  
+  .labelcontent {
+    display: block;
+    font-family: Candara;
+    font-size: 3vh;
+    margin-left: 30%;
+  }
+  
+  .caixaname {
+    width: 93%;
+    margin-left: 0%;
+    margin-top: 0%;
+    margin-bottom: 4%;
+    background: transparent;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #86888d;
+    border-bottom-width: 0.15vh;
+    color: black;
+    font-family: Candara;
+    font-size: 2.7vh;
+    height: 4%;
+  }
+  
+  .caixaemail {
+    width: 93%;
+    margin-left: 0%;
+    margin-top: 0%;
+    margin-bottom: 4%;
+    background: transparent;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #86888d;
+    border-bottom-width: 0.15vh;
+    color: black;
+    font-family: Candara;
+    font-size: 2.7vh;
+    height: 4%;
+  }
+  
+  .caixaend {
+    width: 93%;
+    margin-left: 0%;
+    margin-top: 0%;
+    margin-bottom: 4%;
+    background: transparent;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #86888d;
+    border-bottom-width: 0.15vh;
+    color: black;
+    font-family: Candara;
+    font-size: 2.7vh;
+    height: 4%;
+  }
+  
+  .caixatel {
+    width: 93%;
+    margin-left: 0%;
+    margin-top: 0%;
+    margin-bottom: 4%;
+    background: transparent;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #86888d;
+    border-bottom-width: 0.15vh;
+    color: black;
+    font-family: Candara;
+    font-size: 2.7vh;
+    height: 4%;
+  }
+  
+  .labelcontentcep {
+    display: inline-block;
+    font-family: Candara;
+    font-size: 3vh;
+    margin-left: 5%;
+  }
+  
+  .caixacep {
+    width: 356%;
+    margin-left: 0%;
+    margin-top: 0%;
+    margin-bottom: 4%;
+    background: transparent;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #86888d;
+    border-bottom-width: 0.15vh;
+    color: black;
+    font-family: Candara;
+    font-size: 2.7vh;
+    height: 4%;
+  }
+  
+  .botao {
+    margin-bottom: 15%;
+    margin-top: 0.8%;
+    margin-left: 13%;
+    background: linear-gradient(to right, #ef0afd, #08d2df);
+    opacity: 0.8;
+    height: 8vh;
+    width: 50%;
+    border: 0.3vh solid whitesmoke;
+    font-size: 3vh;
+    border-radius: 10vh;
+    color: whitesmoke;
+  }
+  

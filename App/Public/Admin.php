@@ -15,20 +15,14 @@
 	</header>
 	<div class="painel">
 		<form action="" method="post">
-		<span class="text-center">Logar</span>
+		<span class="text-center">Admin</span>
 		         
 		<div class="input-container">
 				<label class="subtitulo"> CPF </label>
 			<input type="text" name="usu_cpf" required placeholder = "Digite Seu CPF"onkeydown="javascript: fMasc( this, mCPF )" maxlength="14"/>
 			</div>
 			
-			<label class="subtitulo">Tipo de usuário</label>
-			<select class="select_caixa" name="codtpusr">
-				<option class="opcsele" value="1">Coordenador</option>
-				<option class="opcsele" value="3">Orientador</option>
-				<option class="opcsele" value="5">Comercial</option>
-				<option class="opcsele" value="4">Monitor</option>
-			</select>
+			<input type="hidden" name="codtpusr" value="3">
 
 		<div class="input-container">	
 			<label class="subtitulo">Senha</label>

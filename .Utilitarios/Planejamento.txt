@@ -1,0 +1,35 @@
+#Buscar dados dos 7 ultimos dias da semana
+{
+    Possivel: "Weekday, AND", 
+    Metodo: () => {
+        let  query = SELECT * from sc_ocorrencia WHERE MONTH(Oc_data) = 6 AND WEEKDAY(Oc_data) = 2
+        return query
+    }
+    Sucess: true
+}
+#quantidade de querys 
+#* 3 tipos de occorencias
+#* 5 dias da semana 
+#15 Querys [ok]
+*Metodo para fazer: 
+// 1 Criar 3 arrays com cada indice correspondente ao dia da semana [ok]
+// 2 For com 5 iterações cada uma resultando uma consulta no dia da semana [ok]
+###  Javascript graph
+#decodificar div hiden
+#ler o json gerado
+#output no grafico
+#exibir os dados
+/* //////////////////////////////////////////////////////////////////////////////////////////*/
+//Database
+Modificado{
+    tables: [Tipo de funcionario, tipo de usuario ],
+    descricao: "Só há dois tipo possiveis de usuários[Responsaveis,Funcionários], e há aproximadamente
+    4 tipos de funcionários";
+} 
+$Estrutura do array funcionario
+ ["f"]=> array(4) { 
+     ["Tipo"]=> string(1) "1",
+     ["Nome"]=> string(9) "Joca biru",
+     ["CPF"]=> string(14) "123.123.123-12",
+     ["matricula"]=> string(6) "131415" 
+}
