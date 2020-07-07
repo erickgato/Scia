@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Jul-2020 às 16:46
+-- Tempo de geração: 07-Jul-2020 às 20:08
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.2.31
 
@@ -38,6 +38,13 @@ CREATE TABLE `sc_aluno` (
   `Al_CPF` char(14) COLLATE utf8_bin DEFAULT NULL,
   `Al_codResponsavel` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela armazenará todos os dados dos alunos registrados na unidade, especificando seu responsável e sua unidade pertencente.';
+
+--
+-- Extraindo dados da tabela `sc_aluno`
+--
+
+INSERT INTO `sc_aluno` (`Al_cod`, `Al_codUnidade`, `Al_nome`, `Al_sobrenome`, `Al_nascimento`, `Al_CPF`, `Al_codResponsavel`) VALUES
+(65, 1, 'Marc', 'Neto', '2020-07-03', '031.967.993-21', 32);
 
 -- --------------------------------------------------------
 
@@ -167,6 +174,13 @@ CREATE TABLE `sc_responsavel` (
   `Re_codtpLogradouro` int(11) NOT NULL,
   `Re_codBairro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela será usada para armazenar os dados do responsavel no sistema';
+
+--
+-- Extraindo dados da tabela `sc_responsavel`
+--
+
+INSERT INTO `sc_responsavel` (`Re_cod`, `Re_RG`, `Re_CPF`, `Re_nascimento`, `Re_nome`, `Re_logradouro`, `Re_codtpLogradouro`, `Re_codBairro`) VALUES
+(32, '27', '758.779.570-74', '1987-02-10', 'Bruno Eduardo Nunes', 'Conjunto Habitacional Conceição Gomes Rabelo', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -448,7 +462,7 @@ ALTER TABLE `sc_usuario_responsavel`
 -- AUTO_INCREMENT de tabela `sc_aluno`
 --
 ALTER TABLE `sc_aluno`
-  MODIFY `Al_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `Al_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT de tabela `sc_bairro`
@@ -490,7 +504,7 @@ ALTER TABLE `sc_ocorrencia`
 -- AUTO_INCREMENT de tabela `sc_responsavel`
 --
 ALTER TABLE `sc_responsavel`
-  MODIFY `Re_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `Re_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `sc_tp_contato`
@@ -532,7 +546,7 @@ ALTER TABLE `sc_unidade`
 -- AUTO_INCREMENT de tabela `sc_usuario`
 --
 ALTER TABLE `sc_usuario`
-  MODIFY `Us_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `Us_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de tabela `sc_usuario_responsavel`
