@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="Pt-Br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="../../css/estilos.css" />
+    <link rel="stylesheet" href="<?php echo STYLES; ?>/Menu.css">
+    <link rel="stylesheet" href="<?php echo STYLES; ?>/hamburguers.css">
     <title>Cadastrar Funcionario</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/estilos.css" />
-    <script src="../../JS/estilos.js"></script>
-    
+    <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/cadastra_aluno.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--ALERT BOX -->
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
 </head>
 
 <body class="corpo">
@@ -17,66 +29,89 @@
         <?php
             include_once RESOCS . '/Cabecalhos/menuAdm.func.php';
             GerarMenuAdmin();
+            $unidades = DATABASE::SELECT('sc_unidade');
+            $funcionarios = DATABASE::SELECT('sc_tp_funcionario');
         ?>
     </header>
     <div id="container">
-        <script src="../../Resources/js/estilos.js"></script>
+    <script src="<?php echo RESOCS; ?>/js/estilos.js"></script>
         <form action="#" method="post">
             <div class="painel">
-                <h1 class="CF">Cadastro de Funcionario</h1>
+            <label class="title_register">
+                    Cadastro de Funcionarios
                 </label>
                 <div id="campos_cadastro">
-                    <label for="UnidadeFunc">
+                    <label class="subtitulo">
                         Unidade do Funcionario
-                        <select class="caixa" id="input-text" type="text" value="" name="Unidade">
-                            <option value="1">SESI</option>
-                            <option value="2">SENAI</option>
+                        <select class="caixa" id="input-text" type="text" value="" name="Unidade" required>
+                            <?php foreach ($unidades as $unidade ): ?>
+                                <option value="<?php print($unidade['Un_cod']); ?>"><?php print($unidade['Un_nome']); ?></option>
+                            <?php endforeach ?>
                         </select>
                     </label>
-                    <label for="TipoFunc">
+                    <label class="subtitulo">
                         Tipo de Funcionario
-                        <select class="caixa" id="input-text" type="text" value="" name="TipoFuncionario">
-                            <option value="1">Comercial</option>
-                            <option value="2">Orientador</option>
-                            <option value="3">Cordenador</option>
-                            <option value="4">Monitor</option>
+                        <select class="caixa" id="input-text" type="text" value="" name="f[Tipo]" required>
+                            <<?php foreach ($funcionarios as $func ): ?>
+                                <option value="<?php print($func['TF_Cod']); ?>"><?php print($func['TF_nome']); ?></option>
+                            <?php endforeach ?>
                         </select>
                     </label>
-                    <label for="NomeFunc">
-                        Nome do Funcionario
-                        <input class="caixa" name="NomeFuncionario" id="" type="text" value=""
-                            placeholder="Digite o Nome do Funcionario" />
+                    <label class="subtitulo">
+                        Nome
+                        <input class="caixa" name="f[Nome]" id="" type="text" value=""
+                            placeholder="Digite o Nome do Funcionario" required />
                     </label>
-                    <label for="CPFFunc">
-                        CPF do Funcionario
-                        <input class="caixa" type="text" name="CPF" placeholder="Digite o CPF do Funcionario"
-                            onkeydown="javascript: fMasc( this, mCPF )" maxlength="14" />
+                    <label class="subtitulo">
+                        CPF
+                        <input class="caixa" type="text" name="f[CPF]" placeholder="Digite o CPF do Funcionario"
+                            onkeydown="javascript: fMasc( this, mCPF )" maxlength="14" requireds />
                     </label>
-                    <label for="CodigoFunc">
-                        Código do Funcionario
-                        <input class="caixa" name="CodigoFuncionario" id="" type="text" value=""
-                            placeholder="Digite o Código do Funcionario" />
+                    <label class="subtitulo">
+                        Matrícula
+                        <input class="caixa" name="f[matricula]" id="" type="text" value=""
+                            placeholder="Digite a matrícula" required />
                     </label>
                 </div>
                 <input type="submit" class="botao" name="Enviar" />
             </div>
         </form>
         < <?php 
-				if(isset($_POST['Enviar'])){ 
-                    $UnidadeFuncionario = $_POST['unidade'];
-                    $TipoFuncionario = $_POST['Tipofuncionario'];
-					$NomeFuncionario = $_POST['NomeFuncionario'];
-					$CPFFuncionario = $_POST['CPF'];
-					$CodigoFuncionario = $_POST['Matricula'];
-					
-					include_once '../../classes/CadastroFuncionario.php';
-					$funcionario = new Funcionario($UnidadeFuncionario,$TipoFuncionario,$NomeFuncionario,$CPFFuncionario,$Matricula);
-					
-					$funcionario->cadastrar();
+				if((isset($_POST['Enviar'])) && (isset($_POST['f']))){ 
+                    $fun = array(
+                        "T" => $_POST['f']['Tipo'],
+                        'Nom' => $_POST['f']['Nome'],
+                        'CPF' => $_POST['f']['CPF'],
+                        'mat' =>  $_POST['f']['matricula'],
+                        'un' => $_POST['Unidade']
+                    );
+                    date_default_timezone_set('UTC');
+                    if(DATABASE::SELECT('sc_funcionario',"WHERE Fu_CPF = '{$fun['CPF']}'",false,null,true) == 0) {
+                        $Inserts = array(
+                            "func" => DATABASE::INSERT('sc_funcionario',['',$fun['Nom'],$fun['CPF'],$fun['mat'],$fun['un'],$fun['T']]) ,
+                            "Usuario" => DATABASE::INSERT('sc_usuario',['',$fun['CPF'],base64_encode($fun['CPF']),3,Date('Y-m-d')]),
+                        );
+                        if($Inserts){
+                            echo "<script>
+                                alertify.alert('Sucesso', 'Funcionário cadastrado com sucesso!',() => {
+                                alertify.success('Cadastro concluido!')
+                              });</script>";
+                        }
+                        else{
+                            echo "
+                            <script>
+                                alertify.alert('Error', 'Falha no cadastro de Funcionário!',() => {
+                                alertify.error('Falha no contato')
+                              });</script>
+                            
+                            ";
+                        }
+                    }
+                        
+                    
 				}
-					
-		
-		?> </div>
-</body>
+        ?> </div>
+     <script src="<?php echo RESOCS; ?>/js/AdmMenu.js"></script>    
+    </body>
 
 </html>

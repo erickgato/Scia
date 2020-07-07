@@ -71,8 +71,6 @@
         <footer> powered by scia</footer>
     </div>
     <script src="<?php echo RESOCS; ?>/js/AdmMenu.js"></script>
-    <script>
-    </script>
 </body>
 
 </html>

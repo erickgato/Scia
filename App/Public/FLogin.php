@@ -24,7 +24,6 @@
                 <!-- Input para o login.php indicando que nesta página só podem ser cadastrados
 				Usuarios do tipo 2(Responsáveis) -->
                 <input type="hidden" name="codtpusr" value="2">
-
                 <div class="input-container">
                     <label class="subtitulo"> CPF </label>
                     <input type="text" name="usu_cpf" required placeholder="Digite Seu CPF"

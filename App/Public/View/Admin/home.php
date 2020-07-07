@@ -9,7 +9,7 @@ $quantidades = array(
     "Occorencias" => DATABASE::SELECT('sc_ocorrencia', "WHERE Oc_data = '$data' ", false, null, true),
     "Alunos" => DATABASE::SELECT('sc_aluno', null, false, null, true)
 );
-$AlLiberados = DATABASE::JOIN('sc_ocorrencia', null, 'as OC INNER JOIN sc_aluno as AL on OC.Oc_codAluno = AL.Al_cod');
+$AlLiberados = DATABASE::JOIN('sc_ocorrencia', "WHERE Oc_data = '$data' ", 'as OC INNER JOIN sc_aluno as AL on OC.Oc_codAluno = AL.Al_cod');
 $Json_Liberacoes = json_encode($AlLiberados);
 function QueryDay(int $day, int $tipooccorencia)
 {

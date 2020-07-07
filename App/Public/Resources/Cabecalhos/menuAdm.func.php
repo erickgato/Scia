@@ -35,7 +35,7 @@ function GerarMenuAdmin(){
             <ul>
                 <li> <a href="CadastrarAluno">ALUNO</a></li>
                 <li><a href="CadastrarResponsavel">RESPONSÁVEL</a></li>
-                <li><a href="ConsultarResponsavel">FUNCIONÁRIO</a></li>
+                <li><a href="CadastFunc">FUNCIONÁRIO</a></li>
             </ul>
         </div>
         <div class="MenuItem">
