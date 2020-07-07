@@ -19,3 +19,17 @@
 #ler o json gerado
 #output no grafico
 #exibir os dados
+/* //////////////////////////////////////////////////////////////////////////////////////////*/
+//Database
+Modificado{
+    tables: [Tipo de funcionario, tipo de usuario ],
+    descricao: "Só há dois tipo possiveis de usuários[Responsaveis,Funcionários], e há aproximadamente
+    4 tipos de funcionários";
+} 
+$Estrutura do array funcionario
+ ["f"]=> array(4) { 
+     ["Tipo"]=> string(1) "1",
+     ["Nome"]=> string(9) "Joca biru",
+     ["CPF"]=> string(14) "123.123.123-12",
+     ["matricula"]=> string(6) "131415" 
+}
