@@ -18,6 +18,7 @@ define( "PORT", $DBCONFIG['PORT'] );
 define( "STYLES", PATH . 'Public/Resources/css/');
 define("PUBLICPATH", PATH.'Public');
 define("RESOCS", PUBLICPATH . '/Resources');
-define("HTTPORIGIN", 'http://192.168.0.14/scia');
+#Modify thiss
+define("HTTPORIGIN", "http://{$_SERVER['HTTP_HOST']}/scia");
 define("IMAGES", RESOCS . '/images');
 define("VENDOR",RESOCS . '/Vendor');

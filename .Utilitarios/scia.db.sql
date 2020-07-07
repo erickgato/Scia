@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Jul-2020 às 20:08
+-- Tempo de geração: 07-Jul-2020 às 20:41
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.2.31
 
@@ -38,13 +38,6 @@ CREATE TABLE `sc_aluno` (
   `Al_CPF` char(14) COLLATE utf8_bin DEFAULT NULL,
   `Al_codResponsavel` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela armazenará todos os dados dos alunos registrados na unidade, especificando seu responsável e sua unidade pertencente.';
-
---
--- Extraindo dados da tabela `sc_aluno`
---
-
-INSERT INTO `sc_aluno` (`Al_cod`, `Al_codUnidade`, `Al_nome`, `Al_sobrenome`, `Al_nascimento`, `Al_CPF`, `Al_codResponsavel`) VALUES
-(65, 1, 'Marc', 'Neto', '2020-07-03', '031.967.993-21', 32);
 
 -- --------------------------------------------------------
 
@@ -180,7 +173,10 @@ CREATE TABLE `sc_responsavel` (
 --
 
 INSERT INTO `sc_responsavel` (`Re_cod`, `Re_RG`, `Re_CPF`, `Re_nascimento`, `Re_nome`, `Re_logradouro`, `Re_codtpLogradouro`, `Re_codBairro`) VALUES
-(32, '27', '758.779.570-74', '1987-02-10', 'Bruno Eduardo Nunes', 'Conjunto Habitacional Conceição Gomes Rabelo', 1, 1);
+(32, '27', '758.779.570-74', '1987-02-10', 'Bruno Eduardo Nunes', 'Conjunto Habitacional Conceição Gomes Rabelo', 1, 1),
+(33, '41', '634.344.146-81', '1958-02-04', 'Luciana Tatiane da Rocha', 'Q1293-1021', 1, 5),
+(35, '22', '068.221.376-45', '1961-02-24', 'Cecília Francisca Teresinha dos Santos', 'Rua Emancipador Paulo Fefin', 1, 4),
+(36, '23', '572.109.604-73', '1983-01-04', 'Luan Marcos Leandro Almada', 'Rua Oliveira Nunes, 577', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -278,8 +274,8 @@ CREATE TABLE `sc_tp_usuario` (
 --
 
 INSERT INTO `sc_tp_usuario` (`TU_cod`, `TU_nome`) VALUES
-(3, 'Funcionário'),
-(5, 'Comercial');
+(2, 'Responsável'),
+(3, 'Funcionário');
 
 -- --------------------------------------------------------
 
@@ -320,8 +316,7 @@ CREATE TABLE `sc_usuario` (
 --
 
 INSERT INTO `sc_usuario` (`Us_cod`, `Us_login`, `Us_senha`, `Us_codtpUsuario`, `Us_modifiedat`) VALUES
-(26, '031.948.002-05', 'admin', 3, '2020-07-06'),
-(27, '031.948.002-04', 'MDMxLjk0OC4wMDItMDQ=', 3, '2020-07-07');
+(26, '031.948.002-05', 'admin', 3, '2020-07-06');
 
 -- --------------------------------------------------------
 
@@ -462,7 +457,7 @@ ALTER TABLE `sc_usuario_responsavel`
 -- AUTO_INCREMENT de tabela `sc_aluno`
 --
 ALTER TABLE `sc_aluno`
-  MODIFY `Al_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `Al_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de tabela `sc_bairro`
@@ -504,7 +499,7 @@ ALTER TABLE `sc_ocorrencia`
 -- AUTO_INCREMENT de tabela `sc_responsavel`
 --
 ALTER TABLE `sc_responsavel`
-  MODIFY `Re_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `Re_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de tabela `sc_tp_contato`
@@ -546,13 +541,13 @@ ALTER TABLE `sc_unidade`
 -- AUTO_INCREMENT de tabela `sc_usuario`
 --
 ALTER TABLE `sc_usuario`
-  MODIFY `Us_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `Us_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de tabela `sc_usuario_responsavel`
 --
 ALTER TABLE `sc_usuario_responsavel`
-  MODIFY `ur_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ur_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restrições para despejos de tabelas
