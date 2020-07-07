@@ -28,11 +28,14 @@ session_start();
       case 'CadastrarResponsavel':
         includePublic('View/Admin/CadastrarResponsavel.php');
       break;
-      case 'CadastrarFuncionario':
+      case 'CadastFunc':
         includePublic('View/Admin/CadastrarFuncionario.php');
       break;
       case 'homeadmin':
         includePublic('View/Admin/home.php');
+      break;
+      case 'alterar-senha': 
+        includePublic('NSenha.php');
       break;
       default:
         includePublic('View/404.html');
