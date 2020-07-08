@@ -106,7 +106,7 @@ if (isset($_GET['Rid'])) {
                     </select>
                 </div>
                 <input type="submit" class="button" name="Enviar" />
-                <button class="button" onclick="Form(false)"> Cancel </button>
+                <button class="button" onclick="Form(false)"> Cancelar </button>
             </div>
         </form>
         <!-- end form['edit']  -->
@@ -151,7 +151,7 @@ if (isset($_GET['Rid'])) {
             $R_CPF = DATABASE::SELECT('sc_responsavel', "where Re_cod={$_GET['Rid']}");
             if (DATABASE::DELETE('sc_usuario', 'Us_login', $R_CPF[0]['Re_CPF'])) {
                 if (DATABASE::DELETE('sc_responsavel', 'Re_cod', $_GET['Rid'])) {
-                    echo "<script>alertify.alert('Excluido!', 'Responsável Excluidos!',() => {
+                    echo "<script>alertify.alert('Excluido!', 'Responsável Excluido!',() => {
                         window.location.href = 'ConsultarResponsavel';
                       });</script>";
                 }

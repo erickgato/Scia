@@ -34,3 +34,13 @@
             "Nascimento" => $S_RESP[0]['Re_nascimento'],
             "End" => $S_RESP[0]['Re_logradouro'],
         );
+
+
+         $Aluno = array(
+        "Nome" => $S_Alun[0]['Al_nome'],
+        "sobrenome" => $S_Alun[0]['Al_sobrenome'],
+        "CPF" => $S_Alun[0]['Al_CPF'],
+        "Nascimento" => $S_Alun[0]['Al_nascimento'],
+        "Un" => $S_Alun[0]['Al_codUnidade'],
+        "RCPF" => $S_Alun[0]['Re_CPF']
+    );

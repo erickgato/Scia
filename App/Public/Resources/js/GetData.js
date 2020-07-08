@@ -34,7 +34,7 @@ const Aluno = {
         td.push(
           CreateA(
             DecodeAlunos[i]["Al_nome"] + " " + DecodeAlunos[i]["Al_sobrenome"],
-            "?Cal = " + DecodeAlunos[i]["Al_cod"]
+            "?Cal=" + DecodeAlunos[i]["Al_cod"]
           )
         );
         td.push(createTd(DecodeAlunos[i]["Re_nome"]));
