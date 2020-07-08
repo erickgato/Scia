@@ -1,0 +1,36 @@
+##Realizar operações com javascript para alterar
+/*
+*Exibir com alertfy prompt questionando qual ação o usuário quer realizar
+* if Editar 
+    Exbir janela com informações
+* if Excluir
+    Exbir janela "Tem certeza" ?
+
+
+ */ 
+ /* Modificações */ 
+ #div Question
+ #div form
+ #include js edit_del
+ #import form 
+ 
+ **estructure
+    #responsavel 
+        array(1) { 
+            [0]=> array(8) {
+                 ["Re_cod"]=> string(2) "32" 
+                 ["Re_RG"]=> string(2) "27" 
+                 ["Re_CPF"]=> string(14) "758.779.570-74"
+                 ["Re_nascimento"]=> string(10) "1987-02-10" 
+                 ["Re_nome"]=> string(19) "Bruno Eduardo Nunes" 
+                 ["Re_logradouro"]=> string(46) "
+                 Conjunto Habitacional Conceição Gomes Rabelo" 
+                 ["Re_codtpLogradouro"]=> string(1) "1"
+                 ["Re_codBairro"]=> string(1) "1" } }
+         $Responsavel = array(
+            "Nome" => $S_RESP[0]['Re_nome'],
+            "RG" => $S_RESP[0]['Re_RG'],
+            "CPF" => $S_RESP[0]['Re_CPF'],
+            "Nascimento" => $S_RESP[0]['Re_nascimento'],
+            "End" => $S_RESP[0]['Re_logradouro'],
+        );

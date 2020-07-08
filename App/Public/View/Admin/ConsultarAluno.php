@@ -51,11 +51,6 @@
     </script>
     <script src="<?php echo RESOCS; ?>/js/AdmMenu.js">
     </script>
-    <script>
-        $(window).unload(() => {
-          $("body").addClass('Pageclosing');
-        })
-    </script>
 </body>
 
 </html>

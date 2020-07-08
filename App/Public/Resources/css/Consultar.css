@@ -1,93 +1,91 @@
-*{
+@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:700";
+/* line 7, App/Public/Resources/scss/consultar.scss */
+* {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
+
+/* line 11, App/Public/Resources/scss/consultar.scss */
 ::-webkit-scrollbar-track {
-  background-color: #f4f4f4;
-}
+  background-color: #f4f4f4; }
+
+/* line 14, App/Public/Resources/scss/consultar.scss */
 ::-webkit-scrollbar {
   width: 6px;
-  background: #f4f4f4;
-}
+  background: #f4f4f4; }
+
+/* line 18, App/Public/Resources/scss/consultar.scss */
 ::-webkit-scrollbar-thumb {
-  background: #dad7d7;
-}
+  background: #dad7d7; }
+
+/* line 21, App/Public/Resources/scss/consultar.scss */
 body {
   width: 100%;
   min-height: 100%;
+  -webkit-animation: puff-in-center 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+  animation: puff-in-center 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) both; }
 
-  -webkit-animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-	        animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-}
 @-webkit-keyframes puff-in-center {
   0% {
     -webkit-transform: scale(2);
-            transform: scale(2);
+    transform: scale(2);
     -webkit-filter: blur(4px);
-            filter: blur(4px);
-    opacity: 0;
-  }
+    filter: blur(4px);
+    opacity: 0; }
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     -webkit-filter: blur(0px);
-            filter: blur(0px);
-    opacity: 1;
-  }
-}
+    filter: blur(0px);
+    opacity: 1; } }
+
 @keyframes puff-in-center {
   0% {
     -webkit-transform: scale(2);
-            transform: scale(2);
+    transform: scale(2);
     -webkit-filter: blur(4px);
-            filter: blur(4px);
-    opacity: 0;
-  }
+    filter: blur(4px);
+    opacity: 0; }
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     -webkit-filter: blur(0px);
-            filter: blur(0px);
-    opacity: 1;
-  }
-}
-.Pageclosing{
-  -webkit-animation: slide-out-bck-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both !important;
-	        animation: slide-out-bck-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both !important;
-}
+    filter: blur(0px);
+    opacity: 1; } }
+
+/* line 61, App/Public/Resources/scss/consultar.scss */
+.Pageclosing {
+  -webkit-animation: slide-out-bck-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both !important;
+  animation: slide-out-bck-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both !important; }
+
 @-webkit-keyframes slide-out-bck-center {
   0% {
     -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-    opacity: 1;
-  }
+    transform: translateZ(0);
+    opacity: 1; }
   100% {
     -webkit-transform: translateZ(-1100px);
-            transform: translateZ(-1100px);
-    opacity: 0;
-  }
-}
+    transform: translateZ(-1100px);
+    opacity: 0; } }
+
 @keyframes slide-out-bck-center {
   0% {
     -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-    opacity: 1;
-  }
+    transform: translateZ(0);
+    opacity: 1; }
   100% {
     -webkit-transform: translateZ(-1100px);
-            transform: translateZ(-1100px);
-    opacity: 0;
-  }
-}
+    transform: translateZ(-1100px);
+    opacity: 0; } }
 
-
+/* line 92, App/Public/Resources/scss/consultar.scss */
 body {
-  background-image: url('../Images/bg-01.jpg');
+  background-image: url("../Images/bg-01.jpg");
   background-position: center;
   background-origin: content-box;
   background-repeat: no-repeat;
-  background-size: cover;
-}
+  background-size: cover; }
+
+/* line 99, App/Public/Resources/scss/consultar.scss */
 table {
   margin-top: 10%;
   margin-left: 5%;
@@ -95,31 +93,31 @@ table {
   width: 90vw;
   border-collapse: collapse;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
-}
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9); }
+  /* line 107, App/Public/Resources/scss/consultar.scss */
+  table a {
+    color: white; }
+  /* line 110, App/Public/Resources/scss/consultar.scss */
+  table th,
+  table td {
+    padding: 2%;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff; }
+  /* line 117, App/Public/Resources/scss/consultar.scss */
+  table th {
+    font-size: 17pt;
+    text-align: left; }
+  /* line 122, App/Public/Resources/scss/consultar.scss */
+  table thead th {
+    background-color: #55608f; }
+  /* line 126, App/Public/Resources/scss/consultar.scss */
+  table tbody tr:hover {
+    font-size: 14pt;
+    transition: 0.2s;
+    background-color: rgba(255, 255, 255, 0.3); }
 
-th,
-td {
-  padding: 2%;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
-}
-
-th {
-  font-size: 17pt;
-  text-align: left;
-}
-
-thead th {
-  background-color: #55608f;
-}
-
-tbody tr:hover {
-  font-size: 14pt;
-  transition: 0.2s;
-  background-color: rgba(255, 255, 255, 0.3);
-}
 /* SearchBar */
+/* line 134, App/Public/Resources/scss/consultar.scss */
 .Searchbar {
   position: fixed;
   margin-top: -5%;
@@ -129,27 +127,30 @@ tbody tr:hover {
   height: 40px;
   width: 20vw;
   border-radius: 40px;
-  padding: 10px;
-}
+  padding: 10px; }
 
+/* line 146, App/Public/Resources/scss/consultar.scss */
 .Searchbar:hover {
   background: linear-gradient(45deg, #00dbde, #fc00ff);
-  transition: 0.3s;
-}
+  transition: 0.3s; }
+
+/* line 150, App/Public/Resources/scss/consultar.scss */
 ::-webkit-input-placeholder {
   color: whitesmoke;
-  font-size: 14pt;
-}
+  font-size: 14pt; }
+
+/* line 154, App/Public/Resources/scss/consultar.scss */
 .search-txt:hover::placeholder {
   color: whitesmoke;
-  font-size: 17pt;
-}
+  font-size: 17pt; }
+
+/* line 158, App/Public/Resources/scss/consultar.scss */
 .Searchbar:hover > .search-txt {
   width: 240px;
   padding: 0 6px;
-  color: whitesmoke;
-}
+  color: whitesmoke; }
 
+/* line 164, App/Public/Resources/scss/consultar.scss */
 .search-txt {
   border: none;
   background: none;
@@ -159,6 +160,256 @@ tbody tr:hover {
   font-size: 12pt;
   transition: 0.4s;
   line-height: 40px;
-  width: 80%;
-}
+  width: 80%; }
+
 /* ////////////////////////////////////////////////////// */
+/* line 176, App/Public/Resources/scss/consultar.scss */
+.confirm {
+  position: absolute;
+  width: 30%;
+  height: 40%;
+  background-color: white;
+  margin-left: 35%;
+  display: none;
+  justify-content: center;
+  font-family: "Source Sans Pro", sans-serif;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  -webkit-animation: slide-in-blurred-top 0.9s cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation: slide-in-blurred-top 0.9s cubic-bezier(0.23, 1, 0.32, 1) both; }
+  /* line 189, App/Public/Resources/scss/consultar.scss */
+  .confirm #message {
+    font-size: 20pt;
+    grid-row-start: 3; }
+  /* line 193, App/Public/Resources/scss/consultar.scss */
+  .confirm #closeicns {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; }
+    /* line 198, App/Public/Resources/scss/consultar.scss */
+    .confirm #closeicns img:hover {
+      background-color: red; }
+  /* line 203, App/Public/Resources/scss/consultar.scss */
+  .confirm .flexconfirm {
+    grid-row-start: 5;
+    grid-row-end: 6; }
+    /* line 206, App/Public/Resources/scss/consultar.scss */
+    .confirm .flexconfirm button {
+      width: 49%;
+      height: 46%;
+      border: none;
+      color: white;
+      background-color: green;
+      border-radius: 0.2em; }
+      /* line 213, App/Public/Resources/scss/consultar.scss */
+      .confirm .flexconfirm button:active {
+        transform: translate(0px, 5px);
+        -webkit-transform: translate(0px, 5px);
+        box-shadow: 0px 1px 0px 0px; }
+    /* line 219, App/Public/Resources/scss/consultar.scss */
+    .confirm .flexconfirm #del {
+      background-color: #e74c3c;
+      box-shadow: 0px 5px 0px 0px #ce3323; }
+      /* line 222, App/Public/Resources/scss/consultar.scss */
+      .confirm .flexconfirm #del:hover {
+        background-color: #ff6656; }
+    /* line 226, App/Public/Resources/scss/consultar.scss */
+    .confirm .flexconfirm #edit {
+      background-color: #2ecc71;
+      box-shadow: 0px 5px 0px 0px #15b358; }
+      /* line 229, App/Public/Resources/scss/consultar.scss */
+      .confirm .flexconfirm #edit:hover {
+        background-color: #48e68b; }
+
+@-webkit-keyframes slide-in-blurred-top {
+  0% {
+    -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0; }
+  100% {
+    -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+    transform: translateY(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1; } }
+
+@keyframes slide-in-blurred-top {
+  0% {
+    -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0; }
+  100% {
+    -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+    transform: translateY(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1; } }
+
+/* edit actions divs */
+/* line 277, App/Public/Resources/scss/consultar.scss */
+#form {
+  display: none;
+  position: absolute;
+  margin-top: -10%;
+  background-color: rgba(88, 84, 84, 0.4);
+  width: 100%;
+  height: 100%; }
+
+@keyframes slidein {
+  from {
+    opacity: 0;
+    transform: scale(2, 2) translateX(-150%) rotate(90deg); }
+  to {
+    opacity: 0.8;
+    transform: scale(0);
+    transform: translateX(0) rotate(0); } }
+  /* line 295, App/Public/Resources/scss/consultar.scss */
+  #form .title_aut {
+    font-size: 6vh;
+    color: black;
+    margin-left: 20%;
+    font-family: "haboro"; }
+  /* line 302, App/Public/Resources/scss/consultar.scss */
+  #form .titulo {
+    font-size: 6vh;
+    color: black;
+    margin-left: 38%;
+    font-family: "haboro"; }
+  /* line 309, App/Public/Resources/scss/consultar.scss */
+  #form .title_register {
+    font-size: 5vh;
+    color: black;
+    margin-left: 10%;
+    font-family: "haboro"; }
+  /* line 316, App/Public/Resources/scss/consultar.scss */
+  #form .painel {
+    margin-left: 35%;
+    margin-top: 0.9em;
+    width: 30%;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 5%;
+    animation: slidein 1000ms;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.62); }
+  /* line 326, App/Public/Resources/scss/consultar.scss */
+  #form textarea {
+    resize: none;
+    width: 80%;
+    margin-left: 8.5%;
+    margin-top: 1%;
+    margin-bottom: 4%;
+    background: transparent;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #86888d;
+    border-bottom-width: 0.15vh;
+    color: black;
+    font-family: Candara;
+    font-size: 2.7vh;
+    height: 7%; }
+  /* line 343, App/Public/Resources/scss/consultar.scss */
+  #form .fixado {
+    width: 100%;
+    position: fixed;
+    top: 0; }
+  /* line 349, App/Public/Resources/scss/consultar.scss */
+  #form .subtitulo {
+    font-size: 3vh;
+    color: black;
+    margin-left: 8.5%;
+    margin-top: 4%;
+    margin-bottom: 2%; }
+  /* line 356, App/Public/Resources/scss/consultar.scss */
+  #form .Form-invalid {
+    animation: invalidform 300ms linear;
+    animation-iteration-count: 2;
+    transition: 0.3s; }
+
+@keyframes invalidform {
+  0%,
+  100% {
+    transform: translateX(0);
+    overflow-x: auto; }
+  40% {
+    transform: translateX(-1%);
+    overflow-x: hidden; }
+  80% {
+    transform: translateX(1%); } }
+  /* line 375, App/Public/Resources/scss/consultar.scss */
+  #form label[for="titulo"] {
+    font-size: 5vh;
+    color: black;
+    margin-left: 2%; }
+  /* line 381, App/Public/Resources/scss/consultar.scss */
+  #form label[for="subtitulo"] {
+    font-size: 3vh;
+    color: black;
+    margin-left: 2%;
+    margin-top: 4%;
+    margin-bottom: 2%; }
+  /* line 389, App/Public/Resources/scss/consultar.scss */
+  #form .caixa {
+    width: 80%;
+    margin-left: 8.5%;
+    margin-top: 1%;
+    margin-bottom: 4%;
+    background: transparent;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #86888d;
+    border-bottom-width: 0.15vh;
+    color: black;
+    font-family: Candara;
+    font-size: 2.7vh;
+    height: 4%; }
+  /* line 406, App/Public/Resources/scss/consultar.scss */
+  #form .caixa::placeholder {
+    color: #86888d; }
+  /* line 410, App/Public/Resources/scss/consultar.scss */
+  #form .opcsele {
+    color: #000; }
+  /* line 414, App/Public/Resources/scss/consultar.scss */
+  #form .botao {
+    margin-top: 20%;
+    margin-left: 15%;
+    background: linear-gradient(to right, #ef0afd, #08d2df);
+    opacity: 0.8;
+    height: 8vh;
+    width: 70%;
+    border: 0.3vh solid whitesmoke;
+    font-size: 3vh;
+    border-radius: 10vh;
+    color: whitesmoke; }
+  /* line 427, App/Public/Resources/scss/consultar.scss */
+  #form .button {
+    margin-top: 1%;
+    margin-left: 15%;
+    background: linear-gradient(to right, #ef0afd, #08d2df);
+    opacity: 0.8;
+    height: 8vh;
+    width: 70%;
+    border: 0.3vh solid whitesmoke;
+    font-size: 3vh;
+    border-radius: 10vh;
+    color: whitesmoke; }
+  /* line 439, App/Public/Resources/scss/consultar.scss */
+  #form .button:hover {
+    background: linear-gradient(to right, #08d2df, #ef0afd);
+    opacity: 1;
+    transition: 0.5s; }
+  /* line 445, App/Public/Resources/scss/consultar.scss */
+  #form .botao:hover {
+    background-color: #e84118; }

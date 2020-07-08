@@ -38,7 +38,7 @@
                     <input class="caixa" type="text" name="nome">
 
                     <label class="subtitulo">RG </label><input class="caixa" name="RG" type="text"
-                        placeholder="RG do Responsável" required maxlength="10" autofocus />
+                        placeholder="RG do Responsável" required maxlength="11" autofocus />
                     <label class="subtitulo">CPF</label><input class="caixa" type="text" name="CPF"
                         placeholder="CPF do Responsável" onkeydown="javascript: fMasc( this, mCPF )" maxlength="14"
                         required />
