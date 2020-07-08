@@ -88,9 +88,10 @@
                     date_default_timezone_set('UTC');
                     if(DATABASE::SELECT('sc_funcionario',"WHERE Fu_CPF = '{$fun['CPF']}'",false,null,true) == 0) {
                         $Inserts = array(
-                            "func" => DATABASE::INSERT('sc_funcionario',['',$fun['Nom'],$fun['CPF'],$fun['mat'],$fun['un'],$fun['T']]) ,
+                            "func" => DATABASE::INSERT('sc_funcionario',['',$fun['Nom'],$fun['CPF'],$fun['mat'],$fun['un'],$fun['T']]),
                             "Usuario" => DATABASE::INSERT('sc_usuario',['',$fun['CPF'],base64_encode($fun['CPF']),3,Date('Y-m-d')]),
                         );
+                        var_dump($Inserts);
                         if($Inserts){
                             echo "<script>
                                 alertify.alert('Sucesso', 'Funcionário cadastrado com sucesso!',() => {

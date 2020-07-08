@@ -8,7 +8,7 @@
     if(isset($_POST['Enviar'])){ 
                    
         $Responsavel = array(
-            'RG' => (int) Postdata('RG'), "CPF" => Postdata('CPF'),
+            'RG' => (string) Postdata('RG'), "CPF" => Postdata('CPF'),
             'Nascimento' => Postdata('datanasc'), 'Nome' => Postdata('nome'),
             'Lograd' => (string) Postdata('endereco'),
             'T_log' => (string) Postdata('T_lograd'),
