@@ -19,6 +19,7 @@
 							break;
 						default: 
 							$_SESSION['ADMINLOGGED'] = true;
+							setcookie("USER[CPF]",(string)$Usuario['LOGIN'],time() + 3600);
 							header('Location: homeadmin');
 							exit;
 						break;
