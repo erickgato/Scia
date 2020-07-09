@@ -121,3 +121,33 @@ const Liberacoes = {
     }
   },
 };
+const Funcionario = {
+  Filter: (query) => {
+    var dowcasenome = query.toLowerCase();
+    const Json = document.getElementById("func_Json").innerText;
+    const DecodeFunc = JSON.parse(Json);
+
+    const DataTable = document.querySelector(".databody");
+    DataTable.innerHTML = "";
+
+    for (let i = 0; i < Object.keys(DecodeFunc).length; i++) {
+      var Select = DecodeFunc[i]["Fu_nome"].toLowerCase();
+      var Result = Select.search(dowcasenome);
+      if (Result > -1) {
+        var tr = document.createElement("tr");
+        var td = [];
+        td.push(CreateA(DecodeFunc[i]["Fu_nome"], "?Fid=" + DecodeFunc[i]["Fu_cod"]));
+        td.push(createTd(DecodeFunc[i]["Fu_CPF"]));
+        td.push(createTd(DecodeFunc[i]["Fu_matricula"]));
+        td.push(createTd(DecodeFunc[i]["Fu_codUnidade"]));
+        td.push(createTd(DecodeFunc[i]["Fu_codtpFuncionario"]));
+
+        for (let itd = 0; itd < td.length; itd++) {
+          tr.appendChild(td[itd]);
+        }
+
+        DataTable.appendChild(tr);
+      }
+    }
+  },
+};
