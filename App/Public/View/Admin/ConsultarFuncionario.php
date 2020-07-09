@@ -7,7 +7,7 @@ if (isset($_GET['Fid'])) {
     $Funcionario = array(
         "Nome" => $S_RESP[0]['Fu_nome'],
         "CPF" => $S_RESP[0]['Fu_CPF'],
-        "Matricula" => $S_RESP[0]['Fu_matricula']
+        "Matricula" => $S_RESP[0]['Fu_matricula'],
         "Unidade" => $S_RESP[0]['Fu_codUnidade'],
         "tpFuncionario" => $S_RESP[0]['Fu_codtpFuncionario']
     );
@@ -45,11 +45,9 @@ if (isset($_GET['Fid'])) {
         <?php
         include_once RESOCS . '/Cabecalhos/menuAdm.func.php';
         GerarMenuAdmin();
-        $Funcionarios = DATABASE::JOIN('sc_funcionario', null, "
-            AS RESP INNER JOIN sc_tp_logradouro as TPL on 
-            RESP.Re_codtpLogradouro = TPL.TL_cod INNER JOIN
-            sc_bairro as BAIRRO on RESP.Re_codBairro = BAIRRO.Ba_cod
-            ");
+        $Funcionarios = DATABASE::SELECT('sc_funcionario');
+        //var_dump($Funcionarios);
+        //DIe();
         $js_funcionario = json_encode($Funcionarios);
         ?>
     </header>
@@ -85,12 +83,12 @@ if (isset($_GET['Fid'])) {
                     <label class="subtitulo">CPF</label>
                     <input class="caixa" type="text" name="F[CPF]" placeholder="CPF do Funcionario" onkeydown="javascript: fMasc( this, mCPF )" value="<?php print($Funcionario['CPF']); ?>" maxlength="14" required />
                     <label class="subtitulo">Unidade</label> 
-                    <select class="caixa" type="text" value="<?php print($Funcionario['Un']); ?>" name="F[Unidade]"> 
+                    <select class="caixa" type="text" value="<?php print($Funcionario['Unidade']); ?>" name="F[Unidade]"> 
                                 <option  value="1">SESI</option>
                                 <option  value="2">SENAI</option>
                             </select>
                     <label class="subtitulo">Cargo</label>
-                    <select class="caixa" type="text" value="<?php print($Funcionario['tp']); ?>" name="F[tpFuncionario]"> 
+                    <select class="caixa" type="text" value="<?php print($Funcionario['tpFuncionario']); ?>" name="F[tpFuncionario]"> 
                                 <option  value="1">Coordenador</option>
                                 <option  value="2">Monitor</option>
                                 <option  value="3">Gerencia</option>
@@ -105,7 +103,7 @@ if (isset($_GET['Fid'])) {
 
         <div class="Searchbar">
             <input class="search-txt" type="text" name="search" oninput="Funcionario.Filter(value)" placeholder="Search..">
-            <div style="display:none;" id="resp_Json"><?php echo $js_funcionario; ?></div>
+            <div style="display:none;" id="func_Json"><?php echo $js_funcionario; ?></div>
         </div>
 
         <table>
@@ -140,8 +138,8 @@ if (isset($_GET['Fid'])) {
                 <script> ShowDiv(".confirm");</script>
                 ';
         else {
-            $R_CPF = DATABASE::SELECT('sc_funcionario', "where Re_cod={$_GET['Fid']}");
-            if (DATABASE::DELETE('sc_usuario', 'Us_login', $R_CPF[0]['Re_CPF'])) {
+            $F_CPF = DATABASE::SELECT('sc_funcionario', "where Fu_cod={$_GET['Fid']}");
+            if (DATABASE::DELETE('sc_usuario', 'Us_login', $F_CPF[0]['Fu_CPF'])) {
                 if (DATABASE::DELETE('sc_funcionario', 'Fu_cod', $_GET['Fid'])) {
                     echo "<script>alertify.alert('Excluido!', 'Funcionario Excluido!',() => {
                         window.location.href = 'ConsultarFuncionario';
@@ -151,8 +149,8 @@ if (isset($_GET['Fid'])) {
         }
     }
     if (isset($_POST['Enviar']) && isset($_POST['F'])) {
-        $R_CPF = DATABASE::SELECT('sc_funcionario', "where Fu_cod={$_POST['F']['id']}");
-        $id_User = DATABASE::SELECT('sc_usuario', "WHERE Us_login = '{$R_CPF[0]['Fu_CPF']}'");
+        $F_CPF = DATABASE::SELECT('sc_funcionario', "where Fu_cod={$_POST['F']['id']}");
+        $id_User = DATABASE::SELECT('sc_usuario', "WHERE Us_login = '{$F_CPF[0]['Fu_CPF']}'");
         if (DATABASE::UPDATE(
             'sc_funcionario',
             "Fu_cod = {$_POST['F']['id']}",
