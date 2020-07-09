@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Jul-2020 às 17:50
+-- Tempo de geração: 10-Jul-2020 às 00:56
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.2.31
 
@@ -38,6 +38,14 @@ CREATE TABLE `sc_aluno` (
   `Al_CPF` char(14) COLLATE utf8_bin DEFAULT NULL,
   `Al_codResponsavel` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela armazenará todos os dados dos alunos registrados na unidade, especificando seu responsável e sua unidade pertencente.';
+
+--
+-- Extraindo dados da tabela `sc_aluno`
+--
+
+INSERT INTO `sc_aluno` (`Al_cod`, `Al_codUnidade`, `Al_nome`, `Al_sobrenome`, `Al_nascimento`, `Al_CPF`, `Al_codResponsavel`) VALUES
+(76, 1, 'Noah', 'Noah Gustavo Fábio Peixoto', '1996-02-06', '634.069.034-36', 47),
+(77, 1, 'Luiz ', 'Eduardo Bryan dos Santos', '1991-06-05', '776.318.537-62', 47);
 
 -- --------------------------------------------------------
 
@@ -133,9 +141,7 @@ CREATE TABLE `sc_funcionario` (
 --
 
 INSERT INTO `sc_funcionario` (`Fu_cod`, `Fu_nome`, `Fu_CPF`, `Fu_matricula`, `Fu_codUnidade`, `Fu_codtpFuncionario`) VALUES
-(6, 'Admin', '031.948.002.05', '12312', 3, 3),
-(7, 'Joca biru', '031.948.002-04', '131415', 1, 1),
-(8, 'Joca biru', '123.123.123-11', '131415', 3, 3);
+(10, 'Marc Deg', '012.831.231-23', '1243234234', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -168,6 +174,15 @@ CREATE TABLE `sc_responsavel` (
   `Re_codtpLogradouro` int(11) NOT NULL,
   `Re_codBairro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Esta tabela será usada para armazenar os dados do responsavel no sistema';
+
+--
+-- Extraindo dados da tabela `sc_responsavel`
+--
+
+INSERT INTO `sc_responsavel` (`Re_cod`, `Re_RG`, `Re_CPF`, `Re_nascimento`, `Re_nome`, `Re_logradouro`, `Re_codtpLogradouro`, `Re_codBairro`) VALUES
+(44, '0001923991', '031.948.002-05', '1995-05-15', 'Erick Gato', 'Rua joaquim inacio de souza ', 1, 1),
+(46, '27.542.741', '526.009.318-64', '2009-09-17', 'Erick Gato', 'Alberto nunes, 90', 1, 1),
+(47, '13.513.993-', '435.069.881-74', '1947-07-18', 'Nelson Gabriel Rocha', 'Quadra 10 MC', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -307,8 +322,12 @@ CREATE TABLE `sc_usuario` (
 --
 
 INSERT INTO `sc_usuario` (`Us_cod`, `Us_login`, `Us_senha`, `Us_codtpUsuario`, `Us_modifiedat`) VALUES
-(26, '031.948.002-05', 'admin', 3, '2020-07-06'),
-(32, '123.123.123-11', 'MTIzLjEyMy4xMjMtMTE=', 3, '2020-07-07');
+(38, '123.123.123-43', 'MTIzLjEyMy4xMjMtNDM=', 2, '2020-07-08'),
+(39, '896.756.758-67', 'ODk2Ljc1Ni43NTgtNjc=', 2, '2020-07-08'),
+(40, '031.948.002-05', 'MjMxLjIzMS4yMzEtMjM=', 2, '2020-07-08'),
+(41, '526.009.318-64', 'NTI2LjAwOS4zMTgtNjQ=', 2, '2020-07-09'),
+(43, '435.069.881-74', 'NDM1LjA2OS44ODEtNzQ=', 2, '2020-07-09'),
+(44, '012.831.231-23', 'MDEyLjgzMS4yMzEtMjM=', 3, '2020-07-09');
 
 -- --------------------------------------------------------
 
@@ -321,6 +340,15 @@ CREATE TABLE `sc_usuario_responsavel` (
   `id_user` int(11) NOT NULL,
   `cpf_resp` char(14) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tabela para armazenar usuarios e responsaveis correspondentes';
+
+--
+-- Extraindo dados da tabela `sc_usuario_responsavel`
+--
+
+INSERT INTO `sc_usuario_responsavel` (`ur_id`, `id_user`, `cpf_resp`) VALUES
+(28, 40, '031.948.002-05'),
+(29, 41, '526.009.318-64'),
+(30, 43, '435.069.881-74');
 
 --
 -- Índices para tabelas despejadas
@@ -449,7 +477,7 @@ ALTER TABLE `sc_usuario_responsavel`
 -- AUTO_INCREMENT de tabela `sc_aluno`
 --
 ALTER TABLE `sc_aluno`
-  MODIFY `Al_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `Al_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT de tabela `sc_bairro`
@@ -479,19 +507,19 @@ ALTER TABLE `sc_estado`
 -- AUTO_INCREMENT de tabela `sc_funcionario`
 --
 ALTER TABLE `sc_funcionario`
-  MODIFY `Fu_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Fu_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `sc_ocorrencia`
 --
 ALTER TABLE `sc_ocorrencia`
-  MODIFY `Oc_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `Oc_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de tabela `sc_responsavel`
 --
 ALTER TABLE `sc_responsavel`
-  MODIFY `Re_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `Re_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de tabela `sc_tp_contato`
@@ -533,13 +561,13 @@ ALTER TABLE `sc_unidade`
 -- AUTO_INCREMENT de tabela `sc_usuario`
 --
 ALTER TABLE `sc_usuario`
-  MODIFY `Us_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `Us_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de tabela `sc_usuario_responsavel`
 --
 ALTER TABLE `sc_usuario_responsavel`
-  MODIFY `ur_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ur_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Restrições para despejos de tabelas
