@@ -37,6 +37,9 @@ session_start();
       case 'alterar-senha': 
         includePublic('NSenha.php');
       break;
+      case 'ConsultarFuncionario': 
+        includePublic('View/Admin/ConsultarFuncionario.php');
+      break;
       default:
         includePublic('View/404.html');
       break;
