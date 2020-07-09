@@ -22,3 +22,4 @@ define("RESOCS", PUBLICPATH . '/Resources');
 define("HTTPORIGIN", "http://{$_SERVER['HTTP_HOST']}/scia");
 define("IMAGES", RESOCS . '/images');
 define("VENDOR",RESOCS . '/Vendor');
+define("PDF", PATH . 'classes/fpdf/tables.php');

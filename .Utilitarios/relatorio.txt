@@ -1,0 +1,6 @@
+##Dados necessario{
+    Alunos: ...Ocorrencias,
+    Reponsaveis: ...Todas_as_liberações,
+    Grafico: ...ComparaçõesdeOccorencias,
+    
+}

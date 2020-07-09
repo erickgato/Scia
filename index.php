@@ -40,6 +40,9 @@ session_start();
       case 'ConsultarFuncionario': 
         includePublic('View/Admin/ConsultarFuncionario.php');
       break;
+      case 'Relatorio': 
+        includePublic('View/Admin/Relatorio.php');
+      break;
       default:
         includePublic('View/404.html');
       break;

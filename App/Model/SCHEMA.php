@@ -32,7 +32,7 @@ final class DATABASE{
     //Params
     (
         string $tablename, string $condiction = null, bool $isprocredure = false,
-        $limit = null, bool $rtnNmRows = false 
+        $limit = null, bool $rtnNmRows = false, bool $silent = false 
     ){
         $Conn = DATABASE::Singleton();
         $sql = '';
@@ -45,7 +45,8 @@ final class DATABASE{
         }
         $result = $Conn->query($sql);
         $log = (!$result) ? $Conn->error : 'QUERY INSERTED WHITH RESULT SUCESS';
-        DEBUG::log($log);
+        if(!$silent)
+            DEBUG::log($log);
         $Conn->close();
         if(!$rtnNmRows)
             return DATABASE::SelectAssoc($result);
