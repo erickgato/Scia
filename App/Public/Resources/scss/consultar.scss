@@ -204,9 +204,9 @@ table {
     grid-row-start: 5;
     grid-row-end: 6;
     button {
-      width: 49%;
-      height: 46%;
       border: none;
+      width: 29%;
+      height: 46%;
       color: white;
       background-color: green;
       border-radius: 0.2em;
@@ -228,6 +228,13 @@ table {
       box-shadow: 0px 5px 0px 0px #15b358;
       &:hover {
         background-color: #48e68b;
+      }
+    }
+    #RegOco {
+      background-color: #eeeb30;
+      box-shadow: 0px 5px 0px 0px #dfd54e;
+      &:hover {
+        background-color: #d0d67b;
       }
     }
   }
@@ -274,7 +281,9 @@ table {
 }
 
 /* edit actions divs */
-#form {
+#form,
+#Focorrencia {
+  $panelw: 30%;
   display: none;
   position: absolute;
   margin-top: -10%;
@@ -316,7 +325,7 @@ table {
   .painel {
     margin-left: 35%;
     margin-top: 0.9em;
-    width: 30%;
+    width: $panelw;
     height: 100%;
     background-color: #ffffff;
     border-radius: 5%;
@@ -345,7 +354,11 @@ table {
     position: fixed;
     top: 0;
   }
-
+  .CloseForm {
+    margin-left: 28%;
+    transition: 0.1s;
+    position: absolute;
+  }
   .subtitulo {
     font-size: 3vh;
     color: black;
@@ -444,5 +457,20 @@ table {
 
   .botao:hover {
     background-color: #e84118;
+  }
+}
+#Focorrencia {
+  .painel {
+    height: 50%;
+  }
+  .caixa {
+    height: 7%;
+    margin-top: 2%;
+  }
+  textarea {
+    height: 26%;
+  }
+  .title_register{
+    margin-top: 2%;
   }
 }

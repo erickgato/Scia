@@ -29,8 +29,8 @@ for ($i = 0; $i < 5; $i++) {
 }
 $Datagraf = array(
     "Liberacoes" => $WeekL,
-    "Gaz" => $WeekG,
-    "Atrasos" => $WeekA
+    "Gaz" => $WeekA,
+    "Atrasos" => $WeekG
 );
 $js_data_graf = json_encode($Datagraf);
 ?>
@@ -116,7 +116,7 @@ $js_data_graf = json_encode($Datagraf);
                                     <h1>CPF</h1>
                                 </th>
                                 <th>
-                                    <h1>Descrição da liberação</h1>
+                                    <h1>Descrição Ocorrência</h1>
                                 </th>
                             </tr>
                         </thead>

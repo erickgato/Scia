@@ -26,7 +26,7 @@ function GerarMenuAdmin(){
             <ul>
                 <li> <a href="ConsultarAluno">ALUNO</a></li>
                 <li><a href="ConsultarResponsavel">RESPONSÁVEL</a></li>
-                <li><a href="ConsultarResponsavel">FUNCIONÁRIO</a></li>
+                <li><a href="ConsultarFuncionario">FUNCIONÁRIO</a></li>
             </ul>
         </div>
         <div class="MenuItem">
@@ -43,7 +43,6 @@ function GerarMenuAdmin(){
             <i class="fa fa-caret-down arrow" aria-hidden="true"></i><label for="c">Solicitar</label>
             <ul>
                 <li> <a href="Relatorio">RELATÓRIO</a></li>
-                <li><a href="Autoriza">AUTORIZAÇÃO</a></li>
             </ul>
         </div>
         <div class="MenuItem">

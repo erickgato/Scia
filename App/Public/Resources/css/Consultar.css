@@ -194,9 +194,9 @@ table {
     grid-row-end: 6; }
     /* line 206, App/Public/Resources/scss/consultar.scss */
     .confirm .flexconfirm button {
-      width: 49%;
-      height: 46%;
       border: none;
+      width: 29%;
+      height: 46%;
       color: white;
       background-color: green;
       border-radius: 0.2em; }
@@ -219,6 +219,13 @@ table {
       /* line 229, App/Public/Resources/scss/consultar.scss */
       .confirm .flexconfirm #edit:hover {
         background-color: #48e68b; }
+    /* line 233, App/Public/Resources/scss/consultar.scss */
+    .confirm .flexconfirm #RegOco {
+      background-color: #eeeb30;
+      box-shadow: 0px 5px 0px 0px #dfd54e; }
+      /* line 236, App/Public/Resources/scss/consultar.scss */
+      .confirm .flexconfirm #RegOco:hover {
+        background-color: #d0d67b; }
 
 @-webkit-keyframes slide-in-blurred-top {
   0% {
@@ -257,8 +264,9 @@ table {
     opacity: 1; } }
 
 /* edit actions divs */
-/* line 277, App/Public/Resources/scss/consultar.scss */
-#form {
+/* line 284, App/Public/Resources/scss/consultar.scss */
+#form,
+#Focorrencia {
   display: none;
   position: absolute;
   margin-top: -10%;
@@ -274,26 +282,30 @@ table {
     opacity: 0.8;
     transform: scale(0);
     transform: translateX(0) rotate(0); } }
-  /* line 295, App/Public/Resources/scss/consultar.scss */
-  #form .title_aut {
+  /* line 304, App/Public/Resources/scss/consultar.scss */
+  #form .title_aut,
+  #Focorrencia .title_aut {
     font-size: 6vh;
     color: black;
     margin-left: 20%;
     font-family: "haboro"; }
-  /* line 302, App/Public/Resources/scss/consultar.scss */
-  #form .titulo {
+  /* line 311, App/Public/Resources/scss/consultar.scss */
+  #form .titulo,
+  #Focorrencia .titulo {
     font-size: 6vh;
     color: black;
     margin-left: 38%;
     font-family: "haboro"; }
-  /* line 309, App/Public/Resources/scss/consultar.scss */
-  #form .title_register {
+  /* line 318, App/Public/Resources/scss/consultar.scss */
+  #form .title_register,
+  #Focorrencia .title_register {
     font-size: 5vh;
     color: black;
     margin-left: 10%;
     font-family: "haboro"; }
-  /* line 316, App/Public/Resources/scss/consultar.scss */
-  #form .painel {
+  /* line 325, App/Public/Resources/scss/consultar.scss */
+  #form .painel,
+  #Focorrencia .painel {
     margin-left: 35%;
     margin-top: 0.9em;
     width: 30%;
@@ -302,8 +314,9 @@ table {
     border-radius: 5%;
     animation: slidein 1000ms;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.62); }
-  /* line 326, App/Public/Resources/scss/consultar.scss */
-  #form textarea {
+  /* line 335, App/Public/Resources/scss/consultar.scss */
+  #form textarea,
+  #Focorrencia textarea {
     resize: none;
     width: 80%;
     margin-left: 8.5%;
@@ -319,20 +332,29 @@ table {
     font-family: Candara;
     font-size: 2.7vh;
     height: 7%; }
-  /* line 343, App/Public/Resources/scss/consultar.scss */
-  #form .fixado {
+  /* line 352, App/Public/Resources/scss/consultar.scss */
+  #form .fixado,
+  #Focorrencia .fixado {
     width: 100%;
     position: fixed;
     top: 0; }
-  /* line 349, App/Public/Resources/scss/consultar.scss */
-  #form .subtitulo {
+  /* line 357, App/Public/Resources/scss/consultar.scss */
+  #form .CloseForm,
+  #Focorrencia .CloseForm {
+    margin-left: 28%;
+    transition: 0.1s;
+    position: absolute; }
+  /* line 362, App/Public/Resources/scss/consultar.scss */
+  #form .subtitulo,
+  #Focorrencia .subtitulo {
     font-size: 3vh;
     color: black;
     margin-left: 8.5%;
     margin-top: 4%;
     margin-bottom: 2%; }
-  /* line 356, App/Public/Resources/scss/consultar.scss */
-  #form .Form-invalid {
+  /* line 369, App/Public/Resources/scss/consultar.scss */
+  #form .Form-invalid,
+  #Focorrencia .Form-invalid {
     animation: invalidform 300ms linear;
     animation-iteration-count: 2;
     transition: 0.3s; }
@@ -347,20 +369,23 @@ table {
     overflow-x: hidden; }
   80% {
     transform: translateX(1%); } }
-  /* line 375, App/Public/Resources/scss/consultar.scss */
-  #form label[for="titulo"] {
+  /* line 388, App/Public/Resources/scss/consultar.scss */
+  #form label[for="titulo"],
+  #Focorrencia label[for="titulo"] {
     font-size: 5vh;
     color: black;
     margin-left: 2%; }
-  /* line 381, App/Public/Resources/scss/consultar.scss */
-  #form label[for="subtitulo"] {
+  /* line 394, App/Public/Resources/scss/consultar.scss */
+  #form label[for="subtitulo"],
+  #Focorrencia label[for="subtitulo"] {
     font-size: 3vh;
     color: black;
     margin-left: 2%;
     margin-top: 4%;
     margin-bottom: 2%; }
-  /* line 389, App/Public/Resources/scss/consultar.scss */
-  #form .caixa {
+  /* line 402, App/Public/Resources/scss/consultar.scss */
+  #form .caixa,
+  #Focorrencia .caixa {
     width: 80%;
     margin-left: 8.5%;
     margin-top: 1%;
@@ -375,14 +400,17 @@ table {
     font-family: Candara;
     font-size: 2.7vh;
     height: 4%; }
-  /* line 406, App/Public/Resources/scss/consultar.scss */
-  #form .caixa::placeholder {
+  /* line 419, App/Public/Resources/scss/consultar.scss */
+  #form .caixa::placeholder,
+  #Focorrencia .caixa::placeholder {
     color: #86888d; }
-  /* line 410, App/Public/Resources/scss/consultar.scss */
-  #form .opcsele {
+  /* line 423, App/Public/Resources/scss/consultar.scss */
+  #form .opcsele,
+  #Focorrencia .opcsele {
     color: #000; }
-  /* line 414, App/Public/Resources/scss/consultar.scss */
-  #form .botao {
+  /* line 427, App/Public/Resources/scss/consultar.scss */
+  #form .botao,
+  #Focorrencia .botao {
     margin-top: 20%;
     margin-left: 15%;
     background: linear-gradient(to right, #ef0afd, #08d2df);
@@ -393,8 +421,9 @@ table {
     font-size: 3vh;
     border-radius: 10vh;
     color: whitesmoke; }
-  /* line 427, App/Public/Resources/scss/consultar.scss */
-  #form .button {
+  /* line 440, App/Public/Resources/scss/consultar.scss */
+  #form .button,
+  #Focorrencia .button {
     margin-top: 1%;
     margin-left: 15%;
     background: linear-gradient(to right, #ef0afd, #08d2df);
@@ -405,11 +434,30 @@ table {
     font-size: 3vh;
     border-radius: 10vh;
     color: whitesmoke; }
-  /* line 439, App/Public/Resources/scss/consultar.scss */
-  #form .button:hover {
+  /* line 452, App/Public/Resources/scss/consultar.scss */
+  #form .button:hover,
+  #Focorrencia .button:hover {
     background: linear-gradient(to right, #08d2df, #ef0afd);
     opacity: 1;
     transition: 0.5s; }
-  /* line 445, App/Public/Resources/scss/consultar.scss */
-  #form .botao:hover {
+  /* line 458, App/Public/Resources/scss/consultar.scss */
+  #form .botao:hover,
+  #Focorrencia .botao:hover {
     background-color: #e84118; }
+
+/* line 463, App/Public/Resources/scss/consultar.scss */
+#Focorrencia .painel {
+  height: 50%; }
+
+/* line 466, App/Public/Resources/scss/consultar.scss */
+#Focorrencia .caixa {
+  height: 7%;
+  margin-top: 2%; }
+
+/* line 470, App/Public/Resources/scss/consultar.scss */
+#Focorrencia textarea {
+  height: 26%; }
+
+/* line 473, App/Public/Resources/scss/consultar.scss */
+#Focorrencia .title_register {
+  margin-top: 2%; }

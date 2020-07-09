@@ -19,3 +19,9 @@ const Confirm = (idname) => {
     window.location.href = '?act=del';
    })
 }
+const Occo = (show = true) => {
+    if(!show)
+        return $("#Focorrencia").hide();
+    else
+        return $("#Focorrencia").show();
+}
