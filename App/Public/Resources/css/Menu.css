@@ -67,6 +67,12 @@ a {
     font-weight: 100;
     width: 100%;
   }
+  .admin{
+    background: linear-gradient(15deg,#90c747,#20b295) ;
+  }
+  .admin a, .admin td, .admin label{
+    color: white;
+  }
   nav.menu.MenuRed {
     animation: redimensionarmenu 1s both;
   }

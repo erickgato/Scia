@@ -5,21 +5,27 @@ const graph = new Chart(ctx, {
     data: {
         labels: ['Segunda','Terça','Quarta','Quinta','Sexta'],
         datasets: [{
+            fill: true,
             label: "Liberações",
             data: divContent["Liberacoes"],
-            borderWidth: 3,
-            borderColor: '#ffb796'
+            borderColor: '#ffb796',
+            borderWidth: 2,
+            pointRadius: 3
         },
         {
+            fill: true,
             label: "Fora de sala",
             data: divContent["Gaz"],
-            borderWidth: 3,
-            borderColor: '#86c5f7'
+            borderColor: '#86c5f7',
+            borderWidth: 2,
+            pointRadius: 3
         },{
+            fill: true,
             label: "Atrasos",
             data: divContent["Atrasos"],
-            borderWidth: 3,
-            borderColor: '#7ed8cf'
+            borderColor: '#7ed8cf',
+            borderWidth: 2,
+            pointRadius: 3
         }]
     },
     options:{

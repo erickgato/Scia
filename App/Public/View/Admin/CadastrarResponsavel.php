@@ -3,6 +3,14 @@
         header("Location: index.php");
     $tiposdelog = DATABASE::SELECT('sc_tp_logradouro');
     $bairros = DATABASE::SELECT('sc_bairro');
+    $idade = array(
+        "Min" => 18,
+        "max" => 130,
+    );
+    $datalimitada = array(
+        "Max" => (date('Y') - $idade['Min']) . date('-m-d'),
+        "Min" => (date('Y') - $idade['max']). date('-m-d')
+    );
 ?>
 <!DOCTYPE html>
 <html lang="Pt-Br">
@@ -17,6 +25,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Cadastrar Responsavel</title>
+     <!--ALERT BOX -->
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
 </head>
 
 <body class="corpo">
@@ -37,13 +57,13 @@
                     <label class="subtitulo">Nome do Responsável</label>
                     <input class="caixa" type="text" name="nome">
 
-                    <label class="subtitulo">RG </label><input class="caixa" name="RG" type="text"
+                    <label class="subtitulo">RG </label><input class="caixa rg" name="RG" type="text"
                         placeholder="RG do Responsável" required maxlength="11" autofocus />
-                    <label class="subtitulo">CPF</label><input class="caixa" type="text" name="CPF"
+                    <label class="subtitulo">CPF</label><input class="caixa cpf" type="text" name="CPF"
                         placeholder="CPF do Responsável" onkeydown="javascript: fMasc( this, mCPF )" maxlength="14"
                         required />
                     <label class="subtitulo">Data de Nascimento </label>
-                    <input class="caixa" type="date" value="" required name="datanasc" />
+                    <input class="caixa" type="date"  min="<?php print($datalimitada['Min']); ?>" max="<?php print($datalimitada['Max']); ?>"value="" required name="datanasc" />
 
                     <label class="subtitulo">Endereço</label>
                     <textarea name="endereco" cols="4" rows="4"></textarea>
@@ -63,7 +83,7 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <input type="submit" class="button" name="Enviar" />
+                <input type="submit" class="button enviar" name="Enviar" />
             </div>
 
         </form>
@@ -71,6 +91,19 @@
         <footer> powered by scia</footer>
     </div>
     <script src="<?php echo RESOCS; ?>/js/AdmMenu.js"></script>
+    <script>
+            $(".enviar").click((e) => {
+                if (!TestaCPF($(".cpf").val())) {
+                    alertify.alert('Falha', 'CPF inválido', () => {
+                        alertify.error('CPF inválido');
+                    })
+                    e.preventDefault();
+                }
+            })
+            $(".rg").on('input',(e) => {
+              $(".rg").val(RemoveNnumeros($(e.target).val()))
+            })
+            </script>
 </body>
 
 </html>

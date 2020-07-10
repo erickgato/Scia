@@ -4,6 +4,15 @@
         $typevar = $_POST[$name];
         return $typevar;
     }
+    $idade = array(
+        "Min" => 10,
+        "max" => 23,
+    );
+    $datalimitada = array(
+        "Max" => (date('Y') - $idade['Min']) . date('-m-d'),
+        "Min" => (date('Y') - $idade['max']). date('-m-d')
+    );
+
 ?>
 <html lang="Pt-Br">
 <head>
@@ -16,6 +25,18 @@
     <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/cadastra_aluno.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--ALERT BOX -->
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
 </head>
 <body>
     <?php
@@ -49,18 +70,18 @@
 					<label class="subtitulo" for="sobrenome">Sobrenome</label><input class="caixa" type="text" name="sobrenomeAluno" placeholder="Digite o sobrenome do  aluno" required/>
                     <label class="subtitulo">
                             Data de Nascimento
-                            <input class="caixa" type="date" value=""  required name="datanasc"/>
+                            <input class="caixa" type="date" value=""  min="<?php print($datalimitada['Min']); ?>" max="<?php print($datalimitada['Max']); ?>" required name="datanasc"/>
                     </label>
                     <label class="subtitulo">
                             CPF do Aluno</label>
-                            <input class="caixa" name="cpf"  type="text" value="" placeholder="Digite o CPF do Aluno" required onkeydown="javascript: fMasc( this, mCPF )" maxlength="14";/>
+                            <input class="caixa cpf" name="cpf"  type="text" value="" placeholder="Digite o CPF do Aluno" required onkeydown="javascript: fMasc( this, mCPF )" maxlength="14";/>
                             
                     <label class="subtitulo">
                         CPF Responsavel</label>
                         <input class="caixa" name="CPFresp" type="text" value="<?php echo $CPFresp; ?>" placeholder="Digite o CPF do Responsavel" required/>
                         
                 </div>
-            <input type="submit" class="button" name="Enviar" value="Registrar"/>
+            <input type="submit" class="button enviar" name="Enviar" value="Registrar"/>
         </div>
     </form>
 	<?php 
@@ -112,5 +133,15 @@
 		?>
     </div>
     <script src="<?php echo RESOCS; ?>/js/AdmMenu.js"></script>
+    <script>
+    $(".enviar").click((e) => {
+      if( !TestaCPF($(".cpf").val())){
+        alertify.alert('Falha','CPF inválido',() => {
+            alertify.error('CPF inválido');
+          })
+          e.preventDefault();
+      }
+    })
+    </script>
 </body>
 </html>

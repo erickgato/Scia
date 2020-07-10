@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="Pt-Br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,10 +35,10 @@
         ?>
     </header>
     <div id="container">
-    <script src="<?php echo RESOCS; ?>/js/estilos.js"></script>
+        <script src="<?php echo RESOCS; ?>/js/estilos.js"></script>
         <form action="#" method="post">
             <div class="painel">
-            <label class="title_register">
+                <label class="title_register">
                     Cadastro de Funcionarios
                 </label>
                 <div id="campos_cadastro">
@@ -45,16 +46,17 @@
                         Unidade do Funcionario
                         <select class="caixa" id="input-text" type="text" value="" name="Unidade" required>
                             <?php foreach ($unidades as $unidade ): ?>
-                                <option value="<?php print($unidade['Un_cod']); ?>"><?php print($unidade['Un_nome']); ?></option>
+                            <option value="<?php print($unidade['Un_cod']); ?>"><?php print($unidade['Un_nome']); ?>
+                            </option>
                             <?php endforeach ?>
                         </select>
                     </label>
                     <label class="subtitulo">
                         Tipo de Funcionario
                         <select class="caixa" id="input-text" type="text" value="" name="f[Tipo]" required>
-                            <<?php foreach ($funcionarios as $func ): ?>
-                                <option value="<?php print($func['TF_Cod']); ?>"><?php print($func['TF_nome']); ?></option>
-                            <?php endforeach ?>
+                            <<?php foreach ($funcionarios as $func ): ?> <option
+                                value="<?php print($func['TF_Cod']); ?>"><?php print($func['TF_nome']); ?></option>
+                                <?php endforeach ?>
                         </select>
                     </label>
                     <label class="subtitulo">
@@ -64,7 +66,7 @@
                     </label>
                     <label class="subtitulo">
                         CPF
-                        <input class="caixa" type="text" name="f[CPF]" placeholder="Digite o CPF do Funcionario"
+                        <input class="caixa cpf" type="text" name="f[CPF]" placeholder="Digite o CPF do Funcionario"
                             onkeydown="javascript: fMasc( this, mCPF )" maxlength="14" requireds />
                     </label>
                     <label class="subtitulo">
@@ -73,7 +75,7 @@
                             placeholder="Digite a matrícula" required />
                     </label>
                 </div>
-                <input type="submit" class="botao" name="Enviar" />
+                <input type="submit" class="botao enviar" name="Enviar" />
             </div>
         </form>
         < <?php 
@@ -91,7 +93,6 @@
                             "func" => DATABASE::INSERT('sc_funcionario',['',$fun['Nom'],$fun['CPF'],$fun['mat'],$fun['un'],$fun['T']]),
                             "Usuario" => DATABASE::INSERT('sc_usuario',['',$fun['CPF'],base64_encode($fun['CPF']),3,Date('Y-m-d')]),
                         );
-                        var_dump($Inserts);
                         if($Inserts){
                             echo "<script>
                                 alertify.alert('Sucesso', 'Funcionário cadastrado com sucesso!',() => {
@@ -112,7 +113,17 @@
                     
 				}
         ?> </div>
-     <script src="<?php echo RESOCS; ?>/js/AdmMenu.js"></script>    
-    </body>
+            <script src="<?php echo RESOCS; ?>/js/AdmMenu.js"></script>
+            <script>
+            $(".enviar").click((e) => {
+                if (!TestaCPF($(".cpf").val())) {
+                    alertify.alert('Falha', 'CPF inválido', () => {
+                        alertify.error('CPF inválido');
+                    })
+                    e.preventDefault();
+                }
+            })
+            </script>
+</body>
 
 </html>
