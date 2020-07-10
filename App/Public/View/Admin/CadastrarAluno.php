@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <?php
+if(!isset($_SESSION['ADMINLOGGED'])){
+    header("Location: index.php");
+}
      function Postdata(string $name){
         $typevar = $_POST[$name];
         return $typevar;

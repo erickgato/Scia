@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="Pt-Br">
 <?php
-
+if(!isset($_SESSION['ADMINLOGGED'])){
+    header("Location: index.php");
+}
 if (isset($_GET['Cal'])) {
     $S_Alun = DATABASE::JOIN('sc_aluno',
     "WHERE AL.Al_cod = {$_GET['Cal']}",

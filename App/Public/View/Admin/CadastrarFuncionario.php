@@ -1,3 +1,8 @@
+<?php 
+if(!isset($_SESSION['ADMINLOGGED'])){
+    header("Location: index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="Pt-Br">
 

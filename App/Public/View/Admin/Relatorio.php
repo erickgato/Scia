@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION['ADMINLOGGED'])){
+    header("Location: index.php");
+}
 ob_start();
 date_default_timezone_set('America/Sao_Paulo');
 $DATETIME = Date('Y-m-d (H:i a)');
