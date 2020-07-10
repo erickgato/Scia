@@ -33,6 +33,7 @@
                 <div class="input-container">
                     <label class="subtitulo">Senha</label>
                     <input type="password" password name="usu_pass" required placeholder="Digite Sua Senha" />
+                    <a href="alterar-senha">Esqueceu senha ?</a>
                 </div>
 
                 <input type="submit" value="Entrar" class="botao" name='btn_enviar' />

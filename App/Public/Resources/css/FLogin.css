@@ -241,4 +241,10 @@ a.OMetodo{
   font-size:14pt;
   color:#fff;
 }
+a{
+  font-size: 13pt;
+}
+a:link{
+  color: #a9b0b9;
+}
   

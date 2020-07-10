@@ -65,60 +65,62 @@ $js_data_graf = json_encode($Datagraf);
 <body>
     <section>
         <header>
-        <nav class="Menu admin">
-    <div class="hammain">
-        <input type="checkbox" id="opmenu">
-        <label for="opmenu">
-            <div class="hamburger hamburger--spin">
-                <div class="hamburger-box">
-                    <div class="hamburger-inner"></div>
+            <nav class="Menu">
+                <div class="hammain">
+                    <input type="checkbox" id="opmenu">
+                    <label for="opmenu">
+                        <div class="hamburger hamburger--spin">
+                            <div class="hamburger-box">
+                                <div class="hamburger-inner"></div>
+                            </div>
+                        </div>
+                    </label>
                 </div>
-            </div>
-        </label>
-    </div>
 
 
-    <div class="level">
-        <div class="MenuItem">
-            <input type="checkbox">
-            <i class="fa fa-home home" aria-hidden="true"></i><label for="A1"><a href="homeadmin">Home</a></label>
-        </div>
-        <div class="MenuItem">
-            <input type="checkbox" id="A">
-            <i class="fa fa-caret-down arrow" aria-hidden="true"></i><label for="A">Consultar</label>
-            <ul>
-                <li> <a href="ConsultarAluno">ALUNO</a></li>
-                <li><a href="ConsultarResponsavel">RESPONSÁVEL</a></li>
-                <li><a href="ConsultarFuncionario">FUNCIONÁRIO</a></li>
-            </ul>
-        </div>
-        <div class="MenuItem">
-            <input type="checkbox" id="B">
-            <i class="fa fa-caret-down arrow" aria-hidden="true"></i><label for="B">Cadastrar</label>
-            <ul>
-                <li> <a href="CadastrarAluno">ALUNO</a></li>
-                <li><a href="CadastrarResponsavel">RESPONSÁVEL</a></li>
-                <li><a href="CadastFunc">FUNCIONÁRIO</a></li>
-            </ul>
-        </div>
-        <div class="MenuItem">
-            <input type="checkbox" id="c">
-            <i class="fa fa-caret-down arrow" aria-hidden="true"></i><label for="c">Solicitar</label>
-            <ul>
-                <li> <a href="Relatorio">RELATÓRIO</a></li>
-            </ul>
-        </div>
-        <div class="MenuItem">
-            <input type="checkbox">
-            <i class="fa fa-sign-out home" aria-hidden="true"></i><label><a id="loggout" href="Admin">Sair</a></label>
-        </div>
-    </div>
-</nav>
-<section class="Horizontal-Wi">
-    <span class="logo">
-        <h2>SCIA</h2>
-    </span>
-</section>
+                <div class="level">
+                    <div class="MenuItem">
+                        <input type="checkbox">
+                        <i class="fa fa-home home" aria-hidden="true"></i><label for="A1"><a
+                                href="homeadmin">Home</a></label>
+                    </div>
+                    <div class="MenuItem">
+                        <input type="checkbox" id="A">
+                        <i class="fa fa-caret-down arrow" aria-hidden="true"></i><label for="A">Consultar</label>
+                        <ul>
+                            <li> <a href="ConsultarAluno">ALUNO</a></li>
+                            <li><a href="ConsultarResponsavel">RESPONSÁVEL</a></li>
+                            <li><a href="ConsultarFuncionario">FUNCIONÁRIO</a></li>
+                        </ul>
+                    </div>
+                    <div class="MenuItem">
+                        <input type="checkbox" id="B">
+                        <i class="fa fa-caret-down arrow" aria-hidden="true"></i><label for="B">Cadastrar</label>
+                        <ul>
+                            <li> <a href="CadastrarAluno">ALUNO</a></li>
+                            <li><a href="CadastrarResponsavel">RESPONSÁVEL</a></li>
+                            <li><a href="CadastFunc">FUNCIONÁRIO</a></li>
+                        </ul>
+                    </div>
+                    <div class="MenuItem">
+                        <input type="checkbox" id="c">
+                        <i class="fa fa-caret-down arrow" aria-hidden="true"></i><label for="c">Solicitar</label>
+                        <ul>
+                            <li> <a href="Relatorio">RELATÓRIO</a></li>
+                        </ul>
+                    </div>
+                    <div class="MenuItem">
+                        <input type="checkbox">
+                        <i class="fa fa-sign-out home" aria-hidden="true"></i><label><a id="loggout"
+                                href="index.php">Sair</a></label>
+                    </div>
+                </div>
+            </nav>
+            <section class="Horizontal-Wi">
+                <span class="logo">
+                    <h2>SCIA</h2>
+                </span>
+            </section>
         </header>
     </section>
     <section>
@@ -154,30 +156,37 @@ $js_data_graf = json_encode($Datagraf);
                     <span><img src="https://img.icons8.com/material/96/000000/search--v1.png" /></span>
 
                 </div>
-                <div class="ListAL">
-                    <div style="display:none;" id="jsondata"><?php print($Json_Liberacoes); ?></div>
-                    <table class="container" border="0" cellspacing="0" cellpadding="0">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <h1>Nome</h1>
-                                </th>
-                                <th>
-                                    <h1>CPF</h1>
-                                </th>
-                                <th>
-                                    <h1>Descrição Ocorrência</h1>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody class="datbody">
-                        </tbody>
-                    </table>
-                </div>
-                <div class="OCchart">
+                <div class="monthchart">
                     <div id="chartdata" style="display: none;"><?php echo $js_data_graf; ?></div>
-                    <canvas class="chart"></canvas>
-                </div>
+                    <div class="chartarea">
+                        <canvas class="chart"></canvas>
+                    </div>
+                    <div class="OCchart">
+                        <div id="chartdata" style="display: none;"><?php echo $js_data_graf; ?></div>
+                        <div class="chartarea">
+                            <canvas class="chart"></canvas>
+                        </div>
+                        <div class="ListAL">
+                            <div style="display:none;" id="jsondata"><?php print($Json_Liberacoes); ?></div>
+                            <table class="container" border="0" cellspacing="0" cellpadding="0">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <h1>Nome</h1>
+                                        </th>
+                                        <th>
+                                            <h1>CPF</h1>
+                                        </th>
+                                        <th>
+                                            <h1>Descrição Ocorrência</h1>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="datbody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
             </section>
 
         </main>
@@ -193,10 +202,9 @@ $js_data_graf = json_encode($Datagraf);
     <script>
     $(document).ready(() => {
         Liberacoes.Filter("");
-        alertify.alert('Olá', 'Bem vindo!',() => {
-          alertify.success('ótimo!')
+        alertify.alert('Olá', 'Bem vindo!', () => {
+            alertify.success('ótimo!')
         });
-            
     })
     </script>
 </body>

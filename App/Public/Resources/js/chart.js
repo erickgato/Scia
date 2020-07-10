@@ -10,22 +10,23 @@ const graph = new Chart(ctx, {
             data: divContent["Liberacoes"],
             borderColor: '#ffb796',
             borderWidth: 2,
-            pointRadius: 3
+            pointRadius: 3,
+            backgroundColor: ['#F08A43']
         },
         {
             fill: true,
             label: "Fora de sala",
             data: divContent["Gaz"],
-            borderColor: '#86c5f7',
             borderWidth: 2,
-            pointRadius: 3
+            pointRadius: 3,
+            backgroundColor: ['#2BE3C0']
         },{
             fill: true,
             label: "Atrasos",
             data: divContent["Atrasos"],
-            borderColor: '#7ed8cf',
             borderWidth: 2,
-            pointRadius: 3
+            pointRadius: 3,
+            backgroundColor: ['#29BDD9']
         }]
     },
     options:{
@@ -37,10 +38,10 @@ const graph = new Chart(ctx, {
         },
         title: {
             display: true,
-            fontSize: 34,
+            fontSize: 40,
             position: 'top',
             fontFamily: 'metropolis',
-            fontColor: 'white',
+            fontColor: 'black',
             text: 'Grafíco de occorências semanais'
         },
         scales: {

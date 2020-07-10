@@ -47,7 +47,7 @@ function GerarMenuAdmin(){
         </div>
         <div class="MenuItem">
             <input type="checkbox">
-            <i class="fa fa-sign-out home" aria-hidden="true"></i><label><a id="loggout" href="Admin">Sair</a></label>
+            <i class="fa fa-sign-out home" aria-hidden="true"></i><label><a id="loggout" href="index.php">Sair</a></label>
         </div>
     </div>
 </nav>

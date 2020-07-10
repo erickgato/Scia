@@ -18,7 +18,7 @@ main {
   width: 100%;
   height: 94%;
   box-shadow: 0 1.2em 0em rgb(247, 241, 241);
-  background: linear-gradient(#56CCF2,#2F80ED);
+  background: #F0F4EF;
 }
 /* ****************************************************************
 [card] */
@@ -26,7 +26,7 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  height: 20%;
+  height: 24%;
   .card {
     width: 30%;
     margin-top: 2%;
@@ -46,7 +46,7 @@ main {
     background: linear-gradient(45deg, #34e89e, #0f3443);
   }
   .card.c {
-    background: linear-gradient(45deg, #3a6186, #89253e);
+    background: linear-gradient(45deg, #fcdf8a, #f38381);
   }
 }
 /* ////////////////////////////////////////////////////////////////
@@ -68,23 +68,24 @@ main {
     font-style: italic;
   }
 }
-.ListAL,
+.monthchart,
 .OCchart {
-  background:#282729;
+  background:#ffffff;
   height: 53.5%;
   width: 47.6%;
   border-radius: 2em;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-.ListAL {
-  float: left;
-  margin-left: 2.4%;
-  margin-top: -2%;
-}
-.OCchart {
+.monthchart {
   float: right;
   margin-right: 1%;
-  margin-top: -5.8%;
+  margin-top: 4%;
+}
+.OCchart {
+  float: left;
+  
+  margin-top: 2%;
+  margin-left: 2.4%;
   height: 64%;
   img {
     width: 100%;
@@ -92,41 +93,48 @@ main {
     object-fit: contain;
   }
 }
+.chartarea{
+  width: 90%;
+  height: 80%;
+  margin-left: 6%;
+  margin-top: 10%;
+}
 /* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 [seachbar]*/
 .searchbar {
+  position: absolute;
   width: 43%;
-  margin-top: 1%;
-  margin-left: 3.2%;
+  margin-top: -14.1%;
+  margin-left: 49.2%;
   margin-bottom: 3%;
   height: 6%;
   display: flex;
   flex-direction: row;
-  background: linear-gradient(45deg, #ffb796, #24cfb6);
+  background: whitesmoke;
   border-radius: 4em 4rem 4em 4em;
   border: none;
   input {
     color: black;
     width: 90%;
     font-size: 17pt;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
-    background: linear-gradient(45deg, #ffb796, #24cfb6);
+    background: whitesmoke;
     border-radius: 0.3em 0.3rem 0.3em 0.3em;
     border: none;
-  }
-  &:hover {
-    box-shadow: 0 1em 1em gray;
-    transition: linear $defalt-transition;
+    &:active{
+      border-bottom: 0.2px solid black;
+      transition: $defalt-transition;
+    }
   }
   input::placeholder {
-    color: white;
+    color: rgb(22, 21, 21);
     font-size: 14pt;
     text-align: center;
   }
   span {
     width: 10%;
-    background-color: #ece9e9;
+    background-color: rgba(83, 153, 218,0.6);
     border-radius: 0em 0.3rem 0.3em 0;
     color: purple;
     font-size: 16pt;
