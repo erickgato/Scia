@@ -1,8 +1,8 @@
 <?php
-if(!isset($_SESSION['ADMINLOGGED'])){
+if (!isset($_SESSION['ADMINLOGGED'])) {
     header("Location: index.php");
 }
-date_default_timezone_set('UTC');
+date_default_timezone_set('America/Sao_Paulo');
 $data = date('Y-m-d');
 $quantidades = array(
     "Liberacoes" => DATABASE::SELECT('sc_ocorrencia', "WHERE oc_codtpOcorrencia = 1 AND Oc_data = '$data' ", false, null, true),
@@ -15,8 +15,6 @@ function QueryDay(int $day, int $tipooccorencia)
 {
     $ActualMonth =  date('m');
     $Rday = DATABASE::SELECT('sc_ocorrencia', "WHERE MONTH(Oc_data) = {$ActualMonth} AND WEEKDAY(Oc_data) = {$day} AND Oc_codtpOcorrencia = {$tipooccorencia}", false, null, true);
-    if (!is_numeric($Rday)) {
-    }
     return $Rday;
 }
 $WeekL = array();
@@ -81,8 +79,7 @@ $js_data_graf = json_encode($Datagraf);
                 <div class="level">
                     <div class="MenuItem">
                         <input type="checkbox">
-                        <i class="fa fa-home home" aria-hidden="true"></i><label for="A1"><a
-                                href="homeadmin">Home</a></label>
+                        <i class="fa fa-home home" aria-hidden="true"></i><label for="A1"><a href="homeadmin">Home</a></label>
                     </div>
                     <div class="MenuItem">
                         <input type="checkbox" id="A">
@@ -111,8 +108,7 @@ $js_data_graf = json_encode($Datagraf);
                     </div>
                     <div class="MenuItem">
                         <input type="checkbox">
-                        <i class="fa fa-sign-out home" aria-hidden="true"></i><label><a id="loggout"
-                                href="index.php">Sair</a></label>
+                        <i class="fa fa-sign-out home" aria-hidden="true"></i><label><a id="loggout" href="index.php">Sair</a></label>
                     </div>
                 </div>
             </nav>
@@ -151,8 +147,7 @@ $js_data_graf = json_encode($Datagraf);
             </div>
             <section class='grid-layout'>
                 <div class="searchbar">
-                    <input type="text" oninput="Liberacoes.Filter(value)" placeholder="Digite o nome do  aluno..."
-                        name="search" />
+                    <input type="text" oninput="Liberacoes.Filter(value)" placeholder="Digite o nome do  aluno..." name="search" />
                     <span><img src="https://img.icons8.com/material/96/000000/search--v1.png" /></span>
 
                 </div>
@@ -161,32 +156,34 @@ $js_data_graf = json_encode($Datagraf);
                     <div class="chartarea">
                         <canvas class="chart"></canvas>
                     </div>
-                    <div class="OCchart">
-                        <div id="chartdata" style="display: none;"><?php echo $js_data_graf; ?></div>
-                        <div class="chartarea">
-                            <canvas class="chart"></canvas>
-                        </div>
-                        <div class="ListAL">
-                            <div style="display:none;" id="jsondata"><?php print($Json_Liberacoes); ?></div>
-                            <table class="container" border="0" cellspacing="0" cellpadding="0">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <h1>Nome</h1>
-                                        </th>
-                                        <th>
-                                            <h1>CPF</h1>
-                                        </th>
-                                        <th>
-                                            <h1>Descrição Ocorrência</h1>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody class="datbody">
-                                </tbody>
-                            </table>
-                        </div>
+                </div>
+                <div class="OCchart">
+                    <div id="chartdata" style="display: none;"><?php echo $js_data_graf; ?></div>
+                    <div class="chartarea">
+                        <canvas class="chart"></canvas>
                     </div>
+                </div>
+                    <div class="ListAL">
+                        <div style="display:none;" id="jsondata"><?php print($Json_Liberacoes); ?></div>
+                        <table class="container" border="0" cellspacing="0" cellpadding="0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <h1>Nome</h1>
+                                    </th>
+                                    <th>
+                                        <h1>CPF</h1>
+                                    </th>
+                                    <th>
+                                        <h1>Descrição Ocorrência</h1>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="datbody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </section>
 
         </main>
@@ -200,12 +197,12 @@ $js_data_graf = json_encode($Datagraf);
     <script src="<?php echo RESOCS; ?>/js/AdmMenu.js"></script>
     <script src="<?php echo RESOCS; ?>/js/chart.js"></script>
     <script>
-    $(document).ready(() => {
-        Liberacoes.Filter("");
-        alertify.alert('Olá', 'Bem vindo!', () => {
-            alertify.success('ótimo!')
-        });
-    })
+        $(document).ready(() => {
+            Liberacoes.Filter("");
+            alertify.alert('Olá', 'Bem vindo!', () => {
+                alertify.success('ótimo!')
+            });
+        })
     </script>
 </body>
 

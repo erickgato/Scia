@@ -1,5 +1,6 @@
 const ctx = document.getElementsByClassName('chart');
 const divContent = JSON.parse(document.getElementById("chartdata").innerText);
+console.log(divContent);
 const graph = new Chart(ctx, {
     type: 'line',
     data: {

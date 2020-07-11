@@ -19,6 +19,7 @@ main {
   height: 94%;
   box-shadow: 0 1.2em 0em rgb(247, 241, 241);
   background: #F0F4EF;
+  overflow: auto;
 }
 /* ****************************************************************
 [card] */
@@ -31,7 +32,7 @@ main {
     width: 30%;
     margin-top: 2%;
     margin-left: 1%;
-    border-radius: 1em;
+    border-radius: 0.3em;
     box-shadow: 0 0.2em 1em rgb(48, 46, 46) ;
     &:hover {
       cursor: pointer;
@@ -73,7 +74,7 @@ main {
   background:#ffffff;
   height: 53.5%;
   width: 47.6%;
-  border-radius: 2em;
+  border-radius: 0.3em;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 .monthchart {
@@ -97,7 +98,6 @@ main {
   width: 90%;
   height: 80%;
   margin-left: 6%;
-  margin-top: 10%;
 }
 /* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 [seachbar]*/

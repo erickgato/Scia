@@ -39,6 +39,19 @@ $datalimitada = array(
 
 <body class="corpo">
     <header id="header">
+        
+    <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
         <?php
         include_once RESOCS . '/Cabecalhos/menuAdm.func.php';
         GerarMenuAdmin();

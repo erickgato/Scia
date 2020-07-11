@@ -21,8 +21,10 @@
         */
         $Resp_rows = DATABASE::SELECT('sc_responsavel',"WHERE Re_CPF = '{$Responsavel['CPF']}'",false,false,true);
         if($Resp_rows > 1) {
-            echo "Usuário já existe";
-            die();
+            echo "alertify.alert('Falha', 'Usuário já cadastrado', () => {
+                alertify.error('Já cadastrado');
+            })";
+            return;
         }
         
         //Insere os dados na tabela responsavel
@@ -45,7 +47,9 @@
                 $ThirdTable = DATABASE::INSERT('sc_usuario_responsavel',['',$cod,$Responsavel['CPF']]);
                 $HTTPORIGIN = HTTPORIGIN;
                 if($ThirdTable){
-                    echo "<script>alert('Dados inseridos com sucesso!')</script>";
+                    echo "alertify.alert('Sucesso!', 'Dados cadastrados com sucesso', () => {
+                        alertify.sucess('ótimo');
+                    })";
                    
                     echo "<script>window.location.href = '{$HTTPORIGIN}/CadastrarAluno?Resp_CPF={$Responsavel['CPF']}'</script>";
                    exit;
@@ -55,7 +59,9 @@
                 }
             }
             else {
-                echo "Falha ao criar usuario";
+                echo "alertify.alert('Falha', 'Usuário erro ao criar usuário', () => {
+                    alertify.error('Erro');
+                })";
             }
                 
             
