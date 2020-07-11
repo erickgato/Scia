@@ -26,7 +26,7 @@
                 
             */
             $responsavel = DATABASE::SELECT('sc_responsavel',"WHERE Re_cod = {$_SESSION['USER']['ID']} ");
-            $email = DATABASE::JOIN('sc_contato',"WHERE TP.TC_cod = 1 AND CONTACT.Co_codResponsavel = 31",'AS CONTACT INNER JOIN sc_tp_contato as TP on TP.TC_cod = CONTACT.Co_codtpContato');
+            $email = DATABASE::SELECT('sc_contato',"where Co_codtpContato = 1 AND Co_codResponsavel =  {$_SESSION['USER']['ID']}");
             $telefone = DATABASE::SELECT('sc_contato',"where Co_codtpContato = 2 AND Co_codResponsavel =  {$_SESSION['USER']['ID']}");
             if(empty($email)){
                 $email[0]['Co_descricao'] = ""; 

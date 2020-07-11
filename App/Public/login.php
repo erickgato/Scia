@@ -27,6 +27,7 @@
 					
 				}
 				else{
-					header('Location: index.php?message=error');
+					header("Location: index.php?message=error");
+				//	header("Location: index.php?message=error&CPF={$Usuario['LOGIN']}");
 				}
 			}
