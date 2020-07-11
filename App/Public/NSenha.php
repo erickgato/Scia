@@ -61,8 +61,8 @@
             $mail->isSMTP();                                            // Send using SMTP
             $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-            $mail->Username   = 'example@example';                     // SMTP username
-            $mail->Password   = 'exaple'; //Para obter email da scia entre em contato com @Erick Gato // SMTP password 
+            $mail->Username   = 'sciacontact07@gmail.com';                     // SMTP username
+            $mail->Password   = '123456scia'; //Para obter email da scia entre em contato com @Erick Gato // SMTP password 
             $mail->Port = 587;
     
             $mail->setFrom($email[0]['Co_descricao']);

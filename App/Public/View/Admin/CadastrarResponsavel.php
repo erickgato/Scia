@@ -64,24 +64,17 @@
                         required />
                     <label class="subtitulo">Data de Nascimento </label>
                     <input class="caixa" type="date"  min="<?php print($datalimitada['Min']); ?>" max="<?php print($datalimitada['Max']); ?>"value="" required name="datanasc" />
-
+                    
+                    <label class="subtitulo">CEP </label>
+                        <input class="caixa" maxlength="8" id="cep" type="text" placeholder="Digite seu CEP" value="" name=""/>
+                    
                     <label class="subtitulo">Endereço</label>
-                    <textarea name="endereco" cols="4" rows="4"></textarea>
+                    <textarea name="endereco" class="endereco" cols="4" rows="4" readonly></textarea>
 
-                    <label class="subtitulo">Tipo de logradouro </label>
-                    <select class="caixa" type="text" value="" name="T_lograd">
-                        <?php 
-                                        foreach ($tiposdelog as $log) {
-                                            echo '<option value = "' .$log['TL_cod'] . '">' . $log['TL_nome'] . '</option>';
-                                        }
-                                    ?>
-                    </select>
+                     <input type="hidden" value="1" name="T_lograd">
+                        
                     <label class="subtitulo">Bairro </label>
-                    <select class="caixa" type="text" value="" name="T_CodBairro">
-                        <?php foreach ($bairros as $bairro): ?>
-                        <option value="<?php echo $bairro['Ba_cod'];?>"><?php echo $bairro['Ba_nome'];?></option>
-                        <?php endforeach; ?>
-                    </select>
+                        <input class="caixa bairro" type="text" value="" name="T_CodBairro" readonly/>
                 </div>
                 <input type="submit" class="button enviar" name="Enviar" />
             </div>
@@ -100,8 +93,34 @@
                     e.preventDefault();
                 }
             })
+            $("#cep").focusout(() => {
+                const cep = $("#cep").val();
+                if(cep.length == 8){
+                    const fetchurl = `https://webmaniabr.com/api/1/cep/${cep}/?app_key=C6riFPEG30CeH0LevGVZuMgffkY2mrxI&app_secret=tolABIpNgIaNDirU2WDpCHKuLgpXgVu2h8L4LEpuHQFATSi9`;
+                    const dados = fetch(fetchurl).then(Response => Response.json()).then(dat => {
+                            if(dat.error == 'CEP inválido' ){
+                                alertify.alert('Erro','CEP não encontrado');
+                            }
+                            else{
+                                $(".bairro").val(dat.bairro);
+                                $(".endereco").val(dat.endereco);  
+                                console.log(dat);
+                            }
+                                                   
+                    }).catch(error => {
+                        alertify.alert('Olá','CEP não encontrado');
+                    })
+                }
+                else{
+                    alertify.alert('Erro','CEP inválido');
+                }
+                
+            });
             $(".rg").on('input',(e) => {
               $(".rg").val(RemoveNnumeros($(e.target).val()))
+            })
+            $("#cep").on('input',(e) => {
+              $("#cep").val(RemoveNnumeros($(e.target).val()))
             })
             </script>
 </body>
