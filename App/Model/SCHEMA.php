@@ -1,4 +1,7 @@
 <?php
+/*
+@author Erick Gato;
+*/ 
 require_once 'Connect.php';
 final class DATABASE{
     protected $conection;
