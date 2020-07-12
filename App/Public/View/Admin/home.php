@@ -44,7 +44,7 @@ $js_data_graf = json_encode($Datagraf);
     <link rel="stylesheet" href="<?php echo STYLES; ?>/hamburguers.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="shortcut icon" href="<?php echo RESOCS; ?>/images/icons/logo/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo RESOCS; ?>/images/icons/logo/favicon.ico" type="image/x-icon" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <!--ALERT BOX -->
     <!-- JavaScript -->
@@ -154,7 +154,7 @@ $js_data_graf = json_encode($Datagraf);
                 <div class="monthchart">
                     <div id="chartdata" style="display: none;"><?php echo $js_data_graf; ?></div>
                     <div class="chartarea">
-                        <canvas class="chart"></canvas>
+                        <canvas class="month"></canvas>
                     </div>
                 </div>
                 <div class="OCchart">
@@ -185,7 +185,6 @@ $js_data_graf = json_encode($Datagraf);
                     </div>
                 </div>
             </section>
-
         </main>
     </section>
     <section>

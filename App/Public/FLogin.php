@@ -4,7 +4,7 @@
 <head>
     <title>LOGIN</title>
     <link rel="stylesheet" type="text/css" href="App/Public/Resources/css/FLogin.css" />
-    <link rel="shortcut icon" href="<?php echo RESOCS; ?>/images/icons/logo/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo RESOCS; ?>/images/icons/logo/favicon.ico" type="image/x-icon" />
 </head>
 
 <body class="corpo">

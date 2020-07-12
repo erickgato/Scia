@@ -77,15 +77,81 @@ body {
     transform: translateZ(-1100px);
     opacity: 0; } }
 
-/* line 92, App/Public/Resources/scss/consultar.scss */
+/* line 91, App/Public/Resources/scss/consultar.scss */
+.loading {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  top: 0; }
+
+/* line 98, App/Public/Resources/scss/consultar.scss */
+.loader {
+  position: absolute;
+  top: calc(50% - 32px);
+  left: calc(50% - 32px);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  perspective: 800px; }
+
+/* line 109, App/Public/Resources/scss/consultar.scss */
+.inner {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; }
+
+/* line 117, App/Public/Resources/scss/consultar.scss */
+.inner.one {
+  left: 0%;
+  top: 0%;
+  animation: rotate-one 1s linear infinite;
+  border-bottom: 3px solid #EFEFFA; }
+
+/* line 124, App/Public/Resources/scss/consultar.scss */
+.inner.two {
+  right: 0%;
+  top: 0%;
+  animation: rotate-two 1s linear infinite;
+  border-right: 3px solid #EFEFFA; }
+
+/* line 131, App/Public/Resources/scss/consultar.scss */
+.inner.three {
+  right: 0%;
+  bottom: 0%;
+  animation: rotate-three 1s linear infinite;
+  border-top: 3px solid #EFEFFA; }
+
+@keyframes rotate-one {
+  0% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg); }
+  100% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg); } }
+
+@keyframes rotate-two {
+  0% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg); }
+  100% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg); } }
+
+@keyframes rotate-three {
+  0% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg); }
+  100% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg); } }
+
+/* */
+/* line 165, App/Public/Resources/scss/consultar.scss */
 body {
-  background-image: url("../Images/bg-01.jpg");
+  background-image: url("../Images/background.png");
   background-position: center;
   background-origin: content-box;
   background-repeat: no-repeat;
   background-size: cover; }
 
-/* line 99, App/Public/Resources/scss/consultar.scss */
+/* line 172, App/Public/Resources/scss/consultar.scss */
 table {
   margin-top: 10%;
   margin-left: 5%;
@@ -94,30 +160,30 @@ table {
   border-collapse: collapse;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.9); }
-  /* line 107, App/Public/Resources/scss/consultar.scss */
+  /* line 180, App/Public/Resources/scss/consultar.scss */
   table a {
     color: white; }
-  /* line 110, App/Public/Resources/scss/consultar.scss */
+  /* line 183, App/Public/Resources/scss/consultar.scss */
   table th,
   table td {
     padding: 2%;
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff; }
-  /* line 117, App/Public/Resources/scss/consultar.scss */
+  /* line 190, App/Public/Resources/scss/consultar.scss */
   table th {
     font-size: 17pt;
     text-align: left; }
-  /* line 122, App/Public/Resources/scss/consultar.scss */
+  /* line 195, App/Public/Resources/scss/consultar.scss */
   table thead th {
     background-color: #55608f; }
-  /* line 126, App/Public/Resources/scss/consultar.scss */
+  /* line 199, App/Public/Resources/scss/consultar.scss */
   table tbody tr:hover {
     font-size: 14pt;
     transition: 0.2s;
     background-color: rgba(255, 255, 255, 0.3); }
 
 /* SearchBar */
-/* line 134, App/Public/Resources/scss/consultar.scss */
+/* line 207, App/Public/Resources/scss/consultar.scss */
 .Searchbar {
   position: fixed;
   margin-top: -5%;
@@ -129,28 +195,28 @@ table {
   border-radius: 40px;
   padding: 10px; }
 
-/* line 146, App/Public/Resources/scss/consultar.scss */
+/* line 219, App/Public/Resources/scss/consultar.scss */
 .Searchbar:hover {
   background: linear-gradient(45deg, #00dbde, #fc00ff);
   transition: 0.3s; }
 
-/* line 150, App/Public/Resources/scss/consultar.scss */
+/* line 223, App/Public/Resources/scss/consultar.scss */
 ::-webkit-input-placeholder {
   color: whitesmoke;
   font-size: 14pt; }
 
-/* line 154, App/Public/Resources/scss/consultar.scss */
+/* line 227, App/Public/Resources/scss/consultar.scss */
 .search-txt:hover::placeholder {
   color: whitesmoke;
   font-size: 17pt; }
 
-/* line 158, App/Public/Resources/scss/consultar.scss */
+/* line 231, App/Public/Resources/scss/consultar.scss */
 .Searchbar:hover > .search-txt {
   width: 240px;
   padding: 0 6px;
   color: whitesmoke; }
 
-/* line 164, App/Public/Resources/scss/consultar.scss */
+/* line 237, App/Public/Resources/scss/consultar.scss */
 .search-txt {
   border: none;
   background: none;
@@ -163,7 +229,7 @@ table {
   width: 80%; }
 
 /* ////////////////////////////////////////////////////// */
-/* line 176, App/Public/Resources/scss/consultar.scss */
+/* line 249, App/Public/Resources/scss/consultar.scss */
 .confirm {
   position: absolute;
   width: 30%;
@@ -176,23 +242,23 @@ table {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   -webkit-animation: slide-in-blurred-top 0.9s cubic-bezier(0.23, 1, 0.32, 1) both;
   animation: slide-in-blurred-top 0.9s cubic-bezier(0.23, 1, 0.32, 1) both; }
-  /* line 189, App/Public/Resources/scss/consultar.scss */
+  /* line 262, App/Public/Resources/scss/consultar.scss */
   .confirm #message {
     font-size: 20pt;
     grid-row-start: 3; }
-  /* line 193, App/Public/Resources/scss/consultar.scss */
+  /* line 266, App/Public/Resources/scss/consultar.scss */
   .confirm #closeicns {
     display: flex;
     flex-direction: column;
     align-items: flex-end; }
-    /* line 198, App/Public/Resources/scss/consultar.scss */
+    /* line 271, App/Public/Resources/scss/consultar.scss */
     .confirm #closeicns img:hover {
       background-color: red; }
-  /* line 203, App/Public/Resources/scss/consultar.scss */
+  /* line 276, App/Public/Resources/scss/consultar.scss */
   .confirm .flexconfirm {
     grid-row-start: 5;
     grid-row-end: 6; }
-    /* line 206, App/Public/Resources/scss/consultar.scss */
+    /* line 279, App/Public/Resources/scss/consultar.scss */
     .confirm .flexconfirm button {
       border: none;
       width: 29%;
@@ -200,30 +266,30 @@ table {
       color: white;
       background-color: green;
       border-radius: 0.2em; }
-      /* line 213, App/Public/Resources/scss/consultar.scss */
+      /* line 286, App/Public/Resources/scss/consultar.scss */
       .confirm .flexconfirm button:active {
         transform: translate(0px, 5px);
         -webkit-transform: translate(0px, 5px);
         box-shadow: 0px 1px 0px 0px; }
-    /* line 219, App/Public/Resources/scss/consultar.scss */
+    /* line 292, App/Public/Resources/scss/consultar.scss */
     .confirm .flexconfirm #del {
       background-color: #e74c3c;
       box-shadow: 0px 5px 0px 0px #ce3323; }
-      /* line 222, App/Public/Resources/scss/consultar.scss */
+      /* line 295, App/Public/Resources/scss/consultar.scss */
       .confirm .flexconfirm #del:hover {
         background-color: #ff6656; }
-    /* line 226, App/Public/Resources/scss/consultar.scss */
+    /* line 299, App/Public/Resources/scss/consultar.scss */
     .confirm .flexconfirm #edit {
       background-color: #2ecc71;
       box-shadow: 0px 5px 0px 0px #15b358; }
-      /* line 229, App/Public/Resources/scss/consultar.scss */
+      /* line 302, App/Public/Resources/scss/consultar.scss */
       .confirm .flexconfirm #edit:hover {
         background-color: #48e68b; }
-    /* line 233, App/Public/Resources/scss/consultar.scss */
+    /* line 306, App/Public/Resources/scss/consultar.scss */
     .confirm .flexconfirm #RegOco {
       background-color: #eeeb30;
       box-shadow: 0px 5px 0px 0px #dfd54e; }
-      /* line 236, App/Public/Resources/scss/consultar.scss */
+      /* line 309, App/Public/Resources/scss/consultar.scss */
       .confirm .flexconfirm #RegOco:hover {
         background-color: #d0d67b; }
 
@@ -264,7 +330,7 @@ table {
     opacity: 1; } }
 
 /* edit actions divs */
-/* line 284, App/Public/Resources/scss/consultar.scss */
+/* line 357, App/Public/Resources/scss/consultar.scss */
 #form,
 #Focorrencia {
   display: none;
@@ -282,28 +348,28 @@ table {
     opacity: 0.8;
     transform: scale(0);
     transform: translateX(0) rotate(0); } }
-  /* line 304, App/Public/Resources/scss/consultar.scss */
+  /* line 377, App/Public/Resources/scss/consultar.scss */
   #form .title_aut,
   #Focorrencia .title_aut {
     font-size: 6vh;
     color: black;
     margin-left: 20%;
     font-family: "haboro"; }
-  /* line 311, App/Public/Resources/scss/consultar.scss */
+  /* line 384, App/Public/Resources/scss/consultar.scss */
   #form .titulo,
   #Focorrencia .titulo {
     font-size: 6vh;
     color: black;
     margin-left: 38%;
     font-family: "haboro"; }
-  /* line 318, App/Public/Resources/scss/consultar.scss */
+  /* line 391, App/Public/Resources/scss/consultar.scss */
   #form .title_register,
   #Focorrencia .title_register {
     font-size: 5vh;
     color: black;
     margin-left: 10%;
     font-family: "haboro"; }
-  /* line 325, App/Public/Resources/scss/consultar.scss */
+  /* line 398, App/Public/Resources/scss/consultar.scss */
   #form .painel,
   #Focorrencia .painel {
     margin-left: 35%;
@@ -314,7 +380,7 @@ table {
     border-radius: 5%;
     animation: slidein 1000ms;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.62); }
-  /* line 335, App/Public/Resources/scss/consultar.scss */
+  /* line 408, App/Public/Resources/scss/consultar.scss */
   #form textarea,
   #Focorrencia textarea {
     resize: none;
@@ -332,19 +398,19 @@ table {
     font-family: Candara;
     font-size: 2.7vh;
     height: 7%; }
-  /* line 352, App/Public/Resources/scss/consultar.scss */
+  /* line 425, App/Public/Resources/scss/consultar.scss */
   #form .fixado,
   #Focorrencia .fixado {
     width: 100%;
     position: fixed;
     top: 0; }
-  /* line 357, App/Public/Resources/scss/consultar.scss */
+  /* line 430, App/Public/Resources/scss/consultar.scss */
   #form .CloseForm,
   #Focorrencia .CloseForm {
     margin-left: 28%;
     transition: 0.1s;
     position: absolute; }
-  /* line 362, App/Public/Resources/scss/consultar.scss */
+  /* line 435, App/Public/Resources/scss/consultar.scss */
   #form .subtitulo,
   #Focorrencia .subtitulo {
     font-size: 3vh;
@@ -352,7 +418,7 @@ table {
     margin-left: 8.5%;
     margin-top: 4%;
     margin-bottom: 2%; }
-  /* line 369, App/Public/Resources/scss/consultar.scss */
+  /* line 442, App/Public/Resources/scss/consultar.scss */
   #form .Form-invalid,
   #Focorrencia .Form-invalid {
     animation: invalidform 300ms linear;
@@ -369,13 +435,13 @@ table {
     overflow-x: hidden; }
   80% {
     transform: translateX(1%); } }
-  /* line 388, App/Public/Resources/scss/consultar.scss */
+  /* line 461, App/Public/Resources/scss/consultar.scss */
   #form label[for="titulo"],
   #Focorrencia label[for="titulo"] {
     font-size: 5vh;
     color: black;
     margin-left: 2%; }
-  /* line 394, App/Public/Resources/scss/consultar.scss */
+  /* line 467, App/Public/Resources/scss/consultar.scss */
   #form label[for="subtitulo"],
   #Focorrencia label[for="subtitulo"] {
     font-size: 3vh;
@@ -383,7 +449,7 @@ table {
     margin-left: 2%;
     margin-top: 4%;
     margin-bottom: 2%; }
-  /* line 402, App/Public/Resources/scss/consultar.scss */
+  /* line 475, App/Public/Resources/scss/consultar.scss */
   #form .caixa,
   #Focorrencia .caixa {
     width: 80%;
@@ -400,15 +466,15 @@ table {
     font-family: Candara;
     font-size: 2.7vh;
     height: 4%; }
-  /* line 419, App/Public/Resources/scss/consultar.scss */
+  /* line 492, App/Public/Resources/scss/consultar.scss */
   #form .caixa::placeholder,
   #Focorrencia .caixa::placeholder {
     color: #86888d; }
-  /* line 423, App/Public/Resources/scss/consultar.scss */
+  /* line 496, App/Public/Resources/scss/consultar.scss */
   #form .opcsele,
   #Focorrencia .opcsele {
     color: #000; }
-  /* line 427, App/Public/Resources/scss/consultar.scss */
+  /* line 500, App/Public/Resources/scss/consultar.scss */
   #form .botao,
   #Focorrencia .botao {
     margin-top: 20%;
@@ -421,7 +487,7 @@ table {
     font-size: 3vh;
     border-radius: 10vh;
     color: whitesmoke; }
-  /* line 440, App/Public/Resources/scss/consultar.scss */
+  /* line 513, App/Public/Resources/scss/consultar.scss */
   #form .button,
   #Focorrencia .button {
     margin-top: 1%;
@@ -434,30 +500,30 @@ table {
     font-size: 3vh;
     border-radius: 10vh;
     color: whitesmoke; }
-  /* line 452, App/Public/Resources/scss/consultar.scss */
+  /* line 525, App/Public/Resources/scss/consultar.scss */
   #form .button:hover,
   #Focorrencia .button:hover {
     background: linear-gradient(to right, #08d2df, #ef0afd);
     opacity: 1;
     transition: 0.5s; }
-  /* line 458, App/Public/Resources/scss/consultar.scss */
+  /* line 531, App/Public/Resources/scss/consultar.scss */
   #form .botao:hover,
   #Focorrencia .botao:hover {
     background-color: #e84118; }
 
-/* line 463, App/Public/Resources/scss/consultar.scss */
+/* line 536, App/Public/Resources/scss/consultar.scss */
 #Focorrencia .painel {
   height: 50%; }
 
-/* line 466, App/Public/Resources/scss/consultar.scss */
+/* line 539, App/Public/Resources/scss/consultar.scss */
 #Focorrencia .caixa {
   height: 7%;
   margin-top: 2%; }
 
-/* line 470, App/Public/Resources/scss/consultar.scss */
+/* line 543, App/Public/Resources/scss/consultar.scss */
 #Focorrencia textarea {
   height: 26%; }
 
-/* line 473, App/Public/Resources/scss/consultar.scss */
+/* line 546, App/Public/Resources/scss/consultar.scss */
 #Focorrencia .title_register {
   margin-top: 2%; }
