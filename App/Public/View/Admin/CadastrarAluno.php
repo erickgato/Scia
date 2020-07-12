@@ -122,28 +122,10 @@ if(!isset($_SESSION['ADMINLOGGED'])){
                         ]);
                     DEBUG::log('Database Connection in Cadastro aluno');
                     if(!$Result)
-                        echo "Falha ao adicionar dados tente novamente";
+                        echo "<script>alertify.error('falha no cadastro');</script>";
                     else
-                        echo "<script>alert('Dados inseridos com sucesso!')</script>";
-                    
+                        echo "<script>alertify.success('Aluno cadastrado!');</script>";
 				}
-				if (isset($_GET['Rid'])) {
-        if (!isset($_GET['act']))
-            print '
-                <script> ShowDiv(".confirm");</script>
-                ';
-        else {
-            $R_CPF = DATABASE::SELECT('sc_responsavel', "where Re_cod={$_GET['Rid']}");
-            if (DATABASE::DELETE('sc_usuario', 'Us_login', $R_CPF[0]['Re_CPF'])) {
-                if (DATABASE::DELETE('sc_responsavel', 'Re_cod', $_GET['Rid'])) {
-                    echo "<script>alertify.alert('Excluido!', 'Responsável Excluidos!',() => {
-                        window.location.href = 'ConsultarResponsavel';
-                      });</script>";
-                }
-            }
-        }
-    }	
-		
 		?>
     </div>
     <script src="<?php echo RESOCS; ?>/js/AdmMenu.js"></script>

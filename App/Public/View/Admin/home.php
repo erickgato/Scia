@@ -79,7 +79,8 @@ $js_data_graf = json_encode($Datagraf);
                 <div class="level">
                     <div class="MenuItem">
                         <input type="checkbox">
-                        <i class="fa fa-home home" aria-hidden="true"></i><label for="A1"><a href="homeadmin">Home</a></label>
+                        <i class="fa fa-home home" aria-hidden="true"></i><label for="A1"><a
+                                href="homeadmin">Home</a></label>
                     </div>
                     <div class="MenuItem">
                         <input type="checkbox" id="A">
@@ -108,7 +109,8 @@ $js_data_graf = json_encode($Datagraf);
                     </div>
                     <div class="MenuItem">
                         <input type="checkbox">
-                        <i class="fa fa-sign-out home" aria-hidden="true"></i><label><a id="loggout" href="index.php">Sair</a></label>
+                        <i class="fa fa-sign-out home" aria-hidden="true"></i><label><a id="loggout"
+                                href="index.php">Sair</a></label>
                     </div>
                 </div>
             </nav>
@@ -121,7 +123,6 @@ $js_data_graf = json_encode($Datagraf);
     </section>
     <section>
         <main>
-            </div>
             <div class="card-group">
                 <div class="card a">
                     <div class="card-content">
@@ -147,7 +148,8 @@ $js_data_graf = json_encode($Datagraf);
             </div>
             <section class='grid-layout'>
                 <div class="searchbar">
-                    <input type="text" oninput="Liberacoes.Filter(value)" placeholder="Digite o nome do  aluno..." name="search" />
+                    <input type="text" oninput="Liberacoes.Filter(value)" placeholder="Digite o nome do  aluno..."
+                        name="search" />
                     <span><img src="https://img.icons8.com/material/96/000000/search--v1.png" /></span>
 
                 </div>
@@ -163,26 +165,25 @@ $js_data_graf = json_encode($Datagraf);
                         <canvas class="chart"></canvas>
                     </div>
                 </div>
-                    <div class="ListAL">
-                        <div style="display:none;" id="jsondata"><?php print($Json_Liberacoes); ?></div>
-                        <table class="container" border="0" cellspacing="0" cellpadding="0">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <h1>Nome</h1>
-                                    </th>
-                                    <th>
-                                        <h1>CPF</h1>
-                                    </th>
-                                    <th>
-                                        <h1>Descrição Ocorrência</h1>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody class="datbody">
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="ListAL">
+                    <div style="display:none;" id="jsondata"><?php print($Json_Liberacoes); ?></div>
+                    <table class="container" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <h1>Nome</h1>
+                                </th>
+                                <th>
+                                    <h1>CPF</h1>
+                                </th>
+                                <th>
+                                    <h1>Descrição Ocorrência</h1>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="datbody">
+                        </tbody>
+                    </table>
                 </div>
             </section>
         </main>
@@ -196,12 +197,12 @@ $js_data_graf = json_encode($Datagraf);
     <script src="<?php echo RESOCS; ?>/js/AdmMenu.js"></script>
     <script src="<?php echo RESOCS; ?>/js/chart.js"></script>
     <script>
-        $(document).ready(() => {
-            Liberacoes.Filter("");
-            alertify.alert('Olá', 'Bem vindo!', () => {
-                alertify.success('ótimo!')
-            });
-        })
+    $(document).ready(() => {
+        Liberacoes.Filter("");
+        alertify.alert('Olá', 'Bem vindo!', () => {
+            alertify.success('ótimo!')
+        });
+    })
     </script>
 </body>
 

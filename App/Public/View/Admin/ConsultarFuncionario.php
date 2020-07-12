@@ -46,8 +46,6 @@ if (isset($_GET['Fid'])) {
         <?php
         include_once RESOCS . '/Cabecalhos/menuAdm.func.php';
         GerarMenuAdmin();
-       // $Funcionarios = DATABASE::SELECT('sc_funcionario');
-
         $Funcionarios = DATABASE::SELECT('sc_funcionario',"AS Func INNER JOIN sc_unidade AS UNIN ON Func.Fu_codUnidade = UNIN.Un_cod INNER JOIN sc_tp_funcionario as TPFUN on Func.Fu_codtpFuncionario = TPFUN.TF_Cod");
         $js_funcionario = json_encode($Funcionarios);
         ?>

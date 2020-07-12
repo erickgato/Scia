@@ -163,11 +163,8 @@ body {
 }
 /* */ 
 body {
-  background-image: url("../Images/background.png");
-  background-position: center;
-  background-origin: content-box;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: linear-gradient(to right,#89253e, #3a6186);
+  background: -webkit-linear-gradient(to right,#89253e, #3a6186);  
 }
 table {
   margin-top: 10%;

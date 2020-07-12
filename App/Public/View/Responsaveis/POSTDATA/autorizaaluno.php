@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_set('UTC');
+date_default_timezone_set('America/Sao_Paulo');
 if(isset($_POST['Enviar'])){
     function Postdata(string $name){
         $typevar = $_POST[$name];

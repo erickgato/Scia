@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="Pt-Br">
 <?php
+date_default_timezone_set('America/Sao_Paulo');
 if (!isset($_SESSION['ADMINLOGGED'])) {
     header("Location: index.php");
 }
@@ -19,7 +20,6 @@ if (isset($_GET['Cal'])) {
         "RCPF" => $S_Alun[0]['Re_CPF']
     );
 }
-
 ?>
 
 <head>
@@ -147,26 +147,10 @@ if (isset($_GET['Cal'])) {
             <tbody class="databody">
             </tbody>
         </table>
-        <div class="loading">
-
-            <div class="loader">
-                <div class="inner one"></div>
-                <div class="inner two"></div>
-                <div class="inner three"></div>
-            </div>
-        </div>
-
-
     </main>
     <script src="<?php echo RESOCS; ?>/js/GetData.js">
     </script>
     <script>
-        $(document).ready(() => {
-            setTimeout(() => {
-                $(".loading").hide(600);
-            }, 1000);
-            
-        })
         window.onload = () => {
             Aluno.Filter("");
             
