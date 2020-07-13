@@ -56,15 +56,6 @@
                         <li>
                             <a class="UserName" href="#profile"> <?php echo $fistname[0] ?> </a>
                         </li>
-                        <li id="profile"> <a href="#">
-                                <figure><img src="<?php echo IMAGES; ?>/icons/Prof.png" alt="Profile"></figure>
-                                <span>Perfil</span>
-                            </a></li>
-                        <li id="notification"> <a href="#">
-                                <figure><img src="<?php echo IMAGES; ?>/icons/Not.png" alt="Notification">
-                                </figure>
-                                <span id="span-notify">Notificação</span>
-                            </a></li>
                     </ul>
                 </nav>
 
@@ -94,6 +85,10 @@
         ?>
     </main>
     <footer>
+    <script>
+
+
+    </script>
 </body>
 
 </html>

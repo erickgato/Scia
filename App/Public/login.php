@@ -13,13 +13,13 @@
 					switch($CodTpUsu){
 						case 2: 
 							$_SESSION['USERLOGGED'] = true;
-							setcookie("USER[CPF]",(string)$Usuario['LOGIN'],time() + 3600);
+							setcookie("USER[CPF]",(string)$Usuario['LOGIN'],time() + 5600);
 							header('Location: perfil');
 							exit;	
 							break;
 						default: 
 							$_SESSION['ADMINLOGGED'] = true;
-							setcookie("USER[CPF]",(string)$Usuario['LOGIN'],time() + 3600);
+							setcookie("USER[CPF]",(string)$Usuario['LOGIN'],time() + 5600);
 							header('Location: homeadmin');
 							exit;
 						break;

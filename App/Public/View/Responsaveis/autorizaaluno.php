@@ -36,7 +36,13 @@
        ?>
     </header>
     <div id="container">
-        <form action="" method="post">
+        <form class="approot" action="" method="post">
+            <div class="leftmessage">
+                <section class="message">
+                    <span><h1>Continue Conectado!</h1></span>
+                    <p>Com <a class="goldmessage" >SCIA</a> você pode autorizar seu filho e tomar café ao mesmo tempo !</p>
+                </section>
+            </div>
             <div class="painel">
                 <label class="title_aut">
                     Autorizar Aluno
