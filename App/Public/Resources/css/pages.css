@@ -269,20 +269,21 @@ main {
     background-color: #f2f3f5; }
   /* line 267, App/Public/Resources/scss/pages.scss */
   .container tr:nth-child(even) {
-    background-color: #2c3446; }
-  /* line 270, App/Public/Resources/scss/pages.scss */
+    background-color: #646e85;
+    font-size: 15pt; }
+  /* line 271, App/Public/Resources/scss/pages.scss */
   .container th {
     background-color: #cbcdd1; }
-  /* line 273, App/Public/Resources/scss/pages.scss */
+  /* line 274, App/Public/Resources/scss/pages.scss */
   .container td:first-child {
     color: #fb667a; }
-  /* line 276, App/Public/Resources/scss/pages.scss */
+  /* line 277, App/Public/Resources/scss/pages.scss */
   .container tr:hover {
     background-color: #464a52;
     -webkit-box-shadow: 0 6px 6px -6px #0e1119;
     -moz-box-shadow: 0 6px 6px -6px #0e1119;
     box-shadow: 0 6px 6px -6px #0e1119; }
-  /* line 282, App/Public/Resources/scss/pages.scss */
+  /* line 283, App/Public/Resources/scss/pages.scss */
   .container td:hover {
     background-color: #fff842;
     color: #403e10;
@@ -294,7 +295,7 @@ main {
     transition-property: all;
     transition-timing-function: line; }
 
-/* line 297, App/Public/Resources/scss/pages.scss */
+/* line 298, App/Public/Resources/scss/pages.scss */
 .container td,
 .container th {
   padding-bottom: 2%;

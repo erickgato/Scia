@@ -26,7 +26,7 @@ if(isset($_POST['Enviar'])){
     }
     else{
         echo "<script> alertify.alert('Scia diz', 'Aluno já foi liberado',() => {
-            alertify.error('Tente novamente outro dia')
+            alertify.success('Já liberado')
           });</script>";
     }
 }
