@@ -36,7 +36,7 @@ body {
   margin: 0;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to right, #ef0afd, #08d2df);
+  background: linear-gradient(to right, #000000, #434343);
   overflow: hidden; }
 
 /* line 39, App/Public/Resources/scss/profile.scss */
@@ -133,49 +133,70 @@ a:link {
   float: left;
   width: 25%;
   height: 100%;
-  background: linear-gradient(to right, #a1a3ac60, #efeff2);
+  background: linear-gradient(to bottom, #114357, #F29492);
   border-right: 1px solid #efeff29f;
   border-width: mediums; }
 
-/* line 128, App/Public/Resources/scss/profile.scss */
+/* line 129, App/Public/Resources/scss/profile.scss */
 .sideoption {
+  align-items: center;
   height: 1vh; }
-  /* line 130, App/Public/Resources/scss/profile.scss */
+  /* line 132, App/Public/Resources/scss/profile.scss */
   .sideoption ul {
     list-style-type: none; }
 
-/* line 134, App/Public/Resources/scss/profile.scss */
+@-webkit-keyframes tilt-in-right-1 {
+  0% {
+    -webkit-transform: rotateX(-30deg) translateX(300px) skewX(30deg);
+    transform: rotateX(-30deg) translateX(300px) skewX(30deg);
+    opacity: 0; }
+  100% {
+    -webkit-transform: rotateX(0deg) translateX(0) skewX(0deg);
+    transform: rotateX(0deg) translateX(0) skewX(0deg);
+    opacity: 1; } }
+
+@keyframes tilt-in-right-1 {
+  0% {
+    -webkit-transform: rotateX(-30deg) translateX(300px) skewX(30deg);
+    transform: rotateX(-30deg) translateX(300px) skewX(30deg);
+    opacity: 0; }
+  100% {
+    -webkit-transform: rotateX(0deg) translateX(0) skewX(0deg);
+    transform: rotateX(0deg) translateX(0) skewX(0deg);
+    opacity: 1; } }
+
+/* line 160, App/Public/Resources/scss/profile.scss */
 .UserName {
   font-family: "Haboro";
   clear: both;
   display: block;
-  margin-top: 1.5%;
-  margin-left: 13%;
-  font-size: 28pt;
+  margin-top: 5%;
+  font-size: 34pt;
+  margin-left: 6.5vw;
   color: #0f0e0e; }
 
-/* line 143, App/Public/Resources/scss/profile.scss */
+/* line 169, App/Public/Resources/scss/profile.scss */
 .sideoption #profile {
   margin-left: 8%;
   margin-top: 5%;
   width: 20vw;
   height: 20vh; }
 
-/* line 150, App/Public/Resources/scss/profile.scss */
+/* line 176, App/Public/Resources/scss/profile.scss */
 .sideoption #notification {
   margin-left: 8%;
   margin-top: -20%;
   width: 20vw;
   height: 20vh; }
 
-/* line 157, App/Public/Resources/scss/profile.scss */
+/* line 183, App/Public/Resources/scss/profile.scss */
 .sideoption ul li img {
   float: left;
   margin-top: 2.9%;
   width: 16%;
   height: 22%; }
 
-/* line 163, App/Public/Resources/scss/profile.scss */
+/* line 189, App/Public/Resources/scss/profile.scss */
 .sideoption ul li a span {
   float: left;
   font-family: Candara;
@@ -184,15 +205,15 @@ a:link {
   font-size: 17pt;
   color: black; }
 
-/* line 172, App/Public/Resources/scss/profile.scss */
+/* line 198, App/Public/Resources/scss/profile.scss */
 .sideoption ul li a span:hover {
   color: #08d2df; }
 
-/* line 176, App/Public/Resources/scss/profile.scss */
+/* line 202, App/Public/Resources/scss/profile.scss */
 .sideoption ul li a #span-notify:hover {
   color: #08d2df; }
 
-/* line 180, App/Public/Resources/scss/profile.scss */
+/* line 206, App/Public/Resources/scss/profile.scss */
 .sideoption ul li a #span-notify {
   float: left;
   font-family: Candara;
@@ -201,28 +222,28 @@ a:link {
   font-size: 17pt;
   color: black; }
 
-/* line 188, App/Public/Resources/scss/profile.scss */
+/* line 214, App/Public/Resources/scss/profile.scss */
 .sideoption .Up-image {
   margin-left: 27%;
-  margin-top: 15%;
+  margin-top: 45%;
   width: 150px;
   height: 150px;
   border-radius: 50%;
   overflow: hidden; }
 
-/* line 196, App/Public/Resources/scss/profile.scss */
+/* line 222, App/Public/Resources/scss/profile.scss */
 .sideoption .Up-image img {
   width: 100%;
   height: 100%; }
 
-/* line 200, App/Public/Resources/scss/profile.scss */
+/* line 226, App/Public/Resources/scss/profile.scss */
 .sideoption ul li a:hover {
   color: #08d2df; }
 
 /* //////////////////////////////////////////////////////// 
   [Content]
   */
-/* line 207, App/Public/Resources/scss/profile.scss */
+/* line 233, App/Public/Resources/scss/profile.scss */
 .Content {
   display: block;
   border-radius: 2.4%;
@@ -232,9 +253,46 @@ a:link {
   margin-top: 2vh;
   width: 96vw;
   height: 80vh;
-  box-shadow: 0 0 3em #fcfcfc; }
+  -webkit-animation: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1) both; }
 
-/* line 219, App/Public/Resources/scss/profile.scss */
+@-webkit-keyframes slide-in-blurred-top {
+  0% {
+    -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0; }
+  100% {
+    -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+    transform: translateY(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1; } }
+
+@keyframes slide-in-blurred-top {
+  0% {
+    -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0; }
+  100% {
+    -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+    transform: translateY(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1; } }
+
+/* line 286, App/Public/Resources/scss/profile.scss */
 .Title {
   display: inline-blocks;
   color: #a1a3ac;
@@ -245,7 +303,7 @@ a:link {
   width: 38%;
   height: 5vh; }
 
-/* line 230, App/Public/Resources/scss/profile.scss */
+/* line 297, App/Public/Resources/scss/profile.scss */
 .labelcontentname {
   display: block;
   font-family: Candara;
@@ -253,14 +311,14 @@ a:link {
   margin-left: 30%;
   margin-top: 2%; }
 
-/* line 238, App/Public/Resources/scss/profile.scss */
+/* line 305, App/Public/Resources/scss/profile.scss */
 .labelcontent {
   display: block;
   font-family: Candara;
   font-size: 3vh;
   margin-left: 30%; }
 
-/* line 245, App/Public/Resources/scss/profile.scss */
+/* line 312, App/Public/Resources/scss/profile.scss */
 .caixaname {
   width: 93%;
   margin-left: 0%;
@@ -277,7 +335,7 @@ a:link {
   font-size: 2.7vh;
   height: 4%; }
 
-/* line 262, App/Public/Resources/scss/profile.scss */
+/* line 329, App/Public/Resources/scss/profile.scss */
 .caixaemail {
   width: 93%;
   margin-left: 0%;
@@ -294,7 +352,7 @@ a:link {
   font-size: 2.7vh;
   height: 4%; }
 
-/* line 279, App/Public/Resources/scss/profile.scss */
+/* line 346, App/Public/Resources/scss/profile.scss */
 .caixaend {
   width: 93%;
   margin-left: 0%;
@@ -311,7 +369,7 @@ a:link {
   font-size: 2.7vh;
   height: 4%; }
 
-/* line 296, App/Public/Resources/scss/profile.scss */
+/* line 363, App/Public/Resources/scss/profile.scss */
 .caixatel {
   width: 93%;
   margin-left: 0%;
@@ -328,14 +386,14 @@ a:link {
   font-size: 2.7vh;
   height: 4%; }
 
-/* line 313, App/Public/Resources/scss/profile.scss */
+/* line 380, App/Public/Resources/scss/profile.scss */
 .labelcontentcep {
   display: inline-block;
   font-family: Candara;
   font-size: 3vh;
   margin-left: 5%; }
 
-/* line 320, App/Public/Resources/scss/profile.scss */
+/* line 387, App/Public/Resources/scss/profile.scss */
 .caixacep {
   width: 356%;
   margin-left: 0%;
@@ -352,7 +410,7 @@ a:link {
   font-size: 2.7vh;
   height: 4%; }
 
-/* line 337, App/Public/Resources/scss/profile.scss */
+/* line 404, App/Public/Resources/scss/profile.scss */
 .botao {
   margin-bottom: 15%;
   margin-top: 0.8%;

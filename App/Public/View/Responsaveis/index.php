@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/profile.css" />
+    <link rel="shortcut icon" href="<?php echo RESOCS; ?>/images/icons/logo/favicon.ico" type="image/x-icon" />
     <title>Perfil</title>
 </head>
 
@@ -26,7 +27,7 @@
                 
             */
             $responsavel = DATABASE::SELECT('sc_responsavel',"WHERE Re_cod = {$_SESSION['USER']['ID']} ");
-            $email = DATABASE::JOIN('sc_contato',"WHERE TP.TC_cod = 1 AND CONTACT.Co_codResponsavel = 31",'AS CONTACT INNER JOIN sc_tp_contato as TP on TP.TC_cod = CONTACT.Co_codtpContato');
+            $email = DATABASE::SELECT('sc_contato',"where Co_codtpContato = 1 AND Co_codResponsavel =  {$_SESSION['USER']['ID']}");
             $telefone = DATABASE::SELECT('sc_contato',"where Co_codtpContato = 2 AND Co_codResponsavel =  {$_SESSION['USER']['ID']}");
             if(empty($email)){
                 $email[0]['Co_descricao'] = ""; 
@@ -55,15 +56,6 @@
                         <li>
                             <a class="UserName" href="#profile"> <?php echo $fistname[0] ?> </a>
                         </li>
-                        <li id="profile"> <a href="#">
-                                <figure><img src="<?php echo IMAGES; ?>/icons/Prof.png" alt="Profile"></figure>
-                                <span>Perfil</span>
-                            </a></li>
-                        <li id="notification"> <a href="#">
-                                <figure><img src="<?php echo IMAGES; ?>/icons/Not.png" alt="Notification">
-                                </figure>
-                                <span id="span-notify">Notificação</span>
-                            </a></li>
                     </ul>
                 </nav>
 
@@ -93,6 +85,10 @@
         ?>
     </main>
     <footer>
+    <script>
+
+
+    </script>
 </body>
 
 </html>

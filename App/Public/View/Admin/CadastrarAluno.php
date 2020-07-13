@@ -18,6 +18,7 @@ if(!isset($_SESSION['ADMINLOGGED'])){
 
 ?>
 <html lang="Pt-Br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,9 +41,12 @@ if(!isset($_SESSION['ADMINLOGGED'])){
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
     <!-- Bootstrap theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
+    <link rel="shortcut icon" href="<?php echo RESOCS; ?>/images/icons/logo/favicon.ico" type="image/x-icon" />
 </head>
+
 <body>
-    <?php
+    <header>
+        <?php
         include_once  RESOCS . '/Cabecalhos/menuAdm.func.php';
         GerarMenuAdmin();
         if(isset($_GET['Resp_CPF'])){
@@ -52,42 +56,49 @@ if(!isset($_SESSION['ADMINLOGGED'])){
             $CPFresp = '';
         }
     ?>
-    
+    </header>
+
+
     <div id="container">
         <script src="<?php echo RESOCS; ?>/js/estilos.js"></script>
         <form action="#" method="post">
             <div class="painel">
-            <label class="title_register">
-				Cadastro de Alunos
-			</label>
-                <div id = "campos_cadastro">
+                <label class="title_register">
+                    Cadastro de Alunos
+                </label>
+                <div id="campos_cadastro">
                     <label class="subtitulo">
-                            Unidade do Aluno
-                            <select class="caixa" type="text" value="" name="unidade"> 
-                                <option  value="1">SESI</option>
-                                <option  value="2">SENAI</option>
-                            </select>
-                           
+                        Unidade do Aluno
+                        <select class="caixa" type="text" value="" name="unidade">
+                            <option value="1">SESI</option>
+                            <option value="2">SENAI</option>
+                        </select>
+
                     </label>
-                    <label class="subtitulo">Nome </label><input class="caixa"  name="nomeAluno" type="text" value="" placeholder="Digite o Nome do Aluno" required autofocus/>
-					<label class="subtitulo" for="sobrenome">Sobrenome</label><input class="caixa" type="text" name="sobrenomeAluno" placeholder="Digite o sobrenome do  aluno" required/>
+                    <label class="subtitulo">Nome </label><input class="caixa" name="nomeAluno" type="text" value=""
+                        placeholder="Digite o Nome do Aluno" required autofocus />
+                    <label class="subtitulo" for="sobrenome">Sobrenome</label><input class="caixa" type="text"
+                        name="sobrenomeAluno" placeholder="Digite o sobrenome do  aluno" required />
                     <label class="subtitulo">
-                            Data de Nascimento
-                            <input class="caixa" type="date" value=""  min="<?php print($datalimitada['Min']); ?>" max="<?php print($datalimitada['Max']); ?>" required name="datanasc"/>
+                        Data de Nascimento
+                        <input class="caixa" type="date" value="" min="<?php print($datalimitada['Min']); ?>"
+                            max="<?php print($datalimitada['Max']); ?>" required name="datanasc" />
                     </label>
                     <label class="subtitulo">
-                            CPF do Aluno</label>
-                            <input class="caixa cpf" name="cpf"  type="text" value="" placeholder="Digite o CPF do Aluno" required onkeydown="javascript: fMasc( this, mCPF )" maxlength="14";/>
-                            
+                        CPF do Aluno</label>
+                    <input class="caixa cpf" name="cpf" type="text" value="" placeholder="Digite o CPF do Aluno"
+                        required onkeydown="javascript: fMasc( this, mCPF )" maxlength="14" ; />
+
                     <label class="subtitulo">
                         CPF Responsavel</label>
-                        <input class="caixa" name="CPFresp" type="text" value="<?php echo $CPFresp; ?>" placeholder="Digite o CPF do Responsavel" required/>
-                        
+                    <input class="caixa" name="CPFresp" type="text" value="<?php echo $CPFresp; ?>"
+                        placeholder="Digite o CPF do Responsavel" required />
+
                 </div>
-            <input type="submit" class="button enviar" name="Enviar" value="Registrar"/>
-        </div>
-    </form>
-	<?php 
+                <input type="submit" class="button enviar" name="Enviar" value="Registrar" />
+            </div>
+        </form>
+        <?php 
 				if(isset($_POST['Enviar'])){ 
                    
                     $Aluno = array(
@@ -111,40 +122,23 @@ if(!isset($_SESSION['ADMINLOGGED'])){
                         ]);
                     DEBUG::log('Database Connection in Cadastro aluno');
                     if(!$Result)
-                        echo "Falha ao adicionar dados tente novamente";
+                        echo "<script>alertify.error('falha no cadastro');</script>";
                     else
-                        echo "<script>alert('Dados inseridos com sucesso!')</script>";
-                    
+                        echo "<script>alertify.success('Aluno cadastrado!');</script>";
 				}
-				if (isset($_GET['Rid'])) {
-        if (!isset($_GET['act']))
-            print '
-                <script> ShowDiv(".confirm");</script>
-                ';
-        else {
-            $R_CPF = DATABASE::SELECT('sc_responsavel', "where Re_cod={$_GET['Rid']}");
-            if (DATABASE::DELETE('sc_usuario', 'Us_login', $R_CPF[0]['Re_CPF'])) {
-                if (DATABASE::DELETE('sc_responsavel', 'Re_cod', $_GET['Rid'])) {
-                    echo "<script>alertify.alert('Excluido!', 'Responsável Excluidos!',() => {
-                        window.location.href = 'ConsultarResponsavel';
-                      });</script>";
-                }
-            }
-        }
-    }	
-		
 		?>
     </div>
     <script src="<?php echo RESOCS; ?>/js/AdmMenu.js"></script>
     <script>
     $(".enviar").click((e) => {
-      if( !TestaCPF($(".cpf").val())){
-        alertify.alert('Falha','CPF inválido',() => {
-            alertify.error('CPF inválido');
-          })
-          e.preventDefault();
-      }
+        if (!TestaCPF($(".cpf").val())) {
+            alertify.alert('Falha', 'CPF inválido', () => {
+                alertify.error('CPF inválido');
+            })
+            e.preventDefault();
+        }
     })
     </script>
 </body>
+
 </html>

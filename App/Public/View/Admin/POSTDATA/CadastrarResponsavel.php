@@ -4,32 +4,34 @@
             $typevar = $_POST[$name];
             return $typevar;
         }
-
     if(isset($_POST['Enviar'])){ 
-                   
         $Responsavel = array(
             'RG' => (string) Postdata('RG'), "CPF" => Postdata('CPF'),
             'Nascimento' => Postdata('datanasc'), 'Nome' => Postdata('nome'),
             'Lograd' => (string) Postdata('endereco'),
-            'T_log' => (string) Postdata('T_lograd'),
-            'T_Bair' => (string) Postdata('T_CodBairro'),
-
+            'T_log' => (string) Postdata('T_lograd')
         );
+        //Essa linha checa a correspondencia do bairro no banco de dados, 
+        // Se existir return true
+        $endereco = new Endereco(Postdata('endereco'),Postdata('Bairro'),Postdata("CEP"));
+        $idendereco = $endereco->FETCHorPUSH();
         /*
             realiza um select buscando o id do responsavel 
             cujo CPF foi inserido
         */
         $Resp_rows = DATABASE::SELECT('sc_responsavel',"WHERE Re_CPF = '{$Responsavel['CPF']}'",false,false,true);
         if($Resp_rows > 1) {
-            echo "Usuário já existe";
-            die();
+            echo "alertify.alert('Falha', 'Usuário já cadastrado', () => {
+                alertify.error('Já cadastrado');
+            })";
+            return;
         }
         
         //Insere os dados na tabela responsavel
         $Result = DATABASE::INSERT(
             'sc_responsavel',['',$Responsavel['RG'],$Responsavel['CPF'],
             $Responsavel['Nascimento'],$Responsavel['Nome'],$Responsavel['Lograd'],
-            $Responsavel['T_log'],$Responsavel['T_Bair']                
+            $Responsavel['T_log'],$idendereco                
             ]);
         if($Result){
             //Insere dados na tabela usuario
@@ -45,7 +47,9 @@
                 $ThirdTable = DATABASE::INSERT('sc_usuario_responsavel',['',$cod,$Responsavel['CPF']]);
                 $HTTPORIGIN = HTTPORIGIN;
                 if($ThirdTable){
-                    echo "<script>alert('Dados inseridos com sucesso!')</script>";
+                    echo "alertify.alert('Sucesso!', 'Dados cadastrados com sucesso', () => {
+                        alertify.sucess('ótimo');
+                    })";
                    
                     echo "<script>window.location.href = '{$HTTPORIGIN}/CadastrarAluno?Resp_CPF={$Responsavel['CPF']}'</script>";
                    exit;
@@ -55,7 +59,9 @@
                 }
             }
             else {
-                echo "Falha ao criar usuario";
+                echo "alertify.alert('Falha', 'Usuário erro ao criar usuário', () => {
+                    alertify.error('Erro');
+                })";
             }
                 
             
@@ -64,7 +70,6 @@
         if(!$Result)
             echo "Falha ao adicionar responsavel";
         
-           
         
     }
 ?>

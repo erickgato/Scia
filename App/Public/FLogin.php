@@ -4,7 +4,7 @@
 <head>
     <title>LOGIN</title>
     <link rel="stylesheet" type="text/css" href="App/Public/Resources/css/FLogin.css" />
-    <link rel="shortcut icon" href="<?php echo RESOCS; ?>/images/icons/logo/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo RESOCS; ?>/images/icons/logo/favicon.ico" type="image/x-icon" />
 </head>
 
 <body class="corpo">
@@ -33,6 +33,9 @@
                 <div class="input-container">
                     <label class="subtitulo">Senha</label>
                     <input type="password" password name="usu_pass" required placeholder="Digite Sua Senha" />
+                    <?php if(isset($_GET['message'])):?>
+                        <a href="alterar-senha">Esqueceu senha ?</a>
+                    <?php endif; ?>
                 </div>
 
                 <input type="submit" value="Entrar" class="botao" name='btn_enviar' />

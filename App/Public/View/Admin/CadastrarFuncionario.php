@@ -28,6 +28,7 @@ if(!isset($_SESSION['ADMINLOGGED'])){
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
     <!-- Bootstrap theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
+    <link rel="shortcut icon" href="<?php echo RESOCS; ?>/images/icons/logo/favicon.ico" type="image/x-icon" />
 </head>
 
 <body class="corpo">
@@ -49,7 +50,7 @@ if(!isset($_SESSION['ADMINLOGGED'])){
                 <div id="campos_cadastro">
                     <label class="subtitulo">
                         Unidade do Funcionario
-                        <select class="caixa" id="input-text" type="text" value="" name="Unidade" required>
+                        <select class="caixa"  type="text" value="" name="Unidade" required>
                             <?php foreach ($unidades as $unidade ): ?>
                             <option value="<?php print($unidade['Un_cod']); ?>"><?php print($unidade['Un_nome']); ?>
                             </option>
@@ -58,7 +59,7 @@ if(!isset($_SESSION['ADMINLOGGED'])){
                     </label>
                     <label class="subtitulo">
                         Tipo de Funcionario
-                        <select class="caixa" id="input-text" type="text" value="" name="f[Tipo]" required>
+                        <select class="caixa"  type="text" value="" name="f[Tipo]" required>
                             <<?php foreach ($funcionarios as $func ): ?> <option
                                 value="<?php print($func['TF_Cod']); ?>"><?php print($func['TF_nome']); ?></option>
                                 <?php endforeach ?>
@@ -66,7 +67,7 @@ if(!isset($_SESSION['ADMINLOGGED'])){
                     </label>
                     <label class="subtitulo">
                         Nome
-                        <input class="caixa" name="f[Nome]" id="" type="text" value=""
+                        <input class="caixa" name="f[Nome]"  type="text" value=""
                             placeholder="Digite o Nome do Funcionario" required />
                     </label>
                     <label class="subtitulo">
@@ -76,7 +77,7 @@ if(!isset($_SESSION['ADMINLOGGED'])){
                     </label>
                     <label class="subtitulo">
                         Matrícula
-                        <input class="caixa" name="f[matricula]" id="" type="text" value=""
+                        <input class="caixa" name="f[matricula]" type="text" value=""
                             placeholder="Digite a matrícula" required />
                     </label>
                 </div>

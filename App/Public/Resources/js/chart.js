@@ -1,5 +1,7 @@
 const ctx = document.getElementsByClassName('chart');
+const ctxmonth = document.getElementsByClassName('month');
 const divContent = JSON.parse(document.getElementById("chartdata").innerText);
+console.log(divContent);
 const graph = new Chart(ctx, {
     type: 'line',
     data: {
@@ -10,22 +12,23 @@ const graph = new Chart(ctx, {
             data: divContent["Liberacoes"],
             borderColor: '#ffb796',
             borderWidth: 2,
-            pointRadius: 3
+            pointRadius: 3,
+            backgroundColor: ['#F08A43']
         },
         {
             fill: true,
             label: "Fora de sala",
             data: divContent["Gaz"],
-            borderColor: '#86c5f7',
             borderWidth: 2,
-            pointRadius: 3
+            pointRadius: 3,
+            backgroundColor: ['#2BE3C0']
         },{
             fill: true,
             label: "Atrasos",
             data: divContent["Atrasos"],
-            borderColor: '#7ed8cf',
             borderWidth: 2,
-            pointRadius: 3
+            pointRadius: 3,
+            backgroundColor: ['#29BDD9']
         }]
     },
     options:{
@@ -37,10 +40,10 @@ const graph = new Chart(ctx, {
         },
         title: {
             display: true,
-            fontSize: 34,
+            fontSize: 40,
             position: 'top',
             fontFamily: 'metropolis',
-            fontColor: 'white',
+            fontColor: 'black',
             text: 'Grafíco de occorências semanais'
         },
         scales: {
@@ -76,6 +79,76 @@ const graph = new Chart(ctx, {
             cornerRadius: 2,
             xPadding: 10,
             yPadding: 10
+        }
+    }
+});
+let qtdocorencias = 0
+for (let index = 0; index < 5; index++) {
+    qtdocorencias += divContent["Gaz"][index] + divContent['Liberacoes'][index] + divContent['Atrasos'][index];
+}
+console.log(qtdocorencias);
+var myChart = new Chart(ctxmonth, {
+    type: 'doughnut',
+    data: {
+        labels: ['Jan', 'Fev', 'Mar','Mai', 'Jun', 'Jul', 'Ago','Set','Out','Nov','Dez'],
+        datasets: [{
+            data: [12, 19, 3, 5, 2, qtdocorencias,0,0,0,0,0],
+            backgroundColor: [
+                '#f8f8ff',
+                '#ffa500',
+                '#00008b',
+                '#ffff00',
+                '#e71837',
+                '#f1f17f', 
+                '#f1af09',
+                '#6E5F19',
+                '#fc0fc0',
+                '#0082c1',
+                '#74ffff ',
+                '#8b0000'
+            ],
+            borderColor: [
+                '#f8f8ff',
+                '#ffa500',
+                '#00008b',
+                '#ffff00',
+                '#e71837',
+                '#f1f17f', 
+                '#f1af09',
+                '#6E5F19',
+                '#fc0fc0',
+                '#0082c1',
+                '#74ffff ',
+                '#8b0000'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                gridLines: {
+                    lineWidth: 0,
+                    lineHeight: 0
+                },
+                ticks: {
+                    beginAtZero: true
+                }
+            }],
+            xAxes: [{
+                gridLines: {
+                    lineWidth: 0
+                }
+            }],
+        },
+        title: {
+            display: true,
+            fontSize: 40,
+            position: 'top',
+            fontColor: 'black',
+            fontFamily: 'metropolis',
+            text: 'Gráfico de occorências anuais'
+
         }
     }
 });

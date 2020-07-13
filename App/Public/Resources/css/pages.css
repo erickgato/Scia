@@ -8,133 +8,216 @@
   padding: 0; }
 
 /* line 11, App/Public/Resources/scss/pages.scss */
+.loading {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  top: 0; }
+
+/* line 18, App/Public/Resources/scss/pages.scss */
+.loader {
+  position: absolute;
+  top: calc(50% - 32px);
+  left: calc(50% - 32px);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  perspective: 800px; }
+
+/* line 29, App/Public/Resources/scss/pages.scss */
+.inner {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; }
+
+/* line 37, App/Public/Resources/scss/pages.scss */
+.inner.one {
+  left: 0%;
+  top: 0%;
+  animation: rotate-one 1s linear infinite;
+  border-bottom: 3px solid #EFEFFA; }
+
+/* line 44, App/Public/Resources/scss/pages.scss */
+.inner.two {
+  right: 0%;
+  top: 0%;
+  animation: rotate-two 1s linear infinite;
+  border-right: 3px solid #EFEFFA; }
+
+/* line 51, App/Public/Resources/scss/pages.scss */
+.inner.three {
+  right: 0%;
+  bottom: 0%;
+  animation: rotate-three 1s linear infinite;
+  border-top: 3px solid #EFEFFA; }
+
+@keyframes rotate-one {
+  0% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg); }
+  100% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg); } }
+
+@keyframes rotate-two {
+  0% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg); }
+  100% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg); } }
+
+@keyframes rotate-three {
+  0% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg); }
+  100% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg); } }
+
+/**/
+/* line 85, App/Public/Resources/scss/pages.scss */
 body {
   font-family: "metropolis";
   width: 100%;
   min-height: 100%;
   background-color: #dad5d5; }
 
-/* line 17, App/Public/Resources/scss/pages.scss */
+/* line 91, App/Public/Resources/scss/pages.scss */
 main {
   width: 100%;
   height: 94%;
   box-shadow: 0 1.2em 0em #f7f1f1;
-  background: linear-gradient(#56CCF2, #2F80ED); }
+  background: linear-gradient(to bottom, #3a6186, #89253e);
+  background: -webkit-linear-gradient(to bottom, #3a6186, #89253e);
+  overflow: auto; }
 
 /* ****************************************************************
 [card] */
-/* line 25, App/Public/Resources/scss/pages.scss */
+/* line 101, App/Public/Resources/scss/pages.scss */
 .card-group {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  height: 20%; }
-  /* line 30, App/Public/Resources/scss/pages.scss */
+  height: 24%; }
+  /* line 106, App/Public/Resources/scss/pages.scss */
   .card-group .card {
     width: 30%;
     margin-top: 2%;
     margin-left: 1%;
-    border-radius: 1em;
+    border-radius: 0.3em;
     box-shadow: 0 0.2em 1em #302e2e; }
-    /* line 36, App/Public/Resources/scss/pages.scss */
+    /* line 112, App/Public/Resources/scss/pages.scss */
     .card-group .card:hover {
       cursor: pointer;
       box-shadow: 2em 0.3em 1em gray;
       transition: 0.3s; }
-  /* line 42, App/Public/Resources/scss/pages.scss */
+  /* line 118, App/Public/Resources/scss/pages.scss */
   .card-group .card.a {
     background: linear-gradient(45deg, #ffb796, #ff7f96); }
-  /* line 45, App/Public/Resources/scss/pages.scss */
+  /* line 121, App/Public/Resources/scss/pages.scss */
   .card-group .card.b {
-    background: linear-gradient(45deg, #34e89e, #0f3443); }
-  /* line 48, App/Public/Resources/scss/pages.scss */
+    background: linear-gradient(45deg, #34e89e, #5e9ab3); }
+  /* line 124, App/Public/Resources/scss/pages.scss */
   .card-group .card.c {
-    background: linear-gradient(45deg, #3a6186, #89253e); }
+    background: linear-gradient(45deg, #fcdf8a, #f38381); }
 
 /* ////////////////////////////////////////////////////////////////
 [Content] */
-/* line 54, App/Public/Resources/scss/pages.scss */
+/* line 130, App/Public/Resources/scss/pages.scss */
 .card-content {
   width: 100%;
   height: 100%;
   text-align: center; }
-  /* line 58, App/Public/Resources/scss/pages.scss */
+  /* line 134, App/Public/Resources/scss/pages.scss */
   .card-content h2 {
     font-size: 43pt; }
-  /* line 61, App/Public/Resources/scss/pages.scss */
+  /* line 137, App/Public/Resources/scss/pages.scss */
   .card-content span {
     font-size: 16pt;
     text-transform: capitalize;
     font-size: medium;
     font-size: 21pt; }
-  /* line 67, App/Public/Resources/scss/pages.scss */
+  /* line 143, App/Public/Resources/scss/pages.scss */
   .card-content p {
     font-style: italic; }
 
-/* line 71, App/Public/Resources/scss/pages.scss */
-.ListAL,
+/* line 147, App/Public/Resources/scss/pages.scss */
+.monthchart,
 .OCchart {
-  background: #282729;
+  background: #ffffff;
   height: 53.5%;
   width: 47.6%;
-  border-radius: 2em;
+  border-radius: 0.3em;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
 
-/* line 79, App/Public/Resources/scss/pages.scss */
-.ListAL {
-  float: left;
-  margin-left: 2.4%;
-  margin-top: -2%; }
-
-/* line 84, App/Public/Resources/scss/pages.scss */
-.OCchart {
+/* line 155, App/Public/Resources/scss/pages.scss */
+.monthchart {
   float: right;
   margin-right: 1%;
-  margin-top: -5.8%;
-  height: 64%; }
-  /* line 89, App/Public/Resources/scss/pages.scss */
+  margin-top: 2%; }
+
+/* line 160, App/Public/Resources/scss/pages.scss */
+.OCchart {
+  float: left;
+  margin-top: 2%;
+  margin-left: 2.4%; }
+  /* line 165, App/Public/Resources/scss/pages.scss */
   .OCchart img {
     width: 100%;
     height: 100%;
     object-fit: contain; }
 
+/* line 171, App/Public/Resources/scss/pages.scss */
+.chartarea {
+  width: 90%;
+  height: 80%;
+  margin-left: 6%; }
+
+/* line 176, App/Public/Resources/scss/pages.scss */
+.ListAl {
+  clear: both;
+  border: 0.2px solid transparent;
+  top: 90vh;
+  margin-left: 2.4%;
+  width: 96.4%;
+  height: 20vh; }
+
 /* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 [seachbar]*/
-/* line 97, App/Public/Resources/scss/pages.scss */
+/* line 186, App/Public/Resources/scss/pages.scss */
 .searchbar {
+  position: absolute;
   width: 43%;
-  margin-top: 1%;
-  margin-left: 3.2%;
+  margin-top: -14.1%;
+  margin-left: 49.2%;
   margin-bottom: 3%;
   height: 6%;
   display: flex;
   flex-direction: row;
-  background: linear-gradient(45deg, #ffb796, #24cfb6);
+  background: whitesmoke;
   border-radius: 4em 4rem 4em 4em;
   border: none; }
-  /* line 108, App/Public/Resources/scss/pages.scss */
+  /* line 198, App/Public/Resources/scss/pages.scss */
   .searchbar input {
     color: black;
     width: 90%;
     font-size: 17pt;
-    color: white;
+    color: black;
     text-align: center;
-    background: linear-gradient(45deg, #ffb796, #24cfb6);
+    background: whitesmoke;
     border-radius: 0.3em 0.3rem 0.3em 0.3em;
     border: none; }
-  /* line 118, App/Public/Resources/scss/pages.scss */
-  .searchbar:hover {
-    box-shadow: 0 1em 1em gray;
-    transition: linear 0.3s; }
-  /* line 122, App/Public/Resources/scss/pages.scss */
+    /* line 207, App/Public/Resources/scss/pages.scss */
+    .searchbar input:active {
+      border-bottom: 0.2px solid black;
+      transition: 0.3s; }
+  /* line 212, App/Public/Resources/scss/pages.scss */
   .searchbar input::placeholder {
-    color: white;
+    color: #161515;
     font-size: 14pt;
     text-align: center; }
-  /* line 127, App/Public/Resources/scss/pages.scss */
+  /* line 217, App/Public/Resources/scss/pages.scss */
   .searchbar span {
     width: 10%;
-    background-color: #ece9e9;
+    background-color: rgba(83, 153, 218, 0.6);
     border-radius: 0em 0.3rem 0.3em 0;
     color: purple;
     font-size: 16pt;
@@ -143,63 +226,64 @@ main {
     margin: 0 auto;
     vertical-align: middle;
     display: inline-block; }
-    /* line 138, App/Public/Resources/scss/pages.scss */
+    /* line 228, App/Public/Resources/scss/pages.scss */
     .searchbar span img {
       margin-top: 14%;
       width: 40%; }
 
-/* line 144, App/Public/Resources/scss/pages.scss */
+/* line 234, App/Public/Resources/scss/pages.scss */
 ::-webkit-scrollbar {
   color: #228ee5;
   width: 1px; }
 
 /* /////////////////////////////////////////////////////////////////////////////@extend
 [Data Table]*/
-/* line 150, App/Public/Resources/scss/pages.scss */
+/* line 240, App/Public/Resources/scss/pages.scss */
 .container th h1 {
   font-weight: bold;
   font-size: 1.3em;
   text-align: left;
   color: #2c95c5; }
 
-/* line 156, App/Public/Resources/scss/pages.scss */
+/* line 246, App/Public/Resources/scss/pages.scss */
 .container {
   border-radius: 1em;
   text-align: left;
-  overflow: hidden;
-  width: 80%;
+  overflow: auto;
   margin: 0 auto;
   display: table;
   padding: 0 0 8em 0;
   border-collapse: collapse;
+  margin-top: 3%;
   width: 100%;
-  height: 100%; }
-  /* line 167, App/Public/Resources/scss/pages.scss */
+  height: 80%; }
+  /* line 257, App/Public/Resources/scss/pages.scss */
   .container td {
     font-weight: normal;
     font-size: 1em;
     -webkit-box-shadow: 0 2px 2px -2px #0e1119;
     -moz-box-shadow: 0 2px 2px -2px #0e1119;
     box-shadow: 0 2px 2px -2px #0e1119; }
-  /* line 174, App/Public/Resources/scss/pages.scss */
+  /* line 264, App/Public/Resources/scss/pages.scss */
   .container tr:nth-child(odd) {
-    background-color: #323c50; }
-  /* line 177, App/Public/Resources/scss/pages.scss */
+    background-color: #f2f3f5; }
+  /* line 267, App/Public/Resources/scss/pages.scss */
   .container tr:nth-child(even) {
-    background-color: #2c3446; }
-  /* line 180, App/Public/Resources/scss/pages.scss */
+    background-color: #646e85;
+    font-size: 15pt; }
+  /* line 271, App/Public/Resources/scss/pages.scss */
   .container th {
-    background-color: #1f2739; }
-  /* line 183, App/Public/Resources/scss/pages.scss */
+    background-color: #cbcdd1; }
+  /* line 274, App/Public/Resources/scss/pages.scss */
   .container td:first-child {
     color: #fb667a; }
-  /* line 186, App/Public/Resources/scss/pages.scss */
+  /* line 277, App/Public/Resources/scss/pages.scss */
   .container tr:hover {
     background-color: #464a52;
     -webkit-box-shadow: 0 6px 6px -6px #0e1119;
     -moz-box-shadow: 0 6px 6px -6px #0e1119;
     box-shadow: 0 6px 6px -6px #0e1119; }
-  /* line 192, App/Public/Resources/scss/pages.scss */
+  /* line 283, App/Public/Resources/scss/pages.scss */
   .container td:hover {
     background-color: #fff842;
     color: #403e10;
@@ -211,7 +295,7 @@ main {
     transition-property: all;
     transition-timing-function: line; }
 
-/* line 207, App/Public/Resources/scss/pages.scss */
+/* line 298, App/Public/Resources/scss/pages.scss */
 .container td,
 .container th {
   padding-bottom: 2%;

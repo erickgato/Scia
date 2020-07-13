@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="Pt-Br">
 <?php
-if(!isset($_SESSION['ADMINLOGGED'])){
+date_default_timezone_set('America/Sao_Paulo');
+if (!isset($_SESSION['ADMINLOGGED'])) {
     header("Location: index.php");
 }
 if (isset($_GET['Cal'])) {
-    $S_Alun = DATABASE::JOIN('sc_aluno',
-    "WHERE AL.Al_cod = {$_GET['Cal']}",
-    "AS AL INNER JOIN sc_unidade AS UN ON AL.Al_codUnidade = UN.Un_cod INNER JOIN sc_responsavel AS RESP on AL.Al_codResponsavel = RESP.Re_cod");
+    $S_Alun = DATABASE::JOIN(
+        'sc_aluno',
+        "WHERE AL.Al_cod = {$_GET['Cal']}",
+        "AS AL INNER JOIN sc_unidade AS UN ON AL.Al_codUnidade = UN.Un_cod INNER JOIN sc_responsavel AS RESP on AL.Al_codResponsavel = RESP.Re_cod"
+    );
     $Aluno = array(
         "Nome" => $S_Alun[0]['Al_nome'],
         "sobrenome" => $S_Alun[0]['Al_sobrenome'],
@@ -17,15 +20,14 @@ if (isset($_GET['Cal'])) {
         "RCPF" => $S_Alun[0]['Re_CPF']
     );
 }
-
 ?>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista Alunos</title>
-    <link rel="stylesheet" href="<?php echo STYLES; ?>/Menu.css" />
-    <link rel="stylesheet" href="<?php echo STYLES; ?>/hamburguers.css" />
+    <link rel="stylesheet" href="<?php echo STYLES; ?>Menu.css" />
+    <link rel="stylesheet" href="<?php echo STYLES; ?>hamburguers.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/Consultar.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -41,16 +43,17 @@ if (isset($_GET['Cal'])) {
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
     <!-- Bootstrap theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
+    <link rel="shortcut icon" href="<?php echo RESOCS; ?>/images/icons/logo/favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
     <header>
         <?php
-            include_once RESOCS . '/Cabecalhos/menuAdm.func.php';
-            GerarMenuAdmin();
-            $Alunos = DATABASE::JOIN('sc_aluno',null,"AS AL INNER JOIN sc_unidade AS UN ON AL.Al_codUnidade = UN.Un_cod INNER JOIN sc_responsavel AS RESP on AL.Al_codResponsavel = RESP.Re_cod;");
-            $js_Alunos_json = json_encode($Alunos);
-       ?>
+        include_once RESOCS . '/Cabecalhos/menuAdm.func.php';
+        GerarMenuAdmin();
+        $Alunos = DATABASE::JOIN('sc_aluno', null, "AS AL INNER JOIN sc_unidade AS UN ON AL.Al_codUnidade = UN.Un_cod INNER JOIN sc_responsavel AS RESP on AL.Al_codResponsavel = RESP.Re_cod;");
+        $js_Alunos_json = json_encode($Alunos);
+        ?>
     </header>
 
     <main>
@@ -61,8 +64,7 @@ if (isset($_GET['Cal'])) {
                                     ?>" class="Cid"></input>
         <div class="confirm">
             <span id="message">Qual ação você deseja executar ? </span>
-            <a id="closeicns" href="ConsultarAluno"><img
-                    src="https://img.icons8.com/metro/26/000000/multiply.png" /></a>
+            <a id="closeicns" href="ConsultarAluno"><img src="https://img.icons8.com/metro/26/000000/multiply.png" /></a>
             <section class="flexconfirm">
                 <button onclick="Form()" value="edit" id="edit">Editar</button>
                 <button onclick="Confirm('Cal')" id="del">Excluir</button>
@@ -72,9 +74,8 @@ if (isset($_GET['Cal'])) {
         <!-- Ocorrência -->
         <form action="ConsultarAluno" method="post" id="Focorrencia">
             <div class="painel">
-            <a class="CloseForm" href="ConsultarAluno"><img
-                    src="https://img.icons8.com/metro/26/000000/multiply.png" /></a>    
-            <label class="title_register">
+                <a class="CloseForm" href="ConsultarAluno"><img src="https://img.icons8.com/metro/26/000000/multiply.png" /></a>
+                <label class="title_register">
                     Registrar Ocorrência
                 </label>
                 <input type="hidden" value="<?php print($_GET['Cal']); ?>" name="O[id]" />
@@ -108,27 +109,19 @@ if (isset($_GET['Cal'])) {
                         </select>
 
                     </label>
-                    <label class="subtitulo">Nome </label><input class="caixa" name="A[name]" type="text"
-                        value="<?php print($Aluno['Nome']); ?>" placeholder="Digite o Nome do Aluno" required
-                        autofocus />
-                    <label class="subtitulo" for="sobrenome">Sobrenome</label><input class="caixa" type="text"
-                        value="<?php print($Aluno['sobrenome']); ?>" name="A[sobrenome]"
-                        placeholder="Digite o sobrenome do  aluno" required />
+                    <label class="subtitulo">Nome </label><input class="caixa" name="A[name]" type="text" value="<?php print($Aluno['Nome']); ?>" placeholder="Digite o Nome do Aluno" required autofocus />
+                    <label class="subtitulo" for="sobrenome">Sobrenome</label><input class="caixa" type="text" value="<?php print($Aluno['sobrenome']); ?>" name="A[sobrenome]" placeholder="Digite o sobrenome do  aluno" required />
                     <label class="subtitulo">
                         Data de Nascimento
-                        <input class="caixa" type="date" value="<?php print($Aluno['Nascimento']); ?>" required
-                            name="A[nasc]" />
+                        <input class="caixa" type="date" value="<?php print($Aluno['Nascimento']); ?>" required name="A[nasc]" />
                     </label>
                     <label class="subtitulo">
                         CPF do Aluno</label>
-                    <input class="caixa" name="A[CPF]" type="text" value="<?php print($Aluno['CPF']); ?>"
-                        placeholder="Digite o CPF do Aluno" required onkeydown="javascript: fMasc( this, mCPF )"
-                        maxlength="14" ; />
+                    <input class="caixa" name="A[CPF]" type="text" value="<?php print($Aluno['CPF']); ?>" placeholder="Digite o CPF do Aluno" required onkeydown="javascript: fMasc( this, mCPF )" maxlength="14" ; />
 
                     <label class="subtitulo">
                         CPF Responsavel</label>
-                    <input class="caixa" name="A[RCPF]" type="text" value="<?php print($Aluno['RCPF']); ?>"
-                        placeholder="Digite o CPF do Responsavel" required />
+                    <input class="caixa" name="A[RCPF]" type="text" value="<?php print($Aluno['RCPF']); ?>" placeholder="Digite o CPF do Responsavel" required />
 
                 </div>
                 <input type="submit" class="button" name="Enviar" value="Alterar" />
@@ -155,25 +148,26 @@ if (isset($_GET['Cal'])) {
             </tbody>
         </table>
     </main>
-    <script src="<?php echo RESOCS;?>/js/GetData.js">
+    <script src="<?php echo RESOCS; ?>/js/GetData.js">
     </script>
     <script>
-    window.onload = () => {
-        Aluno.Filter("");
-    };
+        window.onload = () => {
+            Aluno.Filter("");
+            
+        };
     </script>
     <script src="<?php echo RESOCS; ?>/js/AdmMenu.js">
     </script>
     <script src="<?php echo RESOCS; ?>/js/Edit_del.js"></script>
     <?php
     if (isset($_GET['Cal'])) {
-      if (!isset($_GET['act']))
+        if (!isset($_GET['act']))
             print '
                 <script> ShowDiv(".confirm");</script>
                 ';
         else {
             if (DATABASE::DELETE('sc_aluno', 'Al_cod', $_GET['Cal'])) {
-                    echo "<script>alertify.alert('Excluido!', 'Aluno excluido!',() => {
+                echo "<script>alertify.alert('Excluido!', 'Aluno excluido!',() => {
                         window.location.href = 'ConsultarAluno';
                       });</script>";
             }
@@ -181,10 +175,13 @@ if (isset($_GET['Cal'])) {
     }
     if (isset($_POST['Enviar']) && isset($_POST['A'])) {
         try {
-            $IDRESP = DATABASE::SELECT('sc_responsavel',"WHERE Re_CPF = '{$_POST['A']['RCPF']}'");
-            if(DATABASE::UPDATE('sc_aluno',"Al_cod = {$_POST['A']['id']}",
-                ['Al_codUnidade','Al_nome','Al_sobrenome','Al_nascimento','Al_CPF','Al_codResponsavel']
-                ,[$_POST['A']['unidade'],$_POST['A']['name'],$_POST['A']['sobrenome'],$_POST['A']['nasc'],$_POST['A']['CPF'],$IDRESP[0]['Re_cod']])){
+            $IDRESP = DATABASE::SELECT('sc_responsavel', "WHERE Re_CPF = '{$_POST['A']['RCPF']}'");
+            if (DATABASE::UPDATE(
+                'sc_aluno',
+                "Al_cod = {$_POST['A']['id']}",
+                ['Al_codUnidade', 'Al_nome', 'Al_sobrenome', 'Al_nascimento', 'Al_CPF', 'Al_codResponsavel'],
+                [$_POST['A']['unidade'], $_POST['A']['name'], $_POST['A']['sobrenome'], $_POST['A']['nasc'], $_POST['A']['CPF'], $IDRESP[0]['Re_cod']]
+            )) {
                 echo "<script>alertify.alert('Alterado!', 'Aluno alterado com sucesso!',() => {
                     window.location.href = 'ConsultarAluno';
                   });</script>";
@@ -194,22 +191,20 @@ if (isset($_GET['Cal'])) {
                         alertify.error('Falha');
                       });</script>";
         }
-
     }
-    if(isset($_POST['O'])){
-        try{
+    if (isset($_POST['O'])) {
+        try {
             $cpfUser = $_COOKIE['USER']['CPF'];
-            $usercod = DATABASE::SELECT('sc_usuario',"WHERE Us_login = '{$cpfUser}'");
-            if($usercod != false){
-                $insert = DATABASE::INSERT('sc_ocorrencia',['',$usercod[0]['Us_cod'],$_POST['O']['id'],$_POST['O']['tpoc'],$_POST['O']['desc'],DATE('Y-m-d')]);
-                if($insert){
+            $usercod = DATABASE::SELECT('sc_usuario', "WHERE Us_login = '{$cpfUser}'");
+            if ($usercod != false) {
+                $insert = DATABASE::INSERT('sc_ocorrencia', ['', $usercod[0]['Us_cod'], $_POST['O']['id'], $_POST['O']['tpoc'], $_POST['O']['desc'], DATE('Y-m-d')]);
+                if ($insert) {
                     echo "<script>alertify.alert('Inserido!', 'Ocorrência registrada com sucesso!',() => {
                         window.location.href = 'ConsultarAluno';
                       });</script>";
                 }
             }
-        }
-        catch(\Throwable $e){
+        } catch (\Throwable $e) {
             echo "<script>alertify.alert('error!', 'Houve uma falha no processo registro, por favor contate o desenvolvedor!',() => {
                 alertify.error('Falha');
               });</script>";

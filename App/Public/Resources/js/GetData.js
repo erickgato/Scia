@@ -139,8 +139,8 @@ const Funcionario = {
         td.push(CreateA(DecodeFunc[i]["Fu_nome"], "?Fid=" + DecodeFunc[i]["Fu_cod"]));
         td.push(createTd(DecodeFunc[i]["Fu_CPF"]));
         td.push(createTd(DecodeFunc[i]["Fu_matricula"]));
-        td.push(createTd(DecodeFunc[i]["Fu_codUnidade"]));
-        td.push(createTd(DecodeFunc[i]["Fu_codtpFuncionario"]));
+        td.push(createTd(DecodeFunc[i]["Un_nome"]));
+        td.push(createTd(DecodeFunc[i]["TF_nome"]));
 
         for (let itd = 0; itd < td.length; itd++) {
           tr.appendChild(td[itd]);

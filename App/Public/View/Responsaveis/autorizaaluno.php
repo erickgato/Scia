@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
     <!-- Bootstrap theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
+    <link rel="shortcut icon" href="<?php echo RESOCS; ?>/images/icons/logo/favicon.ico" type="image/x-icon" />
 </head>
 
 <body class="corpo">
@@ -35,7 +36,13 @@
        ?>
     </header>
     <div id="container">
-        <form action="" method="post">
+        <form class="approot" action="" method="post">
+            <div class="leftmessage">
+                <section class="message">
+                    <span><h1>Continue Conectado!</h1></span>
+                    <p>Com <a class="goldmessage" >SCIA</a> você pode autorizar seu filho e tomar café ao mesmo tempo !</p>
+                </section>
+            </div>
             <div class="painel">
                 <label class="title_aut">
                     Autorizar Aluno

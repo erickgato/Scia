@@ -43,6 +43,9 @@ session_start();
       case 'Relatorio': 
         includePublic('View/Admin/Relatorio.php');
       break;
+      case 'Aresp':
+        includePublic('alterarentidade.php');
+      break;
       default:
         includePublic('View/404.html');
       break;

@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_set('UTC');
+date_default_timezone_set('America/Sao_Paulo');
 if(isset($_POST['Enviar'])){
     function Postdata(string $name){
         $typevar = $_POST[$name];
@@ -26,7 +26,7 @@ if(isset($_POST['Enviar'])){
     }
     else{
         echo "<script> alertify.alert('Scia diz', 'Aluno já foi liberado',() => {
-            alertify.error('Tente novamente outro dia')
+            alertify.success('Já liberado')
           });</script>";
     }
 }

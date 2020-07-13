@@ -27,7 +27,6 @@ if(
         }
         else{
             $updatecontato = DATABASE::UPDATE('sc_contato',"Co_codResponsavel = {$_SESSION['USER']['ID']} AND Co_codtpContato = 1",['Co_descricao'],[$contato['Email']]);
-            var_dump($updatecontato);
             DEBUG::log("Atualizando registro");
         }
         if(empty(
@@ -39,7 +38,6 @@ if(
         }
         else{
             $updatetel = DATABASE::UPDATE('sc_contato',"Co_codResponsavel = {$_SESSION['USER']['ID']} AND Co_codtpContato = 2",['Co_descricao'],[$contato['Telefone']]);
-            var_dump($updatetel);
             DEBUG::log("Atualizando registro de telefone");
             $url = HTTPORIGIN . '/perfil';
             echo "<script>window.location.href = '{$url}' </script>";

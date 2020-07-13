@@ -1,8 +1,8 @@
 <?php
-if(!isset($_SESSION['ADMINLOGGED'])){
+if (!isset($_SESSION['ADMINLOGGED'])) {
     header("Location: index.php");
 }
-date_default_timezone_set('UTC');
+date_default_timezone_set('America/Sao_Paulo');
 $data = date('Y-m-d');
 $quantidades = array(
     "Liberacoes" => DATABASE::SELECT('sc_ocorrencia', "WHERE oc_codtpOcorrencia = 1 AND Oc_data = '$data' ", false, null, true),
@@ -15,8 +15,6 @@ function QueryDay(int $day, int $tipooccorencia)
 {
     $ActualMonth =  date('m');
     $Rday = DATABASE::SELECT('sc_ocorrencia', "WHERE MONTH(Oc_data) = {$ActualMonth} AND WEEKDAY(Oc_data) = {$day} AND Oc_codtpOcorrencia = {$tipooccorencia}", false, null, true);
-    if (!is_numeric($Rday)) {
-    }
     return $Rday;
 }
 $WeekL = array();
@@ -46,7 +44,7 @@ $js_data_graf = json_encode($Datagraf);
     <link rel="stylesheet" href="<?php echo STYLES; ?>/hamburguers.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="shortcut icon" href="<?php echo RESOCS; ?>/images/icons/logo/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo RESOCS; ?>/images/icons/logo/favicon.ico" type="image/x-icon" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <!--ALERT BOX -->
     <!-- JavaScript -->
@@ -65,65 +63,66 @@ $js_data_graf = json_encode($Datagraf);
 <body>
     <section>
         <header>
-        <nav class="Menu admin">
-    <div class="hammain">
-        <input type="checkbox" id="opmenu">
-        <label for="opmenu">
-            <div class="hamburger hamburger--spin">
-                <div class="hamburger-box">
-                    <div class="hamburger-inner"></div>
+            <nav class="Menu">
+                <div class="hammain">
+                    <input type="checkbox" id="opmenu">
+                    <label for="opmenu">
+                        <div class="hamburger hamburger--spin">
+                            <div class="hamburger-box">
+                                <div class="hamburger-inner"></div>
+                            </div>
+                        </div>
+                    </label>
                 </div>
-            </div>
-        </label>
-    </div>
 
 
-    <div class="level">
-        <div class="MenuItem">
-            <input type="checkbox">
-            <i class="fa fa-home home" aria-hidden="true"></i><label for="A1"><a href="homeadmin">Home</a></label>
-        </div>
-        <div class="MenuItem">
-            <input type="checkbox" id="A">
-            <i class="fa fa-caret-down arrow" aria-hidden="true"></i><label for="A">Consultar</label>
-            <ul>
-                <li> <a href="ConsultarAluno">ALUNO</a></li>
-                <li><a href="ConsultarResponsavel">RESPONSÁVEL</a></li>
-                <li><a href="ConsultarFuncionario">FUNCIONÁRIO</a></li>
-            </ul>
-        </div>
-        <div class="MenuItem">
-            <input type="checkbox" id="B">
-            <i class="fa fa-caret-down arrow" aria-hidden="true"></i><label for="B">Cadastrar</label>
-            <ul>
-                <li> <a href="CadastrarAluno">ALUNO</a></li>
-                <li><a href="CadastrarResponsavel">RESPONSÁVEL</a></li>
-                <li><a href="CadastFunc">FUNCIONÁRIO</a></li>
-            </ul>
-        </div>
-        <div class="MenuItem">
-            <input type="checkbox" id="c">
-            <i class="fa fa-caret-down arrow" aria-hidden="true"></i><label for="c">Solicitar</label>
-            <ul>
-                <li> <a href="Relatorio">RELATÓRIO</a></li>
-            </ul>
-        </div>
-        <div class="MenuItem">
-            <input type="checkbox">
-            <i class="fa fa-sign-out home" aria-hidden="true"></i><label><a id="loggout" href="Admin">Sair</a></label>
-        </div>
-    </div>
-</nav>
-<section class="Horizontal-Wi">
-    <span class="logo">
-        <h2>SCIA</h2>
-    </span>
-</section>
+                <div class="level">
+                    <div class="MenuItem">
+                        <input type="checkbox">
+                        <i class="fa fa-home home" aria-hidden="true"></i><label for="A1"><a
+                                href="homeadmin">Home</a></label>
+                    </div>
+                    <div class="MenuItem">
+                        <input type="checkbox" id="A">
+                        <i class="fa fa-caret-down arrow" aria-hidden="true"></i><label for="A">Consultar</label>
+                        <ul>
+                            <li> <a href="ConsultarAluno">ALUNO</a></li>
+                            <li><a href="ConsultarResponsavel">RESPONSÁVEL</a></li>
+                            <li><a href="ConsultarFuncionario">FUNCIONÁRIO</a></li>
+                        </ul>
+                    </div>
+                    <div class="MenuItem">
+                        <input type="checkbox" id="B">
+                        <i class="fa fa-caret-down arrow" aria-hidden="true"></i><label for="B">Cadastrar</label>
+                        <ul>
+                            <li> <a href="CadastrarAluno">ALUNO</a></li>
+                            <li><a href="CadastrarResponsavel">RESPONSÁVEL</a></li>
+                            <li><a href="CadastFunc">FUNCIONÁRIO</a></li>
+                        </ul>
+                    </div>
+                    <div class="MenuItem">
+                        <input type="checkbox" id="c">
+                        <i class="fa fa-caret-down arrow" aria-hidden="true"></i><label for="c">Solicitar</label>
+                        <ul>
+                            <li> <a href="Relatorio">RELATÓRIO</a></li>
+                        </ul>
+                    </div>
+                    <div class="MenuItem">
+                        <input type="checkbox">
+                        <i class="fa fa-sign-out home" aria-hidden="true"></i><label><a id="loggout"
+                                href="index.php">Sair</a></label>
+                    </div>
+                </div>
+            </nav>
+            <section class="Horizontal-Wi">
+                <span class="logo">
+                    <h2>SCIA</h2>
+                </span>
+            </section>
         </header>
     </section>
     <section>
         <main>
-            </div>
             <div class="card-group">
                 <div class="card a">
                     <div class="card-content">
@@ -154,6 +153,18 @@ $js_data_graf = json_encode($Datagraf);
                     <span><img src="https://img.icons8.com/material/96/000000/search--v1.png" /></span>
 
                 </div>
+                <div class="monthchart">
+                    <div id="chartdata" style="display: none;"><?php echo $js_data_graf; ?></div>
+                    <div class="chartarea">
+                        <canvas class="month"></canvas>
+                    </div>
+                </div>
+                <div class="OCchart">
+                    <div id="chartdata" style="display: none;"><?php echo $js_data_graf; ?></div>
+                    <div class="chartarea">
+                        <canvas class="chart"></canvas>
+                    </div>
+                </div>
                 <div class="ListAL">
                     <div style="display:none;" id="jsondata"><?php print($Json_Liberacoes); ?></div>
                     <table class="container" border="0" cellspacing="0" cellpadding="0">
@@ -174,12 +185,7 @@ $js_data_graf = json_encode($Datagraf);
                         </tbody>
                     </table>
                 </div>
-                <div class="OCchart">
-                    <div id="chartdata" style="display: none;"><?php echo $js_data_graf; ?></div>
-                    <canvas class="chart"></canvas>
-                </div>
             </section>
-
         </main>
     </section>
     <section>
@@ -193,10 +199,9 @@ $js_data_graf = json_encode($Datagraf);
     <script>
     $(document).ready(() => {
         Liberacoes.Filter("");
-        alertify.alert('Olá', 'Bem vindo!',() => {
-          alertify.success('ótimo!')
+        alertify.alert('Olá', 'Bem vindo!', () => {
+            alertify.success('ótimo!')
         });
-            
     })
     </script>
 </body>
