@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="<?php echo RESOCS; ?>/css/estilos.css" />
-    <title>Cadastro</title>
+    <title>Autorizar Aluno</title>
      <!--ALERT BOX -->
     <!-- JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
@@ -95,6 +95,11 @@
             case 'Error': 
                 echo "<script> alertify.alert('Scia diz', 'Falha na autorização do aluno',() => {
                     alertify.error('Contate o desenvolvedor')
+                  });</script>";
+            break;
+            case 'Jliberado':
+                echo "<script> alertify.alert('Scia diz', 'Aluno já foi liberado',() => {
+                    alertify.success('Já liberado')
                   });</script>";
             break;
         }

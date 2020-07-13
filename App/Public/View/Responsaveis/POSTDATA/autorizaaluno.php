@@ -12,11 +12,12 @@ if(isset($_POST['Enviar'])){
     );
     $Aluno = DATABASE::SELECT('sc_aluno',"WHERE Al_cod = {$Ocorrencia['CODal']}");
     $verificacao = DATABASE::SELECT('sc_ocorrencia', "WHERE Oc_data = '{$Ocorrencia['Date']}' AND Oc_codAluno = {$Ocorrencia['CODal']} ", false, null, true);
+    DEBUG::log($verificacao);
     if($verificacao == 0){
+        DEBUG::log('Insert route');
         $insert = DATABASE::INSERT('sc_ocorrencia',[
             '',$Ocorrencia['UserId'],$Aluno[0]['Al_cod'],1,$Ocorrencia['Observ'],$Ocorrencia['Date']
             ]);
-            var_dump($insert);
         if($insert){
             header("Location: ?m=Sucess");
         }
@@ -25,9 +26,7 @@ if(isset($_POST['Enviar'])){
         }
     }
     else{
-        echo "<script> alertify.alert('Scia diz', 'Aluno já foi liberado',() => {
-            alertify.success('Já liberado')
-          });</script>";
+        header('Location: ?m=Jliberado');
     }
 }
 
